@@ -1,3 +1,11 @@
+# SELF-LAYERS
+
+108문항으로 동기, 관계, 반복 패턴과 삶의 방향을 살펴보는 자기이해 서비스 MVP입니다.
+
+`npm.cmd run dev` 실행 후 `/assessment`에서 검사할 수 있습니다. [검사 화면과 테스트 안내](docs/survey-ui.md), [문항 데이터](docs/survey-data.md), [채점 규칙](docs/scoring-decisions.md)을 참고하세요.
+
+---
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
