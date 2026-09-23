@@ -1,273 +1,158 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import questions from "../data/questions.json";
-import { correctAnswer, scoreSurvey } from "./scoring";
-import { analyzeResults, rankDimensions } from "./result-analysis";
-import type { DimensionCode, SurveyAnswers, SurveyAnswerValue } from "../types/survey";
-import type { SurveyScore } from "../types/result";
+import { IncompleteAnswersError, missingItems, PROTECTION_COPING, scoreAssessment } from "./scoring";
+import { makeAnswers } from "./test-fixtures";
 
-function rawAnswers(value: SurveyAnswerValue = 3): SurveyAnswers {
-  return Object.fromEntries(questions.map((q) => [q.id, value]));
-}
+const close = (actual: number, expected: number, msg?: string) => assert.ok(Math.abs(actual - expected) < 1e-9, `${msg ?? ""} ${actual} ≠ ${expected}`);
 
-/** Hand-chosen corrected scores mapped back into raw answers via source flags. */
-function setDimension(answers: SurveyAnswers, code: DimensionCode, values: (SurveyAnswerValue | undefined)[]) {
-  const group = questions.filter((q) => q.dimensionCode === code);
-  assert.equal(group.length, 4);
-  assert.equal(values.length, 4);
-  group.forEach((q, index) => {
-    const value = values[index];
-    if (value === undefined) delete answers[q.id];
-    else answers[q.id] = (q.reverse ? 6 - value : value) as SurveyAnswerValue;
-  });
-}
-
-/** Isolates rank/threshold logic from the discrete score increments of 4 items. */
-function withScores(overrides: Partial<Record<DimensionCode, number>>): SurveyScore {
-  const result = scoreSurvey(rawAnswers());
-  for (const [code, score] of Object.entries(overrides)) {
-    const dimension = result.dimensions[code as DimensionCode];
-    result.dimensions[code as DimensionCode] = { ...dimension, status: "scored", score, mean: 1 + score / 25 };
-  }
-  return result;
-}
-
-test("all five normal and reverse responses follow the exact mapping", () => {
-  for (const value of [1, 2, 3, 4, 5]) {
-    assert.equal(correctAnswer(value, false), value);
-    assert.equal(correctAnswer(value, true), 6 - value);
-  }
+test("미응답이 있으면 채점하지 않는다", () => {
+  const answers = makeAnswers();
+  delete answers.M3;
+  assert.throws(() => scoreAssessment(answers), (e) => e instanceof IncompleteAnswersError && e.missing.includes("M3"));
 });
 
-for (const invalid of [0, 6, -1, 1.5, NaN, Infinity, "3", null, true]) {
-  test(`rejects invalid response ${String(invalid)} (${typeof invalid})`, () => {
-    assert.throws(() => scoreSurvey({ [questions[0].id]: invalid } as SurveyAnswers), RangeError);
-    assert.throws(() => correctAnswer(invalid as number, false), RangeError);
-  });
-}
-
-test("rejects unknown IDs, including unknown IDs with undefined values", () => {
-  assert.throws(() => scoreSurvey({ unknown: 3 }), /알 수 없는/);
-  assert.throws(() => scoreSurvey({ unknown: undefined }), /알 수 없는/);
+test("잘못된 응답(같은 선택지 1·2순위, 범위 밖 값, 순위 중복)은 미응답으로 본다", () => {
+  const answers = makeAnswers({ E01: { first: "A", second: "A" }, A1: 6 as never, CH1: ["A", "A", "B"] });
+  assert.deepEqual(missingItems(answers), ["E01", "A1", "CH1"]);
 });
 
-test("rejects non-object answer payloads", () => {
-  for (const value of [null, undefined, [], "answers", 1]) {
-    assert.throws(() => scoreSurvey(value as unknown as SurveyAnswers), TypeError);
-  }
+test("같은 응답은 항상 같은 결과를 낸다", () => {
+  assert.deepEqual(scoreAssessment(makeAnswers()), scoreAssessment(makeAnswers()));
 });
 
-test("real source flags are applied before averaging; ID differs from displayOrder", () => {
-  const answers = rawAnswers();
-  answers["C-CORE1-01"] = 1;
-  answers["C-CORE1-02"] = 2;
-  answers["C-CORE1-03"] = 1; // source Y => 5
-  answers["C-CORE1-04"] = 4; // source N => 4, preserved despite wording
-  const dimension = scoreSurvey(answers).dimensions.CORE1;
-  assert.equal(dimension.mean, 3); // (1 + 2 + 5 + 4) / 4
-  assert.equal(dimension.score, 50);
-  assert.equal(questions.find((q) => q.id === "C-CORE1-03")?.displayOrder, 53);
+test("Core: 1순위 +2, 2순위 +1로 TypeRaw를 쌓고 12점 만점으로 환산한다", () => {
+  const { core } = scoreAssessment(makeAnswers());
+  assert.deepEqual(core.raw, { T1: 9, T2: 6, T3: 8, T4: 3, T5: 5, T6: 4, T7: 8, T8: 8, T9: 3 });
+  close(core.typeScore.T1, 75);
+  assert.equal(core.primary, "T1");
+  assert.equal(core.status, "determined");
+  close(core.separation, 25);
+  // 0.5×75 + 0.2×25 + 0.3×M(T1)=50
+  close(core.confidence, 57.5);
+  assert.equal(core.influence.type, "T2");
+  assert.deepEqual(core.influence.candidates, ["T9", "T2"]);
 });
 
-for (const [value, expected] of [[1, 0], [3, 50], [5, 100]] as const) {
-  test(`corrected mean ${value} converts to ${expected} in every dimension`, () => {
-    const answers: SurveyAnswers = {};
-    for (const q of questions) answers[q.id] = (q.reverse ? 6 - value : value) as SurveyAnswerValue;
-    const result = scoreSurvey(answers);
-    assert.equal(Object.keys(result.dimensions).length, 27);
-    for (const dimension of Object.values(result.dimensions)) {
-      assert.equal(dimension.status, "scored");
-      assert.equal(dimension.mean, value);
-      assert.equal(dimension.score, expected);
-      assert.equal(dimension.answeredCount, 4);
-      assert.equal(dimension.missingCount, 0);
-    }
-  });
-}
-
-test("one missing response averages three corrected answers without rounding", () => {
-  const answers = rawAnswers();
-  setDimension(answers, "CORE1", [1, 2, 4, undefined]);
-  const result = scoreSurvey(answers).dimensions.CORE1;
-  assert.equal(result.status, "scored");
-  assert.equal(result.mean, 7 / 3);
-  assert.equal(result.score, (7 / 3 - 1) / 4 * 100);
-  assert.equal(result.answeredCount, 3);
-  assert.equal(result.missingCount, 1);
+test("Core 동점: TypeScore → M(Tn) → 1순위 횟수 순으로 가린다", () => {
+  // T3·T7·T8 모두 raw 8, 1순위 3회. 기본 M이 같으면 정의 순서로 T3이 두 번째.
+  assert.equal(scoreAssessment(makeAnswers()).core.secondary, "T3");
+  assert.equal(scoreAssessment(makeAnswers({ M7: 5 })).core.secondary, "T7");
 });
 
-test("explicit undefined and absent keys have the same missing behavior", () => {
-  assert.deepEqual(scoreSurvey({ [questions[0].id]: undefined }), scoreSurvey({}));
+test("Core 세 단계 동점까지 같으면 판정 유보로 표시한다", () => {
+  // E07 2순위를 C로 바꾸면 T1도 raw 8. M1을 낮추면 T3·T7·T8이 모든 기준에서 동점.
+  const { core } = scoreAssessment(makeAnswers({ E07: { first: "A", second: "C" }, M1: 1 }));
+  assert.equal(core.status, "undetermined");
+  assert.equal(core.primary, "T3");
+  assert.deepEqual(core.tiedWith, ["T7", "T8"]);
 });
 
-for (const count of [0, 1, 2]) {
-  test(`${count} answered items leave the dimension pending, never zero`, () => {
-    const answers = rawAnswers();
-    setDimension(answers, "CORE1", Array.from({ length: 4 }, (_, index) => index < count ? 5 : undefined));
-    const dimension = scoreSurvey(answers).dimensions.CORE1;
-    assert.equal(dimension.status, "pending");
-    assert.equal(dimension.mean, null);
-    assert.equal(dimension.score, null);
-    assert.equal(dimension.answeredCount, count);
-    assert.equal(dimension.missingCount, 4 - count);
-  });
-}
-
-test("all missing answers return pending dimensions, no ranks or fabricated gap", () => {
-  const result = scoreSurvey({});
-  const analysis = analyzeResults(result);
-  assert.ok(Object.values(result.dimensions).every((d) => d.status === "pending"));
-  assert.equal(analysis.core.status, "unavailable");
-  assert.deepEqual(analysis.core.items, []);
-  assert.equal(analysis.core.topTwoGap, null);
-  assert.equal(analysis.core.isClose, null);
-  assert.deepEqual(analysis.pattern.top, []);
-  assert.deepEqual(analysis.direction.top, []);
-  assert.equal(analysis.relationship.ANX.status, "pending");
-  assert.deepEqual(result.quality.warnings, []);
-  assert.equal(result.quality.missingCount, 108);
+test("M(Top1) < 40이면 동기 진술 약함, M(Top2) ≥ 75이고 차이 8 이내면 강한 보조 Core", () => {
+  assert.equal(scoreAssessment(makeAnswers({ M1: 2 })).core.weakMotive, true);
+  assert.equal(scoreAssessment(makeAnswers({ M1: 3 })).core.weakMotive, false);
+  // raw 차이 1(8.3점)이면 강한 보조 Core가 아니다.
+  const apart = scoreAssessment(makeAnswers({ M3: 4 }));
+  assert.equal(apart.core.secondary, "T3");
+  assert.equal(apart.core.strongSecondary, false);
+  // T1·T3 raw 동점, M 동점(75) → 1순위 횟수로 T1이 Primary, T3은 강한 보조 Core
+  const r = scoreAssessment(makeAnswers({ E07: { first: "A", second: "C" }, M1: 4, M3: 4 }));
+  assert.equal(r.core.primary, "T1");
+  assert.equal(r.core.secondary, "T3");
+  assert.equal(r.core.strongSecondary, true);
 });
 
-test("CORE1..9 are ranked descending by score, preserving nonadjacent ID order", () => {
-  const analysis = analyzeResults(withScores({
-    CORE1: 10, CORE2: 80, CORE3: 40, CORE4: 30, CORE5: 60,
-    CORE6: 20, CORE7: 90, CORE8: 70, CORE9: 50,
-  }));
-  assert.deepEqual(analysis.core.items.map((d) => d.code), ["CORE7", "CORE2", "CORE8", "CORE5", "CORE9", "CORE3", "CORE4", "CORE6", "CORE1"]);
-  assert.deepEqual(analysis.core.items.map((d) => d.rank), [1, 2, 3, 4, 5, 6, 7, 8, 9]);
-  assert.equal(analysis.core.topTwoGap, 10);
-  assert.equal(analysis.core.isClose, false);
+test("Value: 같은 문항의 같은 Value는 최대 2점, 선택 60% + 맥락 다양성 40%", () => {
+  const base = scoreAssessment(makeAnswers());
+  assert.equal(base.values.capped.EXP, 7);
+  close(base.values.selection.EXP, 7 / 8 * 100);
+  assert.equal(base.values.contextsAvailable.EXP, 3);
+  close(base.values.score.EXP, 0.6 * 87.5 + 40);
+  close(base.values.score.SEC, 0.6 * (6 / 14 * 100) + 0.4 * 100);
+  // E03에서 EXP를 1·2순위 모두 고르면 3점이지만 2점으로 제한된다.
+  assert.equal(scoreAssessment(makeAnswers({ E03: { first: "A", second: "C" } })).values.capped.EXP, 7);
 });
 
-for (const [gap, close] of [[0, true], [4.999, true], [5, false], [5.001, false]] as const) {
-  test(`CORE gap ${gap}: isClose=${close}`, () => {
-    const analysis = analyzeResults(withScores({ CORE1: 100, CORE2: 100 - gap }));
-    assert.ok(Math.abs(analysis.core.topTwoGap! - gap) < 1e-10);
-    assert.equal(analysis.core.isClose, close);
-  });
-}
-
-test("one missing item can produce a real nonzero CORE gap below five", () => {
-  const answers = rawAnswers();
-  setDimension(answers, "CORE1", [4, 4, 4, 3]); // 68.75
-  setDimension(answers, "CORE2", [4, 4, 3, undefined]); // 66.666...
-  const analysis = analyzeResults(scoreSurvey(answers));
-  assert.ok(analysis.core.topTwoGap! > 0 && analysis.core.topTwoGap! < 5);
-  assert.equal(analysis.core.isClose, true);
+test("역채점: 역문항은 6 − 응답으로 계산한다", () => {
+  const r = scoreAssessment(makeAnswers({ A1: 5, A2: 5, A3: 5, A4: 1 }));
+  close(r.attachment.ANX, 100);
+  close(scoreAssessment(makeAnswers({ A4: 5 })).attachment.ANX, to100((3 + 3 + 3 + 1) / 4));
 });
 
-test("ties use competition ranks and retain all tied CORE leaders", () => {
-  const analysis = analyzeResults(withScores({ CORE1: 90, CORE3: 90, CORE2: 80 }));
-  assert.deepEqual(analysis.core.items.slice(0, 3).map((d) => [d.code, d.rank]), [["CORE1", 1], ["CORE3", 1], ["CORE2", 3]]);
-  assert.equal(analysis.core.topTwoGap, 0);
-  assert.equal(analysis.core.isClose, true);
+test("응답 일관성: 역채점 후 4점 차이 쌍이 4개 이상이면 플래그와 Confidence −5", () => {
+  const pairs = { S1: 5, S2: 5, S3: 5, S4: 5, S5: 5, S6: 5, S7: 1, S8: 1 } as const;
+  const r = scoreAssessment(makeAnswers(pairs));
+  assert.deepEqual(r.consistency.inconsistentSchemas, ["ABN", "ED", "MIS", "DEF"]);
+  assert.equal(r.consistency.flag, true);
+  close(r.core.confidence, 57.5 - 5);
+  const three = scoreAssessment(makeAnswers({ S1: 5, S2: 5, S3: 5, S4: 5, S5: 5, S6: 5 }));
+  assert.equal(three.consistency.flag, false);
 });
 
-test("neutral answers tie all CORE, PATTERN and DIRECTION dimensions", () => {
-  const analysis = analyzeResults(scoreSurvey(rawAnswers()));
-  assert.ok(analysis.core.items.every((d) => d.rank === 1));
-  assert.equal(analysis.pattern.top.length, 8);
-  assert.equal(analysis.direction.top.length, 8);
-  assert.ok(analysis.direction.top.every((d) => d.rank === 1));
-  assert.deepEqual(analysis.pattern.representative, []);
+test("STATE = 0.35·SC + 0.35·FLX + 0.30·욕구 평균, 밴드는 70/45 경계", () => {
+  const high = scoreAssessment(makeAnswers({ P1: 5, P2: 5, P3: 1, P4: 5, P5: 5, P6: 1, P7: 5, P8: 5, P9: 5 }));
+  close(high.state.index, 100);
+  assert.equal(high.state.band, "expansion");
+  const mid = scoreAssessment(makeAnswers());
+  close(mid.state.index, 50);
+  assert.equal(mid.state.band, "balanced");
+  const low = scoreAssessment(makeAnswers({ P1: 2, P2: 2, P3: 4, P4: 2, P5: 2, P6: 4, P7: 2, P8: 2, P9: 2 }));
+  close(low.state.index, 25);
+  assert.equal(low.state.band, "protection");
 });
 
-test("PATTERN and DIRECTION include every tied third place", () => {
-  const analysis = analyzeResults(withScores({ AS: 90, US: 80, DEF: 70, SS: 70, GROW: 90, AUT: 80, ACH: 70, AUTH: 70 }));
-  assert.deepEqual(analysis.pattern.top.map((d) => [d.code, d.rank]), [["AS", 1], ["US", 2], ["DEF", 3], ["SS", 3]]);
-  assert.deepEqual(analysis.direction.top.map((d) => [d.code, d.rank]), [["GROW", 1], ["AUT", 2], ["ACH", 3], ["AUTH", 3]]);
+test("Stress Signature: 65 이상 트리거 최대 2개, 지배 대처 동점은 모두 표기", () => {
+  const r = scoreAssessment(makeAnswers({ ST1: 4, ST3: 5, ST6: 5, SC2: 5, SC4: 5 }));
+  assert.deepEqual(r.stress.vulnerable, ["ST3", "ST6"]);
+  assert.deepEqual(r.stress.dominantCoping, ["SC2", "SC4"]);
+  assert.equal(r.stress.coreMatch, false); // Primary T1은 ST3·ST6의 연결 Core가 아니다
+  assert.equal(scoreAssessment(makeAnswers({ ST1: 5 })).stress.coreMatch, true);
+  assert.equal(scoreAssessment(makeAnswers()).stress.coreMatch, null);
+  close(scoreAssessment(makeAnswers({ SR1: 5, SR2: 5, SR3: 1 })).stress.reactivity, 100);
 });
 
-test("unshared top three return three items; representative threshold includes exactly 60", () => {
-  const analysis = analyzeResults(withScores({ AS: 90, US: 60, DEF: 59.99, GROW: 90, AUT: 80, ACH: 70 }));
-  assert.deepEqual(analysis.pattern.top.map((d) => d.code), ["AS", "US", "DEF"]);
-  assert.deepEqual(analysis.pattern.representative.map((d) => d.code), ["AS", "US"]);
-  assert.deepEqual(analysis.direction.top.map((d) => d.code), ["GROW", "AUT", "ACH"]);
+test("Expansion·Protection·Growth 준비도 계산식", () => {
+  const r = scoreAssessment(makeAnswers({ SC2: 5 }));
+  assert.equal(r.modes.protectionCoping, PROTECTION_COPING.T1);
+  close(r.modes.expansion, 0.55 * 50 + 0.25 * 50 + 0.20 * 50);
+  close(r.modes.protection, 0.40 * 100 + 0.35 * 50 + 0.25 * 50);
+  assert.equal(r.modes.protectionBand, "high");
+  assert.equal(r.modes.growthDirection, "T7");
+  assert.equal(r.modes.stressDirection, "T4");
+  close(r.growth.readiness, 0.40 * 50 + 0.35 * 50 + 0.25 * 50);
+  assert.equal(r.growth.experiments, 2);
 });
 
-test("pending dimensions are excluded, listed explicitly, and CORE comparison is deferred", () => {
-  const answers = rawAnswers();
-  for (const code of ["CORE1", "AS", "GROW"] as const) setDimension(answers, code, [5, 5, undefined, undefined]);
-  const analysis = analyzeResults(scoreSurvey(answers));
-  for (const [ranking, code] of [[analysis.core, "CORE1"], [analysis.pattern, "AS"], [analysis.direction, "GROW"]] as const) {
-    assert.equal(ranking.status, "partial");
-    assert.deepEqual(ranking.pendingCodes, [code]);
-    assert.ok(ranking.items.every((d) => d.code !== code));
-  }
-  assert.equal(analysis.core.topTwoGap, null);
-  assert.equal(analysis.core.isClose, null);
+test("메시지: 0.6·TypeScore + 0.4·Resonance, 2위와 8점 이내면 함께 표시", () => {
+  const r = scoreAssessment(makeAnswers());
+  close(r.message.score.T1, 0.6 * 75 + 0.4 * 50);
+  assert.equal(r.message.rank1, "T1");
+  assert.equal(r.message.rank2, "T3");
+  assert.equal(r.message.coreMatch, true);
+  // SS(=T2 공명)를 최대로 올리면 T2 메시지가 1위가 되어 Primary와 달라진다.
+  const cross = scoreAssessment(makeAnswers({ S11: 5, S12: 1, M2: 3 }));
+  close(cross.message.score.T2, 0.6 * 50 + 0.4 * 100);
+  assert.equal(cross.message.rank1, "T2");
+  assert.equal(cross.message.coreMatch, false);
 });
 
-test("ANX and AVO have independent scores and missing states", () => {
-  const answers = rawAnswers();
-  setDimension(answers, "ANX", [5, 5, 5, 5]);
-  setDimension(answers, "AVO", [1, 1, 1, 1]);
-  const relationship = analyzeResults(scoreSurvey(answers)).relationship;
-  assert.equal(relationship.ANX.score, 100);
-  assert.equal(relationship.AVO.score, 0);
-  setDimension(answers, "AVO", [1, 1, undefined, undefined]);
-  const partial = analyzeResults(scoreSurvey(answers)).relationship;
-  assert.equal(partial.ANX.score, 100);
-  assert.equal(partial.AVO.status, "pending");
+test("강화: Core ≥ 50, 연결 변수 ≥ 60, 강도 ≥ 55일 때만 기록한다", () => {
+  const r = scoreAssessment(makeAnswers({ S15: 5, S16: 1 }));
+  assert.deepEqual(r.insights.reinforcements.map((x) => [x.core, x.linked]), [["T1", "US"]]);
+  close(r.insights.reinforcements[0].strength, (75 + 100) / 2);
+  assert.equal(scoreAssessment(makeAnswers()).insights.reinforcements.length, 0);
 });
 
-for (const count of [97, 98]) {
-  test(`uniform raw responses ${count}/108 follow the 90% boundary`, () => {
-    const answers = Object.fromEntries(questions.map((q, index) => [q.id, index < count ? 3 : index % 2 ? 2 : 4]));
-    const quality = scoreSurvey(answers as SurveyAnswers).quality;
-    assert.equal(quality.mostFrequentCount, count);
-    assert.equal(quality.uniformRatio, count / 108);
-    assert.equal(quality.warnings.includes("uniform-responses"), count === 98);
-    assert.equal(quality.warnings.includes("extreme-responses"), false);
-  });
-  test(`combined 1/5 responses ${count}/108 follow the 90% boundary`, () => {
-    const answers = Object.fromEntries(questions.map((q, index) => [q.id, index < count ? index % 2 ? 1 : 5 : 3]));
-    const quality = scoreSurvey(answers as SurveyAnswers).quality;
-    assert.equal(quality.extremeCount, count);
-    assert.equal(quality.extremeRatio, count / 108);
-    assert.equal(quality.warnings.includes("extreme-responses"), count === 98);
-    assert.equal(quality.warnings.includes("uniform-responses"), false);
-  });
-}
-
-test("missing responses stay in the quality denominator", () => {
-  const answers = Object.fromEntries(questions.slice(0, 97).map((q) => [q.id, 5])) as SurveyAnswers;
-  const quality = scoreSurvey(answers).quality;
-  assert.equal(quality.answeredCount, 97);
-  assert.equal(quality.missingCount, 11);
-  assert.equal(quality.uniformRatio, 97 / 108);
-  assert.equal(quality.extremeRatio, 97 / 108);
-  assert.deepEqual(quality.warnings, []);
+test("반증: Primary의 전형 신호 평균이 45 미만이면 기록한다", () => {
+  assert.equal(scoreAssessment(makeAnswers()).insights.counterevidence, null);
+  const r = scoreAssessment(makeAnswers({ S15: 1, S16: 5 }));
+  assert.equal(r.insights.counterevidence?.core, "T1");
+  close(r.insights.counterevidence!.typicalScore, 0);
 });
 
-test("quality uses raw responses, not reverse-adjusted values", () => {
-  const answers = Object.fromEntries(questions.map((q) => [q.id, q.reverse ? 1 : 5])) as SurveyAnswers;
-  const result = scoreSurvey(answers);
-  assert.ok(Object.values(result.dimensions).every((d) => d.score === 100));
-  assert.deepEqual(result.quality.warnings, ["extreme-responses"]);
+test("표현 채널: 1순위 100, 2순위 50, 3순위 0", () => {
+  const r = scoreAssessment(makeAnswers({ CH1: ["C", "A", "B"] }));
+  assert.deepEqual(r.core.channel.scores, { SP: 50, SO: 0, SX: 100 });
+  assert.equal(r.core.channel.primary, "SX");
 });
 
-test("quality warnings coexist and do not invalidate or discard scores", () => {
-  const result = scoreSurvey(rawAnswers(5));
-  assert.deepEqual(result.quality.warnings, ["uniform-responses", "extreme-responses"]);
-  assert.ok(Object.values(result.dimensions).every((d) => d.status === "scored"));
-  assert.equal(result.dimensions.CORE1.score, 75); // three N=5, one Y=1
-  assert.equal(analyzeResults(result).core.items.length, 9);
-});
-
-test("same input yields identical output and scoring/analysis never mutate inputs", () => {
-  const answers = Object.freeze(rawAnswers());
-  const before = JSON.stringify(answers);
-  const result = scoreSurvey(answers);
-  assert.deepEqual(scoreSurvey(answers), result);
-  assert.equal(JSON.stringify(answers), before);
-  for (const dimension of Object.values(result.dimensions)) Object.freeze(dimension);
-  Object.freeze(result.dimensions);
-  Object.freeze(result);
-  const saved = JSON.stringify(result);
-  assert.deepEqual(analyzeResults(result), analyzeResults(result));
-  assert.equal(JSON.stringify(result), saved);
-  const scores = Object.freeze(Object.values(result.dimensions));
-  assert.equal(rankDimensions(scores).items.length, 27);
-  assert.equal(JSON.stringify(result), saved);
-});
+function to100(mean: number) { return (mean - 1) / 4 * 100; }

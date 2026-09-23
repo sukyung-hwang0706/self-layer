@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SELF-LAYERS 결과 리포트 · SAMPLE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --paper:#F6F5F1; --ink:#22262E; --ink-2:#5B616C; --ink-3:#8F949C; --line:#DDDBD4; --card:#FFFFFF;
+  --core:#3B4F8C; --core-soft:#E4E8F4;
+  --state:#4E8F7B; --state-soft:#E1EFEA;
+  --rel:#8A5A8C; --rel-soft:#EEE3EF;
+  --pat:#B9932A; --pat-soft:#F4EDD6;
+  --str:#B04D4D; --str-soft:#F3E1E1;
+  --dir:#2F7E8F; --dir-soft:#DDEDF0;
+  --band-prot:#E6C9BE; --band-bal:#E9E3D2; --band-exp:#CFE3DA;
+  --serif:"Noto Serif KR","Apple SD Gothic Neo",serif;
+  --sans:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#1B1D22; --ink:#ECEAE4; --ink-2:#B9B6AE; --ink-3:#7E7C76; --line:#33363D; --card:#23262C;
+    --core-soft:#2A3350; --state-soft:#233B33; --rel-soft:#3A2B3B; --pat-soft:#3B3520; --str-soft:#3F2727; --dir-soft:#1F353A;
+    --band-prot:#5A3B33; --band-bal:#4A4638; --band-exp:#2F4B41;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#1B1D22; --ink:#ECEAE4; --ink-2:#B9B6AE; --ink-3:#7E7C76; --line:#33363D; --card:#23262C;
+  --core-soft:#2A3350; --state-soft:#233B33; --rel-soft:#3A2B3B; --pat-soft:#3B3520; --str-soft:#3F2727; --dir-soft:#1F353A;
+  --band-prot:#5A3B33; --band-bal:#4A4638; --band-exp:#2F4B41;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px 80px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.35;margin:0}
+p{margin:0 0 1em}
+.page{margin:56px 0 0;padding:44px 0 0;border-top:1px solid var(--line);position:relative}
+.page:first-of-type{border-top:0}
+.kicker{font-size:13px;color:var(--ink-3);letter-spacing:.02em;margin-bottom:10px;display:flex;gap:10px;align-items:center}
+.kicker::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--layer,var(--ink-3))}
+.page h2{font-size:26px;margin-bottom:22px}
+.page h3{font-size:19px;margin:34px 0 12px}
+.lead{font-size:17px;color:var(--ink)}
+.quote{font-family:var(--serif);font-size:20px;line-height:1.6;padding:22px 26px;margin:26px 0;border-left:4px solid var(--layer,var(--ink));background:var(--card);border-radius:0 8px 8px 0}
+.note{background:var(--layer-soft,var(--card));border-radius:10px;padding:18px 22px;margin:22px 0}
+.note b{display:block;margin-bottom:4px;font-weight:700}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}
+.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:22px 0}
+.cell{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14.5px;line-height:1.7}
+.cell b{display:block;font-size:15px;margin-bottom:4px;color:var(--layer,var(--ink))}
+.fig{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 18px 12px;margin:26px 0}
+.fig figcaption{font-size:13px;color:var(--ink-3);margin-top:8px;line-height:1.6}
+.fig svg{display:block;width:100%;height:auto}
+.small{font-size:13px;color:var(--ink-3);line-height:1.6}
+.pill{display:inline-block;font-size:12.5px;padding:2px 10px;border-radius:999px;background:var(--layer-soft,var(--card));color:var(--layer,var(--ink));margin-right:6px}
+ol.reflect{padding-left:1.2em}
+ol.reflect li{margin-bottom:12px}
+/* layer scoping */
+.l-core{--layer:var(--core);--layer-soft:var(--core-soft)}
+.l-state{--layer:var(--state);--layer-soft:var(--state-soft)}
+.l-rel{--layer:var(--rel);--layer-soft:var(--rel-soft)}
+.l-pat{--layer:var(--pat);--layer-soft:var(--pat-soft)}
+.l-str{--layer:var(--str);--layer-soft:var(--str-soft)}
+.l-dir{--layer:var(--dir);--layer-soft:var(--dir-soft)}
+.l-cross{--layer:var(--ink-2);--layer-soft:var(--card)}
+/* cover */
+.cover{padding:64px 0 24px;border-top:0}
+.cover .brand{font-family:var(--serif);font-size:14px;letter-spacing:.18em;color:var(--ink-2)}
+.cover h1{font-size:40px;margin:26px 0 8px;line-height:1.3}
+.cover .sub{font-size:16px;color:var(--ink-2);margin-bottom:44px}
+.form{border-top:2px solid var(--ink);border-bottom:1px solid var(--line);margin:0 0 36px}
+.form div{display:grid;grid-template-columns:130px 1fr;border-bottom:1px solid var(--line);padding:14px 0;font-size:15px}
+.form div:last-child{border-bottom:0}
+.form span{color:var(--ink-2)}
+.form b{font-weight:500;font-family:var(--serif);font-size:16px}
+.cover .epi{font-family:var(--serif);font-size:15px;color:var(--ink-2);line-height:1.9;margin-top:44px}
+.disclaimer{font-size:12.5px;color:var(--ink-3);line-height:1.6}
+/* self card */
+.selfcard{background:linear-gradient(160deg,var(--core) 0%,#2A3B6E 60%,#1F2E5B 100%);color:#F3F1EA;border-radius:16px;padding:34px 30px;margin:26px 0}
+.selfcard .t{font-family:var(--serif);font-size:13px;letter-spacing:.16em;opacity:.75}
+.selfcard .q{font-family:var(--serif);font-size:22px;line-height:1.55;margin:16px 0 26px}
+.selfcard .g{display:grid;grid-template-columns:1fr 1fr;gap:14px 20px;font-size:14px;line-height:1.6}
+.selfcard .g b{display:block;font-size:12px;opacity:.7;font-weight:400;letter-spacing:.08em;margin-bottom:2px}
+@media (max-width:640px){
+  .trio,.duo,.selfcard .g{grid-template-columns:1fr}
+  .cover h1{font-size:32px}
+  .page h2{font-size:23px}
+  .form div{grid-template-columns:100px 1fr}
+}
+@media print{
+  body{background:#fff}
+  .page{break-before:page;border-top:0;margin-top:0}
+  .cover{break-before:auto}
+  .fig{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section class="page cover">
+  <div class="brand">SELF-LAYERS</div>
+  <h1>나를 이루는<br>여러 겹의 이야기</h1>
+  <div class="sub">DEEP SELF-UNDERSTANDING REPORT · V1.0</div>
+
+  <div class="form">
+    <div><span>이름</span><b>홍○○</b></div>
+    <div><span>생년월일</span><b>1994년 3월 12일</b></div>
+    <div><span>검사일</span><b>2026년 9월 23일</b></div>
+    <div><span>담당 전문가</span><b>황수경 · SELF-LAYERS 리포트 검토자</b></div>
+  </div>
+
+  <p class="epi">“당신을 이해하는 목적은 더 나은 사람이 되기 위해서만은 아닙니다.<br>때로는 지금까지의 나를 조금 덜 오해하기 위해서이기도 합니다.”</p>
+
+  <p class="disclaimer" style="margin-top:40px">본 리포트는 자기이해와 성찰을 위한 도구이며, 정신건강 상태나 질환을 진단하는 임상적 검사가 아닙니다. 모든 점수는 76개 문항에 대한 본인의 응답 강도를 나타내며, 다른 사람과의 비교 순위가 아닙니다. ※ 본 문서는 제품 설계용 가상 응답자 샘플입니다.</p>
+</section>
+
+<section class="page l-cross">
+  <div class="kicker">SELF-LAYERS는 어떤 검사인가요</div>
+  <h2>한 사람을 하나의 이름으로 부르지 않아요</h2>
+  <p class="lead">누군가를 이해하고 싶을 때 우리는 종종 이름 하나를 붙여요. 내향적인 사람, 완벽주의자, 불안한 사람, 성취지향적인 사람. 이런 말은 나를 빠르게 설명해주지만, 한편으로는 한 사람을 지나치게 단순하게 만들기도 해요. 같은 행동이라도 그 안에서 움직이는 마음은 사람마다 다르거든요.</p>
+  <p>SELF-LAYERS는 그 “안에서 움직이는 마음”을 여섯 겹으로 나누어 봐요. 겉으로 보이는 성격만이 아니라, 무엇을 원해서 그렇게 행동하는지, 요즘 마음의 여유는 어떤지, 관계에서 무엇에 예민한지, 어떤 생각의 습관을 반복하는지, 무엇이 나를 흔드는지, 그리고 어떤 방향의 삶을 골라왔는지를 함께 살펴요.</p>
+  <div class="trio">
+    <div class="cell" style="--layer:var(--core)"><b>CORE · 나를 움직이는 힘</b>무엇을 얻고 싶어서, 무엇을 잃을까 봐 그렇게 선택하는지를 봐요.</div>
+    <div class="cell" style="--layer:var(--state)"><b>STATE · 요즘의 나</b>지난 한 달, 마음의 여유가 얼마나 있었는지를 봐요. 성격이 아니라 계절이에요.</div>
+    <div class="cell" style="--layer:var(--rel)"><b>RELATIONSHIP · 관계 속의 나</b>가까움과 거리, 상대의 변화, 마음을 꺼내는 일과 도움을 청하는 일을 어떻게 겪는지 봐요.</div>
+    <div class="cell" style="--layer:var(--pat)"><b>PATTERN · 반복하는 습관</b>높은 기준, 남의 평가, 경계, 자기희생처럼 익숙하게 반복되는 생각의 방식을 봐요.</div>
+    <div class="cell" style="--layer:var(--str)"><b>STRESS · 나를 흔드는 것</b>어떤 상황에서 흔들리고, 그때 무엇을 하며, 얼마나 빨리 돌아오는지를 봐요.</div>
+    <div class="cell" style="--layer:var(--dir)"><b>DIRECTION · 내가 향하는 곳</b>“가치가 뭐예요?”라고 묻지 않고, 여러 상황에서 반복해 고른 삶의 기준을 읽어요.</div>
+  </div>
+  <p>SELF-LAYERS가 더 중요하게 보는 건 여섯 Layer 각각의 점수보다 “서로 어떻게 연결되는가”예요. 같은 방향으로 겹치는 특성은 강점이나 반복 습관을 더 선명하게 만들고, 서로 반대 방향의 특성이 동시에 높다면 그 사이의 긴장 자체가 중요한 이야기가 돼요. 그리고 어떤 흔한 설명이 다른 결과에서 뒷받침되지 않으면, 그 설명은 약하게 쓰거나 아예 쓰지 않아요. 사람을 틀에 맞추는 대신, 응답 전체가 보여주는 모양에 맞게 설명을 좁혀가는 거예요.</p>
+  <div class="note"><b>이 리포트의 목적</b>홍○○님에게 새로운 이름을 붙이는 게 아니라, 이미 가지고 있는 여러 모습을 하나의 이야기로 이해하도록 돕는 거예요. “나는 왜 이럴까?”라는 질문이 “아, 이런 이유들이 함께 움직이고 있었구나”로 바뀌는 것. 그게 이 리포트가 바라는 전부예요.</div>
+</section>
+
+<section class="page l-cross">
+  <div class="kicker">이 결과를 읽는 방법</div>
+  <h2>정답이 아니라, 지금의 경향입니다</h2>
+  <p class="lead">SELF-LAYERS는 당신을 평가하거나 규정하기 위한 검사가 아니에요. 76개의 선택과 반응에서 반복된 경향을 바탕으로, 지금의 나를 이해할 수 있도록 돕는 자기이해 리포트예요.</p>
+  <div class="trio">
+    <div class="cell"><b>점수는 강도예요</b>모든 점수는 0~100으로, 그 경향이 지금 당신의 응답에서 얼마나 자주·강하게 나타났는지를 뜻해요. “다른 사람보다 상위 몇 %”라는 뜻이 아니에요.</div>
+    <div class="cell"><b>높다고 좋거나 나쁘지 않아요</b>어떤 특성은 강점이 되면서 동시에 피로의 원인이 되기도 해요. 리포트는 두 면을 함께 보여줘요.</div>
+    <div class="cell"><b>연결이 가장 중요해요</b>하나의 결과보다 여섯 개의 Layer가 서로 어떻게 영향을 주는지를 더 중요하게 봐요.</div>
+  </div>
+  <p>읽자마자 고개가 끄덕여지는 문장도 있을 거고, 처음엔 조금 낯설거나 불편한 문장도 있을 거예요. 또 어떤 설명은 대체로 맞는데 특정 관계나 상황에서는 전혀 다르게 느껴질 수도 있어요. 사람은 고정된 점수로 움직이지 않고, 지금의 환경과 관계, 역할, 스트레스에 따라 같은 특성도 다르게 쓰니까요. 실제 경험과 다른 부분이 있다면, 그 차이도 중요한 정보예요. 불편한 문장은 천천히 읽어도 돼요. 불편하다고 해서 그게 정답이라는 뜻은 아니지만, 왜 거슬렸는지 살펴보면 자기이해의 단서가 될 수 있어요.</p>
+  <p>차트에 그려진 색 띠는 “낮음 · 중간 · 다소 높음 · 높음”의 구간을 뜻해요. 숫자를 외우기보다, 무엇이 어느 구간에 있고 그것들이 어떻게 연결되는지를 따라가 주세요. 그리고 처음 읽을 때는 맞고 틀림을 판단하지 말고, 어떤 문장에서 마음이 멈추는지만 표시해두세요. 그 지점이 이 리포트에서 가장 중요한 부분일 수 있어요.</p>
+  <div class="note"><b>읽는 동안 기억해둘 세 가지 질문</b>이 모습은 언제 나에게 힘이 되는가? · 같은 방식이 언제부터 나를 힘들게 하는가? · 다음에는 다른 선택도 가능할까?</div>
+</section>
+
+<section class="page l-cross">
+  <div class="kicker">당신을 먼저 한 사람으로 읽어보았습니다</div>
+  <h2>믿을 수 있는 사람과 기준이 있을 때 가장 멀리 가고,<br>그 안에서 누군가를 지켜주는 일로 자신의 자리를 확인하는 사람</h2>
+  <p class="lead">당신은 무언가를 시작하기 전에 “이게 안전한가, 믿을 만한가”를 먼저 확인하는 사람이에요. 그렇다고 겁이 많다는 뜻은 아니에요. 오히려 당신은 위험을 미리 읽어내는 눈이 있어서, 남들이 놓치는 허점을 먼저 발견하고, 준비되지 않은 채 뛰어드는 일을 막아주는 사람에 가까워요. 믿을 수 있는 사람과 기준이 있을 때 당신은 누구보다 끝까지 가는 사람이 돼요.</p>
+  <p>그리고 당신 안에는 또 하나의 큰 힘이 있어요. 누군가에게 필요한 사람이 되고 싶은 마음이에요. 가까운 사람이 힘들어하면 무엇이 필요한지 먼저 살피고, 사람들 사이가 불편해지면 그 사이를 이어주려 해요. 당신에게 “안전하다”는 감각은 혼자 단단해지는 것보다, 서로를 지켜주는 관계 안에 있을 때 더 분명해져요. 그래서 당신은 좋은 동료이자 오래 가는 친구로 기억되는 사람일 가능성이 커요.</p>
+  <p>이번 결과에서 특히 눈에 띄는 건, 요즘의 당신이 꽤 안정된 자리에 서 있다는 거예요. 흔들리는 일이 있어도 금방 돌아오고, 자신에게 가혹하지 않고, 마음을 편하게 말할 수 있는 사람이 곁에 있어요. 그래서 이 리포트는 “무엇이 문제인가”보다 “당신의 힘이 지금 어떻게 잘 쓰이고 있고, 어디서 조금 더 자유로워질 수 있는가”를 따라가요.</p>
+  <div class="quote">당신은 안전한 기반을 원하지만, 그 안전을 혼자 쌓기보다 누군가를 지켜주고 필요한 사람이 되는 방식으로 만들어가요. 이 리포트는 그 두 마음이 어디서 서로를 돕고, 어디서 당신의 몫을 조금 줄이고 있는지를 함께 살펴봐요.</div>
+</section>
+
+<section class="page l-cross">
+  <div class="kicker">나를 이루는 여섯 개의 Layer</div>
+  <h2>My Self Map</h2>
+  <p class="lead">여섯 개의 Layer에서 홍○○님을 가장 잘 설명하는 값을 하나씩 모아 한 장에 그렸어요. 각 꼭짓점에는 무엇이 발견됐는지를 함께 적었으니, 숫자보다 그 말을 먼저 읽어주세요.</p>
+  <figure class="fig">
+    <svg viewBox="-60 10 520 390" role="img" aria-label="여섯 Layer 레이더 차트">
+      <g stroke="var(--line)" fill="none" stroke-width="1">
+        <polygon points="200,60 321.2,130 321.2,270 200,340 78.8,270 78.8,130"/>
+        <polygon points="200,95 290.9,147.5 290.9,252.5 200,305 109.1,252.5 109.1,147.5"/>
+        <polygon points="200,130 260.6,165 260.6,235 200,270 139.4,235 139.4,165"/>
+        <polygon points="200,165 230.3,182.5 230.3,217.5 200,235 169.7,217.5 169.7,182.5"/>
+        <line x1="200" y1="200" x2="200" y2="60"/><line x1="200" y1="200" x2="321.2" y2="130"/><line x1="200" y1="200" x2="321.2" y2="270"/>
+        <line x1="200" y1="200" x2="200" y2="340"/><line x1="200" y1="200" x2="78.8" y2="270"/><line x1="200" y1="200" x2="78.8" y2="130"/>
+      </g>
+      <polygon points="200,96.4 289.7,148.2 263,236.4 200,303.6 129.7,240.6 98.2,141.2" fill="var(--core)" fill-opacity=".14" stroke="var(--core)" stroke-width="2.5" stroke-linejoin="round"/>
+      <g>
+        <circle cx="200" cy="96.4" r="5" fill="var(--core)"/>
+        <circle cx="289.7" cy="148.2" r="5" fill="var(--state)"/>
+        <circle cx="263" cy="236.4" r="5" fill="var(--rel)"/>
+        <circle cx="200" cy="303.6" r="5" fill="var(--pat)"/>
+        <circle cx="129.7" cy="240.6" r="5" fill="var(--str)"/>
+        <circle cx="98.2" cy="141.2" r="5" fill="var(--dir)"/>
+      </g>
+      <g font-size="12" fill="var(--ink)" font-family="Noto Sans KR, sans-serif">
+        <text x="200" y="30" text-anchor="middle"><tspan fill="var(--ink-2)">나를 움직이는 힘</tspan></text>
+        <text x="200" y="48" text-anchor="middle">TRUST <tspan fill="var(--core)" font-weight="700">74</tspan></text>
+        <text x="330" y="112" text-anchor="start"><tspan fill="var(--ink-2)">요즘 마음 상태</tspan></text>
+        <text x="330" y="130" text-anchor="start">여유 있음 <tspan fill="var(--state)" font-weight="700">74</tspan></text>
+        <text x="330" y="276" text-anchor="start"><tspan fill="var(--ink-2)">관계에서 나</tspan></text>
+        <text x="330" y="294" text-anchor="start">살짝 살피는 편 <tspan fill="var(--rel)" font-weight="700">52</tspan></text>
+        <text x="200" y="362" text-anchor="middle"><tspan fill="var(--ink-2)">반복하는 습관</tspan></text>
+        <text x="200" y="380" text-anchor="middle">나보다 먼저, 상대 <tspan fill="var(--pat)" font-weight="700">74</tspan></text>
+        <text x="70" y="276" text-anchor="end"><tspan fill="var(--ink-2)">스트레스 민감도</tspan></text>
+        <text x="70" y="294" text-anchor="end">낮은 편 <tspan fill="var(--str)" font-weight="700">58</tspan></text>
+        <text x="70" y="112" text-anchor="end"><tspan fill="var(--ink-2)">삶의 기준</tspan></text>
+        <text x="70" y="130" text-anchor="end">안정 <tspan fill="var(--dir)" font-weight="700">84</tspan></text>
+      </g>
+    </svg>
+    <figcaption>바깥 선이 100, 안쪽으로 75 · 50 · 25 구간이에요. 관계 민감도와 스트레스 민감도는 안쪽에 머무는 반면, 삶의 기준과 마음 상태는 바깥으로 뻗어 있어요.</figcaption>
+  </figure>
+  <p>이 여섯 가지는 따로 노는 성격표가 아니에요. 어떤 순간에는 CORE가 앞에 서고, 어떤 순간에는 관계의 안전이나 오래된 습관이 결정권을 가져가요. 당신의 결과에서 중요한 건 “무엇이 높은가”보다, 상황에 따라 어느 Layer가 마지막 결정을 맡는가예요.</p>
+  <div class="note"><b>Key connection</b>안전하고 싶은 마음 ↔ 필요한 사람이 되고 싶은 마음. 둘이 같은 방향을 볼 때 당신은 누군가의 든든한 사람이 되고, 서로 다른 말을 할 때는 내 몫을 뒤로 미루는 일이 생길 수 있어요. 평소에는 안정과 관계가 방향을 정하고, 준비하는 힘이 속도를 조절해요. 여유가 있는 지금은 그 힘이 유연하게 쓰이고 있어요.</div>
+</section>
+
+<section class="page l-core">
+  <div class="kicker">CORE · 무엇이 나를 움직이는가</div>
+  <h2>My Core · TRUST<br><span style="font-weight:400;font-size:18px;color:var(--ink-2)">믿을 수 있는 기반을 만드는 힘</span></h2>
+  <figure class="fig">
+    <svg viewBox="0 0 720 330" role="img" aria-label="Core 점수">
+      <defs><style>.gt{font-family:'Noto Sans KR',sans-serif}</style></defs>
+      <!-- grid -->
+      <g class="gt">
+        <rect x="20" y="20" width="92" height="88" rx="10" fill="var(--core-soft)"/><text x="66" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="var(--core)">CARE</text><text x="66" y="80" text-anchor="middle" font-size="20" font-weight="700" fill="var(--core)">67</text><text x="66" y="98" text-anchor="middle" font-size="10" fill="var(--ink-2)">보조 CORE</text>
+        <rect x="120" y="20" width="92" height="88" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="166" y="56" text-anchor="middle" font-size="13" fill="var(--ink-2)">ORDER</text><text x="166" y="80" text-anchor="middle" font-size="20" fill="var(--ink-2)">42</text>
+        <rect x="220" y="20" width="92" height="88" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="266" y="56" text-anchor="middle" font-size="13" fill="var(--ink-2)">DRIVE</text><text x="266" y="80" text-anchor="middle" font-size="20" fill="var(--ink-2)">33</text>
+        <rect x="20" y="118" width="92" height="88" rx="10" fill="var(--core-soft)"/><text x="66" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="var(--core)">INSIGHT</text><text x="66" y="178" text-anchor="middle" font-size="20" font-weight="700" fill="var(--core)">50</text><text x="66" y="196" text-anchor="middle" font-size="10" fill="var(--ink-2)">Influence</text>
+        <rect x="120" y="118" width="92" height="88" rx="10" fill="var(--core)"/><text x="166" y="154" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">TRUST</text><text x="166" y="180" text-anchor="middle" font-size="24" font-weight="700" fill="#fff">75</text><text x="166" y="197" text-anchor="middle" font-size="10" fill="#fff" opacity=".85">MY CORE</text>
+        <rect x="220" y="118" width="92" height="88" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="266" y="154" text-anchor="middle" font-size="13" fill="var(--ink-2)">FLOW</text><text x="266" y="178" text-anchor="middle" font-size="20" fill="var(--ink-2)">50</text>
+        <rect x="20" y="216" width="92" height="88" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="66" y="252" text-anchor="middle" font-size="13" fill="var(--ink-2)">DEPTH</text><text x="66" y="276" text-anchor="middle" font-size="20" fill="var(--ink-2)">25</text>
+        <rect x="120" y="216" width="92" height="88" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="166" y="252" text-anchor="middle" font-size="13" fill="var(--ink-2)">STAND</text><text x="166" y="276" text-anchor="middle" font-size="20" fill="var(--ink-2)">33</text>
+        <rect x="220" y="216" width="92" height="88" rx="10" fill="var(--card)" stroke="var(--line)"/><text x="266" y="252" text-anchor="middle" font-size="13" fill="var(--ink-2)">SPARK</text><text x="266" y="276" text-anchor="middle" font-size="20" fill="var(--ink-2)">25</text>
+      </g>
+      <!-- ranked bars -->
+      <g class="gt" font-size="12" fill="var(--ink)">
+        <text x="360" y="34" font-weight="700">상황선택 18문항에서 쌓인 점수</text>
+        <g transform="translate(360,50)">
+          <text x="0" y="14">TRUST</text><rect x="70" y="4" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="4" width="180" height="13" rx="6" fill="var(--core)"/><text x="318" y="15" font-weight="700">75</text>
+          <text x="0" y="40">CARE</text><rect x="70" y="30" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="30" width="161" height="13" rx="6" fill="var(--core)" opacity=".7"/><text x="318" y="41">67</text>
+          <text x="0" y="66">INSIGHT</text><rect x="70" y="56" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="56" width="120" height="13" rx="6" fill="var(--core)" opacity=".5"/><text x="318" y="67">50</text>
+          <text x="0" y="92">FLOW</text><rect x="70" y="82" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="82" width="120" height="13" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="318" y="93">50</text>
+          <text x="0" y="118">ORDER</text><rect x="70" y="108" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="108" width="101" height="13" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="318" y="119">42</text>
+          <text x="0" y="144">DRIVE</text><rect x="70" y="134" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="134" width="79" height="13" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="318" y="145">33</text>
+          <text x="0" y="170">STAND</text><rect x="70" y="160" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="160" width="79" height="13" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="318" y="171">33</text>
+          <text x="0" y="196">DEPTH</text><rect x="70" y="186" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="186" width="60" height="13" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="318" y="197">25</text>
+          <text x="0" y="222">SPARK</text><rect x="70" y="212" width="240" height="13" rx="6" fill="var(--line)"/><rect x="70" y="212" width="60" height="13" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="318" y="223">25</text>
+        </g>
+        <text x="360" y="300" font-size="11" fill="var(--ink-3)">동기 진술(9문항)에서도 TRUST 80 · CARE 75로 같은 순서였어요.</text>
+      </g>
+    </svg>
+    <figcaption>이 Core들은 누구에게나 조금씩 있어요. 이 표는 그중 어떤 힘이 당신의 선택을 가장 자주 움직였는지를 보여줘요. 상황선택형 문항이라 점수는 상대적인 비중이에요.</figcaption>
+  </figure>
+
+  <p class="lead">홍○○님을 움직이는 힘은 TRUST예요. TRUST의 중심에는 “믿을 수 있는 무언가를 찾고, 그것을 지키려는 마음”이 있어요. 새로운 환경에 들어가면 당신은 먼저 이곳의 규칙이 무엇인지, 믿을 만한 사람이 누구인지, 예상치 못한 문제가 생길 자리는 어디인지를 살펴요. 이건 소심함이 아니라 당신의 감각이에요. 당신은 다른 사람들이 “괜찮겠지”라고 넘기는 지점에서 “만약에”를 떠올리는 사람이고, 그 덕분에 일이 무너지기 전에 손을 쓸 수 있어요.</p>
+  <p>당신이 가장 편안한 순간은 모든 게 확실할 때가 아니에요. 오히려 “확실하지 않아도, 나와 함께 가는 사람과 기준이 있다”고 느낄 때예요. 그래서 당신은 한번 믿기로 한 사람과 조직에 놀라울 만큼 충실해요. 약속을 지키고, 맡은 일을 끝까지 해내고, 어려운 시기에도 자리를 지켜요. 사람들이 당신을 “든든하다”고 말하는 건 바로 이 때문이에요. 그리고 그 충실함은 당신이 받은 신뢰를 갚는 방식이기도 해요. 누군가 당신을 믿어주면, 당신은 그 믿음이 틀리지 않았다는 걸 행동으로 보여주고 싶어 해요.</p>
+  <p>동시에 당신은 늘 두 가지 질문을 품고 살아요. “이걸 믿어도 될까?” 그리고 “내가 잘못 판단한 건 아닐까?” 이 질문은 당신을 신중하게 만들지만, 때로는 결정을 미루게 하거나, 이미 잘하고 있는 일에서도 확인을 한 번 더 구하게 만들 수 있어요. 흥미로운 건, 당신이 남의 판단은 잘 믿으면서 자기 판단은 한 번 더 의심한다는 점이에요. 이 리포트 뒤쪽에서 그 이유를 조금 더 자세히 볼 거예요.</p>
+
+  <div class="trio">
+    <div class="cell"><b>내가 원하는 것</b>안전한 기반 · 신뢰할 수 있는 사람 · 예측 가능한 내일</div>
+    <div class="cell"><b>민감해지는 것</b>앞이 보이지 않는 시간 · 믿었던 사람의 변심 · 혼자 감당해야 하는 상황</div>
+    <div class="cell"><b>내가 가진 힘</b>위험 감지 · 준비와 대비 · 충실함 · 끝까지 가는 책임감</div>
+  </div>
+
+  <h3>행동 뒤에 숨어 있는 이유</h3>
+  <p>동기 진술에서 가장 높게 나온 문장은 “기댈 곳이 없어지는 상황이 무엇보다 불안하다”였어요(80). 그 다음이 “누군가에게 필요한 존재가 아니라고 느껴지면 내 자리가 없어진 것 같다”였고요(75). 두 문장을 겹쳐 보면 당신에게 안전이란 “튼튼한 벽”이 아니라 “서로 붙잡고 있는 손”에 가까워요. 혼자 안전한 것으로는 부족하고, 누군가와 함께 안전해야 비로소 마음이 놓여요. 이 점이 당신을 같은 TRUST 안에서도 조금 특별하게 만들어요. 어떤 사람은 규칙과 체계로 안전을 만들고, 어떤 사람은 정보와 이해로 안전을 만드는데, 당신은 사람으로 안전을 만들어요.</p>
+  <div class="trio">
+    <div class="cell"><b>안정 · 84</b>예측할 수 있고 흔들리지 않는 기반이 있는가</div>
+    <div class="cell"><b>관계 · 79</b>중요한 사람과 마음이 이어져 있는가</div>
+    <div class="cell"><b>기여 · 76</b>내가 누군가에게 실제로 도움이 되고 있는가</div>
+  </div>
+
+  <h3>내가 안전을 느끼는 자리</h3>
+  <p>하루를 잘 보냈다는 느낌이 언제 오는지 물었을 때 당신은 “사람들 속에서 내 자리가 있다고 느꼈을 때”를 첫 번째로 골랐어요. 당신에게 안전은 개인적인 안락함보다 소속감에 더 가까워요. 팀, 공동체, 오래된 관계 안에서 “나는 여기 속해 있고, 여기서 내 역할이 있다”고 느낄 때 당신의 힘이 가장 잘 나와요. 반대로 소속이 흔들리거나 내 자리가 애매해질 때 불안이 먼저 올라올 수 있어요. 그래서 이직이나 팀 이동처럼 “소속이 바뀌는 시기”는 당신에게 일의 난이도와 별개로 에너지가 많이 드는 시기일 수 있어요.</p>
+  <div class="quote">“나는 지금, 무엇을 믿고 어디에 서 있는가?”</div>
+</section>
+
+<section class="page l-core">
+  <div class="kicker">CORE · 같은 힘이라도 사용하는 방식은 다릅니다</div>
+  <h2>홍○○님은 INSIGHT Influence,<br>그리고 보조 Core는 CARE예요</h2>
+  <figure class="fig">
+    <svg viewBox="0 0 720 150" role="img" aria-label="Influence 비교">
+      <g font-family="Noto Sans KR, sans-serif" font-size="12.5" fill="var(--ink)">
+        <text x="20" y="28" font-weight="700">TRUST 곁에서 함께 움직이는 힘</text>
+        <g transform="translate(20,50)">
+          <rect x="0" y="0" width="200" height="70" rx="10" fill="var(--core-soft)"/>
+          <text x="100" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="var(--core)">INSIGHT</text><text x="100" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="var(--core)">50</text>
+          <rect x="230" y="0" width="200" height="70" rx="10" fill="var(--core)"/>
+          <text x="330" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">TRUST</text><text x="330" y="54" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">75</text>
+          <rect x="460" y="0" width="200" height="70" rx="10" fill="var(--card)" stroke="var(--line)"/>
+          <text x="560" y="28" text-anchor="middle" font-size="13" fill="var(--ink-2)">SPARK</text><text x="560" y="54" text-anchor="middle" font-size="22" fill="var(--ink-2)">25</text>
+        </g>
+        <text x="20" y="140" font-size="11" fill="var(--ink-3)">TRUST 곁의 두 힘 중 INSIGHT가 뚜렷하게 높아요. 홍○○님은 INSIGHT Influence에 가까워요.</text>
+      </g>
+    </svg>
+  </figure>
+  <p class="lead">같은 TRUST여도 Influence에 따라 모습이 꽤 달라요. 홍○○님은 INSIGHT Influence에 가까워 보여요. TRUST 곁에 있는 두 힘 중 INSIGHT가 50, SPARK가 25로 차이가 분명했거든요. 이건 당신이 안전을 만드는 방식에 “이해와 관찰”이 많이 섞여 있다는 뜻이에요.</p>
+  <p>당신은 불안할 때 사람에게 매달리기보다 먼저 정보를 모아요. 새로운 곳에 가면 지켜보고, 이 모임이 어떤 곳인지 파악하고, 알아야 할 것을 충분히 알고 나서 움직여요. 당신에게 “준비됐다”는 느낌은 “충분히 이해했다”는 느낌과 거의 같아요. 그래서 당신은 조용하지만 깊이 있는 사람으로 보이고, 한번 파악한 분야에서는 놀라울 만큼 정확해요. 회의에서 말수는 적어도, 당신이 입을 열 때는 대개 이미 여러 번 검토한 내용일 거예요.</p>
+  <div class="duo">
+    <div class="cell"><b>TRUST의 힘</b>믿을 수 있는 사람과 기준을 찾고, 그 안에서 끝까지 갑니다.</div>
+    <div class="cell"><b>INSIGHT Influence</b>사람보다 먼저 정보와 구조를 살펴 안전을 확인합니다. 혼자 정리할 시간이 필요합니다.</div>
+  </div>
+  <p>이 영향은 당신을 신중하고 독립적인 사람으로 만들어줘요. 다만 이해가 충분해질 때까지 행동을 미루거나, 혼자 정리하는 시간이 길어져 도움을 청할 타이밍을 놓칠 수 있어요. “다 알고 나서 말하자”가 “결국 말하지 못했다”로 끝나는 일이 가끔 있다면, 그건 이 영향이 조금 과하게 작동한 순간이에요.</p>
+
+  <h3>보조 Core · CARE — 같은 힘, 다른 이유</h3>
+  <p>홍○○님의 보조 Core는 CARE예요(67). 그리고 이건 단순한 “두 번째”가 아니에요. 동기 진술에서도 CARE의 문장이 강하게 나왔고, 패턴에서도 “내 욕구보다 상대의 욕구를 먼저 챙기는” 경향이 가장 높았어요. 서로 다른 세 곳에서 같은 방향이 나온 셈이에요. 그래서 SELF-LAYERS는 홍○○님을 “전형적인 TRUST”보다 “돌봄으로 안전을 만드는 TRUST”로 읽어요.</p>
+  <p>보통 TRUST는 “믿을 만한 사람을 찾는” 쪽으로 설명돼요. 하지만 당신은 조금 달라요. 당신은 믿을 만한 사람을 찾는 동시에, 스스로 누군가에게 믿을 만한 사람이 되는 방식으로 안전을 만들어요. 힘든 동료를 챙기고, 부탁받으면 내 일을 미뤄서라도 돕고, 사람들 사이가 불편해지지 않도록 애써요. 그렇게 “나는 여기서 필요한 사람이다”라는 감각이 생기면 당신의 불안은 눈에 띄게 줄어들어요. 반대로 말하면, 당신이 누군가를 유난히 열심히 챙기고 있는 시기는 마음 한쪽이 조금 불안한 시기일 수도 있어요.</p>
+  <div class="quote">“내가 지켜줄 수 있는 사람이 있을 때, 나도 안전해집니다.”</div>
+  <p class="small">※ Influence와 보조 Core는 18개 상황선택 문항과 9개 동기 진술에서 파생된 참고 지표이며, 별도의 전용 측정으로 보지 않습니다.</p>
+</section>
+
+<section class="page l-state">
+  <div class="kicker">STATE · 지금 나는 어디에 있는가</div>
+  <h2>지난 한 달의 나</h2>
+  <p class="lead">이 페이지는 당신이 “어떤 사람인가”가 아니라 “요즘 어떤 상태인가”를 봐요. 같은 사람도 여유가 있을 때와 없을 때 전혀 다른 선택을 하니까요. 그래서 여기서만큼은 “지난 한 달 동안”을 기준으로 물었어요.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 720 260" role="img" aria-label="현재 상태 게이지">
+      <g font-family="Noto Sans KR, sans-serif">
+        <path d="M50,190 A150,150 0 0 1 176.6,41.8" fill="none" stroke="var(--band-prot)" stroke-width="26"/>
+        <path d="M176.6,41.8 A150,150 0 0 1 288.2,68.7" fill="none" stroke="var(--band-bal)" stroke-width="26"/>
+        <path d="M288.2,68.7 A150,150 0 0 1 350,190" fill="none" stroke="var(--band-exp)" stroke-width="26"/>
+        <line x1="200" y1="190" x2="288.9" y2="95.2" stroke="var(--state)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="200" cy="190" r="8" fill="var(--state)"/>
+        <text x="200" y="160" text-anchor="middle" font-size="34" font-weight="700" fill="var(--state)">74</text>
+        <text x="200" y="182" text-anchor="middle" font-size="12" fill="var(--ink-2)">STATE 지수</text>
+        <text x="60" y="222" text-anchor="middle" font-size="11.5" fill="var(--ink-2)">보호 상태</text>
+        <text x="200" y="26" text-anchor="middle" font-size="11.5" fill="var(--ink-2)">평소의 나</text>
+        <text x="345" y="222" text-anchor="middle" font-size="11.5" fill="var(--ink-2)">여유 있는 상태</text>
+        <g transform="translate(420,40)" font-size="12.5" fill="var(--ink)">
+          <text x="0" y="0" font-weight="700">무엇으로 이루어졌나</text>
+          <text x="0" y="36">나를 대하는 방식</text><rect x="120" y="26" width="150" height="12" rx="6" fill="var(--line)"/><rect x="120" y="26" width="108" height="12" rx="6" fill="var(--state)"/><text x="278" y="37">72</text>
+          <text x="0" y="66">마음의 유연함</text><rect x="120" y="56" width="150" height="12" rx="6" fill="var(--line)"/><rect x="120" y="56" width="114" height="12" rx="6" fill="var(--state)"/><text x="278" y="67">76</text>
+          <text x="0" y="96">자율이 채워짐</text><rect x="120" y="86" width="150" height="12" rx="6" fill="var(--line)"/><rect x="120" y="86" width="105" height="12" rx="6" fill="var(--state)" opacity=".75"/><text x="278" y="97">70</text>
+          <text x="0" y="126">유능감이 채워짐</text><rect x="120" y="116" width="150" height="12" rx="6" fill="var(--line)"/><rect x="120" y="116" width="111" height="12" rx="6" fill="var(--state)" opacity=".75"/><text x="278" y="127">74</text>
+          <text x="0" y="156">관계가 채워짐</text><rect x="120" y="146" width="150" height="12" rx="6" fill="var(--line)"/><rect x="120" y="146" width="123" height="12" rx="6" fill="var(--state)" opacity=".75"/><text x="278" y="157" font-weight="700">82</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>바늘이 오른쪽 초록 구간에 있어요. 다섯 요소 중 “관계가 채워짐”이 가장 높아, 마음을 편하게 말할 수 있는 사람이 곁에 있었던 한 달이었어요.</figcaption>
+  </figure>
+  <p>지난 한 달 동안의 당신은 꽤 좋은 자리에 있어요. 실수를 했을 때 자신을 몰아세우기보다 상황을 이해하려 했고, 불편한 감정이 있어도 중요한 일을 선택할 수 있었고, 계획이 틀어져도 방향을 바꿀 수 있었어요. 무엇보다 내 마음을 편하게 말할 수 있는 사람이 곁에 있었다는 점이 가장 높게 나왔어요. TRUST에게 이건 특히 중요한 조건이에요. 당신의 여유는 혼자 만들어지는 게 아니라, 믿을 수 있는 사람이 곁에 있을 때 만들어지니까요.</p>
+  <div class="note"><b>지금의 위치 · 여유 있는 상태</b>이 구간에서는 타고난 힘이 유연하게 쓰여요. 준비하는 힘은 걱정이 아니라 계획이 되고, 사람을 챙기는 마음은 부담이 아니라 기쁨이 돼요. 지금은 새로운 시도를 해보기에 좋은 시기예요. 평소라면 망설였을 결정, 미뤄뒀던 대화, 혼자 정리만 하고 꺼내지 않았던 생각을 꺼내보기에 좋은 때예요.</div>
+  <p>한 가지만 기억해두면 좋겠어요. 이 상태는 성격이 아니라 계절 같은 거예요. 다음 달에 다시 재면 달라질 수 있어요. 그래서 이 리포트는 “지금 여유가 있는 당신”을 기준으로 쓰였고, 힘든 시기가 오면 다음 페이지의 두 모드 중 오른쪽이 더 가깝게 느껴질 수 있어요. 그때 다시 이 페이지로 돌아와 “관계가 채워짐”이 얼마나 낮아졌는지 보면, 무엇부터 채워야 하는지 힌트가 될 거예요.</p>
+</section>
+
+<section class="page l-state">
+  <div class="kicker">STATE · 건강할 때의 나, 스트레스받을 때의 나</div>
+  <h2>My Two Modes</h2>
+  <p class="lead">같은 사람도 마음의 자원이 충분할 때와 부족할 때는 다른 선택지를 갖게 돼요. 여유가 있을 때는 시야가 넓어지고, 압박이 커지면 가장 익숙하고 통제하기 쉬운 방식으로 초점이 좁아져요. SELF-LAYERS는 이걸 “다른 사람으로 변한다”가 아니라 “접근할 수 있는 선택지가 넓어지거나 좁아진다”로 봐요.</p>
+  <figure class="fig">
+    <svg viewBox="0 0 720 150" role="img" aria-label="Protection과 Expansion 양방향 지수">
+      <g font-family="Noto Sans KR, sans-serif" font-size="12.5" fill="var(--ink)">
+        <text x="60" y="34" text-anchor="start" font-weight="700" fill="var(--str)">Protection Mode</text>
+        <text x="660" y="34" text-anchor="end" font-weight="700" fill="var(--state)">Expansion Mode</text>
+        <rect x="60" y="52" width="300" height="22" rx="11" fill="var(--band-prot)" opacity=".55"/>
+        <rect x="360" y="52" width="300" height="22" rx="11" fill="var(--band-exp)" opacity=".55"/>
+        <rect x="261" y="52" width="99" height="22" rx="11" fill="var(--str)"/>
+        <rect x="360" y="52" width="210" height="22" rx="11" fill="var(--state)"/>
+        <line x1="360" y1="42" x2="360" y2="86" stroke="var(--ink)" stroke-width="1.5"/>
+        <text x="250" y="105" text-anchor="end" font-size="20" font-weight="700" fill="var(--str)">33</text>
+        <text x="580" y="105" text-anchor="start" font-size="20" font-weight="700" fill="var(--state)">70</text>
+        <text x="60" y="130" font-size="11" fill="var(--ink-3)">스트레스 방향의 대처가 켜져 있는 정도</text>
+        <text x="660" y="130" text-anchor="end" font-size="11" fill="var(--ink-3)">여유 · 낮은 반응성 · 낮은 흔들림</text>
+      </g>
+    </svg>
+    <figcaption>두 지수는 서로 독립이에요. 지금은 오른쪽이 훨씬 길어서, 건강할 때의 모습이 당신에게 가까워요.</figcaption>
+  </figure>
+
+  <h3>건강할 때의 나 — 지금 당신에게 가까운 모습</h3>
+  <p>여유가 있을 때 TRUST는 확신이 없어도 자신을 믿고 편안하게 머물 수 있어요. 모든 걸 확인하지 않아도 괜찮고, 모르는 채로도 하루를 보낼 수 있고, 걱정이 올라와도 그것이 사실이 되기 전에 놓아줄 수 있어요. 이때의 당신은 “만약에”를 떠올리되 거기에 붙잡히지 않아요. 준비는 하지만 준비가 끝나기를 기다리며 삶을 미루지는 않아요. 무엇보다 이 모드에서 당신은 자기 판단을 조금 더 믿어요. 남에게 확인을 구하기 전에 “내 생각은 이렇다”가 먼저 나와요.</p>
+  <p>이 모드에서 당신의 충실함은 의무가 아니라 선택이 돼요. 사람을 믿는 이유가 “믿지 않으면 불안해서”가 아니라 “믿는 게 좋아서”로 바뀌어요. 그리고 당신 안의 돌봄(CARE)도 달라져요. 누군가를 챙기는 이유가 “내 자리를 확인하려고”가 아니라 “그 사람이 잘됐으면 해서”가 되고, 챙기면서도 내 몫을 잊지 않게 돼요. 주변 사람들은 이때의 당신을 “편안한 사람”이라고 느껴요. 든든한데 무겁지 않고, 챙겨주는데 부담스럽지 않은 사람이요.</p>
+  <div class="trio">
+    <div class="cell"><b>신뢰</b>확인하지 않아도 관계가 유지된다고 믿을 수 있어요.</div>
+    <div class="cell"><b>여유</b>답이 없는 상태로 잠시 머물 수 있어요.</div>
+    <div class="cell"><b>돌봄</b>상대를 챙기면서 내 욕구도 말할 수 있어요.</div>
+  </div>
+  <p>이번 결과에서 당신의 Expansion 지수는 70이에요. 지금의 당신은 이 모습에 상당히 가까이 와 있어요. 흔들려도 금방 돌아오고, 앞이 안 보이는 시간도 그럭저럭 견디고, 자기 자신에게 관대해요. 그래서 이 리포트의 성장 제안은 “고치기”보다 “이미 하고 있는 걸 더 자주 하기”에 가까워요.</p>
+  <div class="quote">“확인하지 않아도, 나는 괜찮을 수 있습니다.”</div>
+
+  <h3>스트레스받을 때의 나 — 여유가 줄어들면 나타날 수 있는 모습</h3>
+  <p>압박이 커지면 TRUST는 흔히 일과 성과에 몰두하는 방식으로 불안을 덮어요. 걱정을 멈출 수 없으니 차라리 바쁘게 움직이고, 확인할 게 많아지고, 더 잘 해내는 것으로 “괜찮다”는 증거를 만들려 해요. 겉으로는 오히려 더 유능하고 빈틈없어 보일 수 있어요. 하지만 안쪽에서는 “이 정도면 됐다”는 감각이 사라지고, 잘 되고 있는 일에서도 확인을 한 번 더 구하게 돼요. 이 시기의 당신은 쉬는 게 어려워요. 쉬면 놓치는 게 생길 것 같거든요.</p>
+  <p>당신은 보조 Core가 CARE라서, 여기에 한 가지가 더해져요. 힘들수록 누군가의 확인이나 위로를 먼저 찾고(대처 방식 중 “접근”이 가장 높았어요), 상대가 나를 여전히 필요로 하는지 살피고, 내 어려움은 뒤로 미룬 채 다른 사람의 문제를 먼저 해결하려 할 수 있어요. 그러다 “나는 이만큼 하는데”라는 서운함이 쌓이면, 평소의 당신과 다르게 날카로워질 수도 있어요. 주변에서는 그 변화를 “갑자기 왜 저러지”로 느낄 수 있는데, 사실 그건 갑작스러운 게 아니라 오래 미뤄둔 것이 넘친 거예요.</p>
+  <div class="trio">
+    <div class="cell"><b>신호 01</b>바쁨으로 걱정을 밀어내고 있어요.</div>
+    <div class="cell"><b>신호 02</b>확인을 구하는 횟수가 늘어요.</div>
+    <div class="cell"><b>신호 03</b>내 몫은 미루고 남의 일을 먼저 해요.</div>
+  </div>
+  <p>이번 결과에서 당신의 Protection 지수는 33이에요. 지금은 이 모드가 거의 켜져 있지 않아요. 그래서 이 설명은 “지금의 당신”이 아니라 “힘든 시기가 왔을 때 알아차릴 신호”로 읽어주세요.</p>
+  <div class="note"><b>알아차림 포인트</b>Protection Mode에서 “더 확인하기”는 답이 아닐 때가 많아요. 이미 믿기로 한 것을 다시 떠올리고, 오늘 할 일을 하나로 줄이고, 누군가를 챙기기 전에 내가 필요한 것을 먼저 한 문장으로 말해보는 것. 이 세 가지가 당신을 다시 왼쪽에서 오른쪽으로 되돌리는 문이 될 수 있어요.</div>
+</section>
+
+<section class="page l-cross">
+  <div class="kicker">내가 오래 확인하고 싶었던 말</div>
+  <h2>The Message I Seek</h2>
+  <div class="quote" style="font-size:24px;border-left-color:var(--core)">“너는 사랑받기 위해 애쓰지 않아도 돼.”</div>
+  <div class="quote" style="font-size:24px;border-left-color:var(--core);opacity:.85">“너는 안전해. 혼자 감당하지 않아도 돼.”</div>
+  <p class="lead">홍○○님, 위의 두 문장을 천천히 한 번씩 읽어보세요. 둘 중 어느 쪽에서 마음이 조금 더 오래 멈추나요. 이번 결과에서는 두 문장이 거의 같은 무게로 나왔어요. 하나는 “믿을 수 있는 기반”을 찾는 마음이 오래 기다려온 말이고, 다른 하나는 “누군가에게 필요한 사람”이 되고 싶은 마음이 기다려온 말이에요. 그리고 두 번째가 아주 조금 더 앞에 있었어요.</p>
+  <p>이 문장을 보고 어린 시절을 떠올리셔도 괜찮고, 떠오르지 않아도 괜찮아요. SELF-LAYERS는 이 말을 과거의 어떤 사건이나 결핍 때문이라고 설명하지 않아요. 그보다는 “지금의 내가 어떤 조건이 채워져야 마음 놓고 나를 괜찮다고 여기는가”를 알아차리기 위한 문장으로 써요. 그러니 답을 찾으려 하지 않으셔도 돼요. 읽다가 마음이 멈추는 곳이 있다면, 그게 이 페이지가 하고 싶은 이야기의 전부예요.</p>
+  <p>제가 홍○○님의 결과를 보며 느낀 건 이거예요. 홍○○님은 안전하고 싶은 마음이 크지만, 그 안전을 “누군가에게 필요한 사람이 되는 것”으로 만들어오셨을 가능성이 있어요. 그래서 “나는 괜찮다”는 감각이 “내가 누군가를 잘 챙기고 있다”는 확인과 자연스럽게 연결되어 있을 수 있어요. 두 문장이 나란히 나온 건, 홍○○님에게 안전과 사랑이 거의 같은 자리에 있다는 뜻이에요. 서로를 지켜주는 관계 안에 있을 때 마음이 놓이고, 그 관계에서 내가 쓸모없다고 느껴지면 안전도 같이 흔들리는 거죠.</p>
+  <p>그렇다고 챙기는 걸 그만두라는 말은 아니에요. 오히려 이 문장은 “챙기지 않는 순간에도, 아무것도 확인하지 못한 순간에도, 홍○○님의 자리는 사라지지 않는다”는 걸 알려주고 싶어 해요. 어쩌면 이 말을 다른 사람에게는 자주 해주셨을 거예요. 이번에는 그 말을 홍○○님 자신에게 한 번 건네보셔도 좋겠어요.</p>
+  <div class="note"><b>이 말을 홍○○님의 문장으로 다시 써보면</b>“나는 지켜주는 사람이어서 여기 있는 게 아니라, 여기 있어서 지켜줄 수 있는 것이다.”<br><span class="small">이 문장이 마음에 들지 않으면 홍○○님의 말로 고쳐 써도 좋아요. 그게 이 페이지의 목적이에요.</span></div>
+  <p class="small">이 페이지는 자기성찰을 위한 가설적 언어입니다. 실제 성장환경이나 가족관계를 추정하지 않습니다.</p>
+</section>
+
+<section class="page l-rel">
+  <div class="kicker">RELATIONSHIP · 관계 속의 나</div>
+  <h2>가까워지는 건 편하고,<br>상대의 마음이 불확실할 때만 살짝 예민해지는 사람</h2>
+  <figure class="fig">
+    <svg viewBox="0 0 720 380" role="img" aria-label="관계 지도 사분면">
+      <g font-family="Noto Sans KR, sans-serif" font-size="12" fill="var(--ink)">
+        <rect x="80" y="30" width="150" height="150" fill="var(--rel-soft)" opacity=".9"/>
+        <rect x="230" y="30" width="150" height="150" fill="var(--rel-soft)" opacity=".5"/>
+        <rect x="80" y="180" width="150" height="150" fill="var(--state-soft)" opacity=".8"/>
+        <rect x="230" y="180" width="150" height="150" fill="var(--rel-soft)" opacity=".5"/>
+        <rect x="80" y="30" width="300" height="300" fill="none" stroke="var(--line)"/>
+        <line x1="230" y1="30" x2="230" y2="330" stroke="var(--line)" stroke-dasharray="3 3"/>
+        <line x1="80" y1="180" x2="380" y2="180" stroke="var(--line)" stroke-dasharray="3 3"/>
+        <text x="155" y="60" text-anchor="middle" font-size="11.5" fill="var(--ink-2)">가까이 두고 살피는</text>
+        <text x="305" y="60" text-anchor="middle" font-size="11.5" fill="var(--ink-2)">거리를 두면서 살피는</text>
+        <text x="155" y="315" text-anchor="middle" font-size="11.5" fill="var(--ink-2)">가까이 두고 편안한</text>
+        <text x="305" y="315" text-anchor="middle" font-size="11.5" fill="var(--ink-2)">거리를 두고 편안한</text>
+        <circle cx="170" cy="174" r="11" fill="var(--rel)" opacity=".25"/>
+        <circle cx="170" cy="174" r="6" fill="var(--rel)"/>
+        <text x="184" y="169" font-size="12" font-weight="700" fill="var(--rel)">나</text>
+        <text x="230" y="352" text-anchor="middle" fill="var(--ink-2)">친밀감 거리두기 →</text>
+        <text x="60" y="180" text-anchor="middle" fill="var(--ink-2)" transform="rotate(-90 60 180)">관계 변화 민감도 →</text>
+        <g transform="translate(420,50)">
+          <text x="0" y="0" font-weight="700">두 축의 점수</text>
+          <text x="0" y="34">관계 변화 민감도</text><rect x="0" y="42" width="240" height="12" rx="6" fill="var(--line)"/><rect x="0" y="42" width="125" height="12" rx="6" fill="var(--rel)"/><text x="248" y="53" font-weight="700">52</text>
+          <text x="0" y="90">친밀감 거리두기</text><rect x="0" y="98" width="240" height="12" rx="6" fill="var(--line)"/><rect x="0" y="98" width="72" height="12" rx="6" fill="var(--rel)" opacity=".6"/><text x="248" y="109" font-weight="700">30</text>
+          <text x="0" y="150" font-size="11.5" fill="var(--ink-2)">거리두기는 낮고 민감도는 중간이라,</text>
+          <text x="0" y="170" font-size="11.5" fill="var(--ink-2)">“가까이 두고 편안한” 자리에서</text>
+          <text x="0" y="190" font-size="11.5" fill="var(--ink-2)">“살피는” 쪽으로 살짝 올라와 있어요.</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>왼쪽으로 갈수록 가까워지는 게 편하고, 위로 갈수록 상대의 변화에 예민해져요. 당신은 왼쪽 중간, 편안함과 살핌의 경계에 있어요.</figcaption>
+  </figure>
+  <p class="lead">당신에게 가까워지는 건 어려운 일이 아니에요. 감정을 이야기하는 것도, 힘들 때 도움을 청하는 것도 비교적 편한 편이에요. 당신은 사람 곁에 있는 걸 좋아하고, 마음이 맞는 사람에게는 쉽게 마음을 열어요. 이건 TRUST와 CARE가 함께 있을 때 자연스럽게 나오는 모습이에요. 믿을 수 있는 사람을 찾는 마음과 누군가를 챙기고 싶은 마음이 합쳐지면, 관계는 부담이 아니라 안전의 근거가 돼요.</p>
+  <p>다만 한 가지 조건에서 살짝 예민해져요. 상대의 마음이 확실하지 않을 때예요. 가까운 사람의 반응이 평소와 다르거나 연락이 뜸해지면 “무슨 일이 있나”보다 “내가 뭘 잘못했나”가 먼저 떠오를 수 있어요. 이 민감도는 중간 정도라 관계를 크게 흔들지는 않지만, 당신이 관계에서 “확인”을 원하는 순간이 언제인지 알려줘요. 그리고 그 확인 욕구가 올라올 때, 당신은 대개 직접 묻기보다 먼저 더 잘해주는 쪽을 택하는 경향이 있어요.</p>
+  <div class="trio">
+    <div class="cell"><b>처음 가까워질 때</b>관심을 자연스럽게 표현하고 먼저 챙겨요.</div>
+    <div class="cell"><b>반응이 달라질 때</b>내 쪽에서 원인을 찾아보기 시작해요.</div>
+    <div class="cell"><b>갈등이 생기면</b>문제보다 “관계가 괜찮은지”를 먼저 살펴요.</div>
+  </div>
+  <div class="note"><b>관계에서의 핵심</b>당신이 편안함을 느끼는 핵심은 “이 사람은 내 편이다”라는 확신이에요. 말과 행동이 일치하고, 어려운 순간에도 자리를 지켜주는 관계에서 당신은 가장 자유로워요. 반대로 애매하고 변덕스러운 관계는, 나쁜 관계보다 오히려 더 소모적일 수 있어요.</div>
+
+  <h3>관계에서 내가 정말 원하는 것</h3>
+  <p>당신이 원하는 관계는 “서로 지켜주는 관계”예요. 내가 상대를 챙기고, 상대도 나를 챙기고, 그 사실을 굳이 확인하지 않아도 알 수 있는 관계. 밀착보다는 신뢰, 자유보다는 든든함이 먼저예요. 매일 연락하지 않아도 되지만, 필요할 때 부르면 오는 사람이길 바라고, 당신도 그런 사람이고 싶어 해요.</p>
+  <div class="trio">
+    <div class="cell"><b>내게 필요한 신호</b>말한 대로 행동하는 일관성</div>
+    <div class="cell"><b>불편한 신호</b>설명 없는 거리, 갑작스러운 변화</div>
+    <div class="cell"><b>편안한 방식</b>확인할 것은 직접 묻고, 서로의 몫을 정하는 대화</div>
+  </div>
+
+  <h3>관계에서 마음이 흔들리는 순간</h3>
+  <div class="note"><b>Trigger 01 · 평소와 다른 반응</b>연락 간격이나 말투가 달라지면 당신은 그 이유를 스스로 채우려 해요. 문제는 관찰보다 해석이 먼저 확정되는 순간이에요. “실제로 달라진 사실”과 “내가 붙인 의미”를 나눠보면, 관계를 읽는 정확도가 높아지고 불필요한 걱정이 줄어요.</div>
+  <div class="note"><b>Trigger 02 · 내가 필요 없다고 느껴질 때</b>이건 당신의 CARE가 반응하는 지점이에요. 상대가 내 도움 없이도 잘 지내는 것 같을 때, 이상하게 서운함이 올라올 수 있어요. 하지만 상대가 당신을 덜 필요로 하는 것과 당신을 덜 소중히 여기는 것은 다른 일이에요. 이 둘을 구분하는 연습이 당신을 관계에서 훨씬 편하게 해줘요.</div>
+  <div class="note"><b>Trigger 03 · 사람들 사이가 불편해질 때</b>당신은 갈등 자체보다 “이 갈등 때문에 관계가 깨질까”를 걱정해요. 그래서 중간에서 양쪽을 다독이거나, 내 의견을 접어서라도 분위기를 정리하려 할 수 있어요. 이 능력은 팀에서 큰 자산이에요. 다만 매번 그 역할을 맡으면 정작 당신의 입장은 아무도 모르게 될 수 있어요.</div>
+</section>
+
+<section class="page l-pat">
+  <div class="kicker">PATTERN · 반복되는 내면의 규칙</div>
+  <h2>먼저 챙기고, 한 번 더 살피고, 관계를 지키는 방식</h2>
+  <figure class="fig">
+    <svg viewBox="0 0 720 330" role="img" aria-label="여덟 가지 내면 규칙 점수">
+      <g font-family="Noto Sans KR, sans-serif" font-size="12.5" fill="var(--ink)">
+        <g transform="translate(200,20)">
+          <rect x="0" y="0" width="180" height="270" fill="var(--band-bal)" opacity=".18"/>
+          <rect x="180" y="0" width="90" height="270" fill="var(--pat-soft)" opacity=".5"/>
+          <rect x="270" y="0" width="90" height="270" fill="var(--pat-soft)"/>
+          <rect x="337.5" y="0" width="22.5" height="270" fill="var(--pat)" opacity=".18"/>
+          <text x="90" y="288" text-anchor="middle" font-size="10.5" fill="var(--ink-3)">낮음 · 중간</text>
+          <text x="225" y="288" text-anchor="middle" font-size="10.5" fill="var(--ink-3)">다소 높음</text>
+          <text x="315" y="288" text-anchor="middle" font-size="10.5" fill="var(--ink-3)">높음</text>
+        </g>
+        <g transform="translate(20,20)">
+          <text x="0" y="24">나보다 먼저, 상대</text><rect x="180" y="12" width="266" height="16" rx="4" fill="var(--pat)"/><text x="454" y="25" font-weight="700">74</text>
+          <text x="0" y="57">의도 살피기</text><rect x="180" y="45" width="198" height="16" rx="4" fill="var(--pat)" opacity=".55"/><text x="386" y="58">55</text>
+          <text x="0" y="90">혼자 판단의 어려움</text><rect x="180" y="78" width="187" height="16" rx="4" fill="var(--pat)" opacity=".45"/><text x="375" y="91">52</text>
+          <text x="0" y="123">관계 지속 민감성</text><rect x="180" y="111" width="180" height="16" rx="4" fill="var(--pat)" opacity=".45"/><text x="368" y="124">50</text>
+          <text x="0" y="156">스스로에게 높은 기준</text><rect x="180" y="144" width="180" height="16" rx="4" fill="var(--pat)" opacity=".45"/><text x="368" y="157">50</text>
+          <text x="0" y="189">인정에 기대기</text><rect x="180" y="177" width="173" height="16" rx="4" fill="var(--ink-3)" opacity=".4"/><text x="361" y="190">48</text>
+          <text x="0" y="222">부족함이 드러나는 걱정</text><rect x="180" y="210" width="144" height="16" rx="4" fill="var(--ink-3)" opacity=".4"/><text x="332" y="223">40</text>
+          <text x="0" y="255">이해받지 못할 기대</text><rect x="180" y="243" width="126" height="16" rx="4" fill="var(--ink-3)" opacity=".4"/><text x="314" y="256">35</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>“높음” 구간에 들어온 규칙은 하나뿐이에요. 나머지는 중간에 머물러, 내면 규칙이 비교적 유연하게 작동하고 있어요.</figcaption>
+  </figure>
+  <p class="lead">패턴은 결함이 아니라 오래 사용해온 내면의 규칙이에요. 같은 규칙이 여유가 있을 때는 배려와 신중함이 되고, 압박이 커지면 자기희생과 과도한 경계가 될 수 있어요. 중요한 건 점수의 높낮이보다 “언제 이 규칙이 나를 돕고, 언제 내 선택권을 줄이는가”예요.</p>
+  <p>당신의 반복 패턴을 세 단어로 줄이면 “먼저 챙기고, 한 번 더 살피고, 관계를 지키는 방식”이에요. 다행히 이번 결과에서 강하게 나온 패턴은 하나뿐이고, 나머지는 중간 정도예요. 이건 당신의 내면 규칙이 비교적 유연하게 작동하고 있다는 뜻이에요. 하나의 규칙이 모든 상황을 지배하는 게 아니라, 상황에 따라 다른 규칙을 꺼내 쓸 수 있는 상태예요.</p>
+
+  <h3>가장 강하게 나타난 패턴 · 나보다 먼저, 상대 · 74</h3>
+  <div class="quote">“내가 원하는 걸 말하면 이기적으로 보일 것 같아요.”</div>
+  <p>당신은 내 욕구보다 상대의 욕구를 먼저 챙기는 경향이 가장 높게 나왔어요. 원하는 걸 강하게 주장하면 이기적으로 보일까 봐 불편하고, 중요한 사람의 부탁은 감당하기 어려워도 거절하기 어려워요. 이 패턴은 당신을 따뜻하고 믿음직한 사람으로 만들어요. 사람들은 당신 곁에서 안심하고, 당신은 그 안심 속에서 자기 자리를 확인해요. 팀에서 당신은 아마 “부탁하기 편한 사람”일 거예요. 그건 칭찬이면서 동시에 이 패턴의 비용이 어디서 생기는지 알려주는 말이기도 해요.</p>
+  <div class="duo">
+    <div class="cell"><b>이 패턴이 만들어주는 힘</b>세심함 · 신뢰 · 관계의 안정 · 팀의 접착제</div>
+    <div class="cell"><b>이 패턴이 나를 지치게 할 때</b>내 욕구의 지연 · 거절의 어려움 · 쌓이는 서운함 · “나는 이만큼 하는데”</div>
+  </div>
+  <p>문제는 내 몫이 계속 뒤로 밀릴 때예요. 처음에는 기꺼이 양보했던 것이 어느 순간 “당연한 것”이 되고, 상대는 당신이 힘든 줄 모른 채 계속 기대게 돼요. 그때 올라오는 서운함은 상대의 잘못이 아니라, 당신이 자기 몫을 말할 기회를 너무 오래 미뤄온 신호일 수 있어요. 그리고 그 서운함을 말하는 대신 더 잘해주는 것으로 덮으면, 루프는 한 바퀴 더 돌아요.</p>
+  <div class="note"><b>알아차릴 신호</b>“돕고 싶다”와 “거절하면 안 될 것 같다”는 같은 말이 아니에요. 부탁을 받았을 때 마음이 먼저 움직이는지, 아니면 걱정이 먼저 움직이는지 한 번만 구분해보세요. 걱정이 먼저라면, 그건 돕지 말라는 뜻이 아니라 “내 조건도 함께 말해도 된다”는 뜻이에요.</div>
+
+  <h3>함께 움직이는 두 번째와 세 번째 패턴</h3>
+  <div class="duo">
+    <div class="cell"><b>의도 살피기 · 55</b>사람을 완전히 믿기 전에 의도를 먼저 살피는 경향이 중간 정도로 나왔어요. 당신은 잘 속지 않는 사람이지만, 특별한 이유가 없으면 상대를 먼저 믿어주는 쪽에 가까워요.</div>
+    <div class="cell"><b>혼자 판단의 어려움 · 52</b>중요한 결정을 혼자 내릴 때 확신이 조금 부족할 수 있어요. 정보가 충분하면 스스로 해결할 수 있다고 믿지만, “내 판단이 맞나”는 한 번 더 물어요.</div>
+  </div>
+  <p>이 두 패턴이 중간 정도라는 건 중요한 정보예요. 흔히 TRUST는 “의심이 많고 버림받을까 두려워하는” 사람으로 설명되지만, 당신의 결과는 그 설명을 강하게 뒷받침하지 않아요. 당신의 신중함은 불신에서 오는 게 아니라, 책임감과 준비성에서 오는 쪽에 더 가까워요. 대신 “혼자 판단의 어려움”이 중간에 있다는 건, 앞서 본 “남의 판단은 믿는데 내 판단은 한 번 더 의심하는” 모습의 근거예요.</p>
+  <div class="quote" style="font-size:16px">먼저 챙김 → 자리 확인 → 안심 → 다시 먼저 챙김</div>
+  <p>이 루프의 숨은 비용은 노력의 양보다 “내 욕구가 목록에서 빠지는 순간”에 있어요. 챙기기 전에 내가 원하는 걸 먼저 한 줄 적어두면, 돌봄은 자기희생이 아니라 선택으로 남을 수 있어요.</p>
+</section>
+
+<section class="page l-str">
+  <div class="kicker">STRESS · 나를 흔드는 순간과 그때의 나</div>
+  <h2>My Stress Signature</h2>
+  <figure class="fig">
+    <svg viewBox="0 0 720 400" role="img" aria-label="스트레스 트리거 레이더와 대처 방식">
+      <g font-family="Noto Sans KR, sans-serif">
+        <g stroke="var(--line)" fill="none" stroke-width="1">
+          <polygon points="200,60 321.2,130 321.2,270 200,340 78.8,270 78.8,130"/>
+          <polygon points="200,130 260.6,165 260.6,235 200,270 139.4,235 139.4,165"/>
+          <line x1="200" y1="200" x2="200" y2="60"/><line x1="200" y1="200" x2="321.2" y2="130"/><line x1="200" y1="200" x2="321.2" y2="270"/>
+          <line x1="200" y1="200" x2="200" y2="340"/><line x1="200" y1="200" x2="78.8" y2="270"/><line x1="200" y1="200" x2="78.8" y2="130"/>
+        </g>
+        <polygon points="200,109 278.8,154.5 278.8,245.5 200,291 121.2,245.5 121.2,154.5" fill="none" stroke="var(--str)" stroke-width="1.5" stroke-dasharray="5 4" opacity=".7"/>
+        <text x="288" y="150" font-size="10.5" fill="var(--str)">65 · 취약 기준선</text>
+        <polygon points="200,144 254.6,168.5 270.3,240.6 200,249 163.6,221 133.3,161.5" fill="var(--str)" fill-opacity=".15" stroke="var(--str)" stroke-width="2.5" stroke-linejoin="round"/>
+        <g font-size="12" fill="var(--ink)">
+          <text x="200" y="46" text-anchor="middle">기준에 못 미칠 때 <tspan font-weight="700">40</tspan></text>
+          <text x="330" y="124" text-anchor="start">필요 없다고 느낄 때 <tspan font-weight="700">45</tspan></text>
+          <text x="330" y="286" text-anchor="start">앞이 안 보일 때 <tspan font-weight="700" fill="var(--str)">58</tspan></text>
+          <text x="200" y="364" text-anchor="middle">선택지가 없을 때 <tspan font-weight="700">35</tspan></text>
+          <text x="70" y="286" text-anchor="end">말하지 못할 때 <tspan font-weight="700">30</tspan></text>
+          <text x="70" y="124" text-anchor="end">사람들 사이 갈등 <tspan font-weight="700" fill="var(--str)">55</tspan></text>
+        </g>
+        <g transform="translate(470,60)" font-size="12.5" fill="var(--ink)">
+          <text x="0" y="0" font-weight="700">힘들 때 나는</text>
+          <text x="0" y="30">접근</text><rect x="70" y="20" width="140" height="12" rx="6" fill="var(--line)"/><rect x="70" y="20" width="77" height="12" rx="6" fill="var(--str)"/><text x="218" y="31" font-weight="700">55</text>
+          <text x="0" y="58">과업 몰입</text><rect x="70" y="48" width="140" height="12" rx="6" fill="var(--line)"/><rect x="70" y="48" width="67" height="12" rx="6" fill="var(--str)" opacity=".7"/><text x="218" y="59">48</text>
+          <text x="0" y="86">철수</text><rect x="70" y="76" width="140" height="12" rx="6" fill="var(--line)"/><rect x="70" y="76" width="53" height="12" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="218" y="87">38</text>
+          <text x="0" y="114">전환</text><rect x="70" y="104" width="140" height="12" rx="6" fill="var(--line)"/><rect x="70" y="104" width="42" height="12" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="218" y="115">30</text>
+          <text x="0" y="142">통제</text><rect x="70" y="132" width="140" height="12" rx="6" fill="var(--line)"/><rect x="70" y="132" width="35" height="12" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="218" y="143">25</text>
+          <text x="0" y="170">자기비난</text><rect x="70" y="160" width="140" height="12" rx="6" fill="var(--line)"/><rect x="70" y="160" width="31" height="12" rx="6" fill="var(--ink-3)" opacity=".5"/><text x="218" y="171">22</text>
+          <text x="0" y="220" font-weight="700">흔들린 뒤 돌아오는 속도</text>
+          <rect x="0" y="232" width="210" height="12" rx="6" fill="var(--line)"/><rect x="0" y="232" width="38" height="12" rx="6" fill="var(--state)"/><text x="218" y="243">반응성 <tspan font-weight="700">18</tspan></text>
+          <text x="0" y="268" font-size="11" fill="var(--ink-3)">낮을수록 빨리 회복해요.</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>여섯 상황 모두 점선(65) 안쪽에 머물러 있어요. “앞이 안 보일 때”와 “사람들 사이 갈등”이 상대적으로 바깥에 있지만, 취약점이라기보다 주의 지점이에요.</figcaption>
+  </figure>
+  <p class="lead">좋은 소식부터요. 이번 결과에서 당신을 크게 흔드는 상황은 없었어요. 여섯 가지 상황 중 어느 것도 “크게 흔들린다”는 기준을 넘지 않았고, 한번 흔들려도 원래 상태로 돌아오는 속도가 빠른 편이에요. 이건 타고난 기질일 수도 있고, 지금 당신이 좋은 자리에 있어서일 수도 있어요. 어느 쪽이든, 지금의 당신은 흔들림에 꽤 강한 사람이에요.</p>
+  <p>그래도 상대적으로 조금 더 마음이 쓰이는 두 가지는 있어요.</p>
+  <div class="duo">
+    <div class="cell"><b>앞이 보이지 않을 때 · 58</b>어떻게 될지 알 수 없는 상태가 길어지면 당신은 준비할 수 없다는 사실 자체가 불편해요. 이건 TRUST의 전형적인 지점이에요. 나쁜 소식보다 “아직 모름”이 더 힘든 사람이에요.</div>
+    <div class="cell"><b>사람들 사이 갈등 · 55</b>갈등이 벌어지면 내용보다 “관계가 괜찮은지”가 먼저 걸려요. 이건 당신의 CARE가 반응하는 지점이에요. 당사자가 아니어도 중간에서 마음을 쓰게 돼요.</div>
+  </div>
+  <p>둘 다 “취약점”이라기보다 “주의 지점”이에요. 당신이 힘들어질 때 어디서부터 시작되는지를 알려주는 지도라고 생각해주세요. 이 두 상황이 동시에 오는 경우, 예를 들어 팀에 갈등이 생겼는데 결론이 나지 않은 채 몇 주가 흐르는 상황이 당신에게는 가장 소모적인 조합일 거예요.</p>
+
+  <h3>힘들 때 나는 — 대처 방식</h3>
+  <p>당신의 가장 익숙한 대처는 “사람에게 다가가기”예요. 힘들 때 혼자 버티기보다 믿는 사람에게 말하고 위로를 구할 수 있다는 건 큰 자원이에요. 많은 사람이 이걸 못 해서 힘든 시기를 혼자 길게 끌고 가거든요. 다만 위로를 구하는 것과 확인을 구하는 것은 조금 달라요. “괜찮을 거야”라는 말을 듣고 싶은 건지, “내가 여전히 괜찮은 사람인지”를 확인하고 싶은 건지 구분해보면, 같은 대화도 훨씬 덜 소모적이 돼요. 그리고 상대도 당신을 위로하는 게 훨씬 쉬워져요.</p>
+  <p>두 번째로 높은 “과업 몰입”은 지금은 조용하지만, 스트레스가 커질 때 앞으로 나올 수 있는 방식이에요. 앞 페이지에서 본 Protection Mode의 첫 번째 신호가 바로 이거예요.</p>
+  <div class="note"><b>알아차림 포인트</b>스트레스가 커질 때 “과업 몰입”이 “접근”을 앞지르기 시작하면, 그게 Protection Mode가 켜지는 신호예요. 사람에게 가는 대신 일로 도망치고 있다면, 그때가 바로 누군가에게 먼저 말을 걸 타이밍이에요.</div>
+</section>
+
+<section class="page l-dir">
+  <div class="kicker">DIRECTION · 선택 속에서 발견된 나의 기준</div>
+  <h2>Hidden Values</h2>
+  <figure class="fig">
+    <svg viewBox="0 0 720 330" role="img" aria-label="여덟 가지 가치 순위">
+      <g font-family="Noto Sans KR, sans-serif" font-size="13" fill="var(--ink)">
+        <g transform="translate(20,20)">
+          <text x="0" y="22" font-weight="700">안정</text><rect x="90" y="8" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="8" width="370" height="20" rx="5" fill="var(--dir)"/><text x="470" y="23" font-weight="700" fill="#fff" text-anchor="end" font-size="12">84</text>
+          <text x="0" y="58" font-weight="700">관계</text><rect x="90" y="44" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="44" width="348" height="20" rx="5" fill="var(--dir)" opacity=".9"/><text x="448" y="59" font-weight="700" fill="#fff" text-anchor="end" font-size="12">79</text>
+          <text x="0" y="94" font-weight="700">기여</text><rect x="90" y="80" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="80" width="334" height="20" rx="5" fill="var(--dir)" opacity=".8"/><text x="434" y="95" font-weight="700" fill="#fff" text-anchor="end" font-size="12">76</text>
+          <text x="0" y="130">성장</text><rect x="90" y="116" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="116" width="299" height="20" rx="5" fill="var(--dir)" opacity=".6"/><text x="399" y="131" fill="#fff" text-anchor="end" font-size="12">68</text>
+          <text x="0" y="166">자율</text><rect x="90" y="152" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="152" width="229" height="20" rx="5" fill="var(--ink-3)" opacity=".45"/><text x="329" y="167" text-anchor="end" font-size="12">52</text>
+          <text x="0" y="202">진정성</text><rect x="90" y="188" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="188" width="198" height="20" rx="5" fill="var(--ink-3)" opacity=".45"/><text x="298" y="203" text-anchor="end" font-size="12">45</text>
+          <text x="0" y="238">성취</text><rect x="90" y="224" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="224" width="176" height="20" rx="5" fill="var(--ink-3)" opacity=".45"/><text x="276" y="239" text-anchor="end" font-size="12">40</text>
+          <text x="0" y="274">경험·즐거움</text><rect x="90" y="260" width="440" height="20" rx="5" fill="var(--dir-soft)"/><rect x="90" y="260" width="167" height="20" rx="5" fill="var(--ink-3)" opacity=".45"/><text x="267" y="275" text-anchor="end" font-size="12">38</text>
+          <!-- context diversity dots -->
+          <g fill="var(--dir)">
+            <circle cx="560" cy="18" r="4"/><circle cx="574" cy="18" r="4"/><circle cx="588" cy="18" r="4"/><circle cx="602" cy="18" r="4"/><circle cx="616" cy="18" r="4"/>
+            <circle cx="560" cy="54" r="4"/><circle cx="574" cy="54" r="4"/><circle cx="588" cy="54" r="4"/><circle cx="602" cy="54" r="4"/>
+            <circle cx="560" cy="90" r="4"/><circle cx="574" cy="90" r="4"/><circle cx="588" cy="90" r="4"/><circle cx="602" cy="90" r="4"/>
+            <circle cx="560" cy="126" r="4"/><circle cx="574" cy="126" r="4"/><circle cx="588" cy="126" r="4"/>
+          </g>
+          <g fill="var(--ink-3)" opacity=".5">
+            <circle cx="560" cy="162" r="4"/><circle cx="574" cy="162" r="4"/>
+            <circle cx="560" cy="198" r="4"/><circle cx="574" cy="198" r="4"/>
+            <circle cx="560" cy="234" r="4"/>
+            <circle cx="560" cy="270" r="4"/>
+          </g>
+          <text x="560" y="300" font-size="10.5" fill="var(--ink-3)">● 서로 다른 상황 수</text>
+        </g>
+      </g>
+    </svg>
+    <figcaption>막대는 열여덟 상황에서 그 가치를 얼마나 자주 우선했는지, 오른쪽 점은 서로 다른 종류의 상황 몇 곳에서 그랬는지예요. 안정은 다섯 종류의 상황 모두에서 선택됐어요.</figcaption>
+  </figure>
+  <p class="lead">가치는 “중요하다고 말한 것”보다, 선택이 부딪힐 때 무엇을 반복해서 지켰는지에서 더 잘 드러나요. 아래 결과는 가치관을 직접 고르게 한 게 아니라, 서로 다른 열여덟 개 상황에서 당신이 우선한 선택을 모아본 거예요. 그래서 좋은 가치의 순위가 아니라, 실제 결정을 끌어당기는 방향으로 읽어주세요.</p>
+  <div class="trio">
+    <div class="cell"><b>01 안정 · 84</b>예측할 수 있고 흔들리지 않는 기반이 있는가</div>
+    <div class="cell"><b>02 관계 · 79</b>중요한 사람과 마음이 이어져 있는가</div>
+    <div class="cell"><b>03 기여 · 76</b>내가 누군가에게 실제로 도움이 되는가</div>
+  </div>
+  <p>위의 세 가치가 “여러 상황에서 일관되게” 선택됐다는 점이 중요해요. 한 종류의 상황에서만 반복된 게 아니라 일, 관계, 회복, 갈등, 미래를 두고 물을 때마다 같은 방향을 골랐어요. 반대로 경험·즐거움과 성취는 낮게 나왔는데, 이건 당신이 재미없거나 야심이 없다는 뜻이 아니에요. 다른 가치와 부딪혔을 때 양보하는 쪽이라는 뜻이에요. 새로운 경험이 안정을 흔든다면, 당신은 경험을 미뤄요.</p>
+
+  <h3>내가 원하는 삶의 모습</h3>
+  <div class="quote">“믿을 수 있는 사람들과 함께, 서로를 지켜주며 천천히 넓어지는 삶.”</div>
+  <p>당신이 원하는 삶의 핵심은 “함께 안전한 진전”이에요. 혼자 성공하는 것보다 함께 잘되는 것이 좋고, 빠르게 바뀌는 것보다 믿을 수 있게 쌓이는 것이 좋아요. 새로운 것에 끌리지 않는 건 아니지만, 그 새로움이 지금의 안전을 흔든다면 선뜻 손을 뻗지 않아요. 성장(68)이 네 번째에 있다는 건 당신이 멈춰 있고 싶다는 뜻이 아니에요. 안전한 기반 위에서라면 기꺼이 넓어지고 싶다는 뜻이에요.</p>
+  <div class="trio">
+    <div class="cell"><b>일</b>역할이 분명하고, 믿을 수 있는 사람과 함께하며, 내 기여가 보이는 일</div>
+    <div class="cell"><b>관계</b>오래 가는 관계, 서로의 몫이 분명한 관계</div>
+    <div class="cell"><b>개인시간</b>충분히 이해하고 정리할 수 있는 조용한 시간</div>
+  </div>
+  <p>한 가지 구분은 필요해요. 안정이라는 가치는 당신이 어디에 뿌리내리고 싶은지를 알려주지만, “확실해질 때까지 움직이지 않겠다”는 마음은 지금의 가능성을 닫아요. 뿌리는 당신을 지탱하지만, 기다림은 당신을 멈추게 해요. 둘의 체감은 비슷해도 결과는 달라요.</p>
+  <div class="note"><b>삶의 방향을 확인하는 질문</b>“이 선택이 나를 안전하게 하는가?” 그리고 “그 안전이 나를 넓히는가, 가두는가?” 두 질문이 동시에 좋은 답을 낼 때, 당신은 가장 오래 힘을 쓸 수 있어요.</div>
+</section>
+
+<section class="page l-cross">
+  <div class="kicker">CROSS INSIGHTS · 결과를 함께 보면</div>
+  <h2>그래서 나는 왜 이렇게 행동할까?</h2>
+  <p class="lead">당신의 이야기를 하나로 연결하면 핵심은 “지켜주는 사람이 됨으로써 안전해지고 싶다”는 문장에 가까워요. 당신은 안전한 기반을 원하지만, 그 기반을 벽을 쌓아 만드는 게 아니라 사람들 사이에 자기 자리를 만드는 방식으로 만들어요. 누군가를 챙기고, 갈등을 다독이고, 맡은 일을 끝까지 하면서 “나는 여기서 필요한 사람이다”라는 감각을 얻고, 그 감각이 당신의 불안을 잠재워요.</p>
+  <p>이 방식은 실제로 잘 작동해요. 사람들은 당신을 믿고, 당신은 그 신뢰 안에서 편안해요. 다만 이 방식에는 조용한 조건이 하나 붙어 있어요. “내가 계속 필요한 사람이어야 한다”는 조건이에요. 그래서 상대가 내 도움 없이 잘 지낼 때, 혹은 내가 도울 수 없는 상황일 때, 안전의 감각도 함께 흔들릴 수 있어요. 지금은 여유가 있어서 이 조건이 잘 보이지 않지만, 여유가 줄어들면 이 조건이 당신의 선택을 꽤 많이 좌우하게 돼요.</p>
+  <div class="note"><b>Core insight</b>당신에게 필요한 건 돌봄을 줄이는 게 아니라, 돌봄과 안전을 분리하는 거예요. 누군가를 챙기는 건 당신이 좋아서 하는 일이고, 당신의 자리는 챙기지 않는 순간에도 그대로 있어요. 이 둘이 분리될수록 돌봄은 의무가 아니라 기쁨으로 남아요.</div>
+
+  <h3>같은 방향으로 힘이 겹치는 지점 — 돌봄 × 먼저 챙김</h3>
+  <figure class="fig">
+    <svg viewBox="0 0 720 200" role="img" aria-label="두 힘이 겹치는 강화 조합">
+      <g font-family="Noto Sans KR, sans-serif" font-size="12.5">
+        <circle cx="270" cy="100" r="78" fill="var(--core)" fill-opacity=".18" stroke="var(--core)" stroke-width="1.5"/>
+        <circle cx="370" cy="100" r="78" fill="var(--pat)" fill-opacity=".18" stroke="var(--pat)" stroke-width="1.5"/>
+        <text x="228" y="95" text-anchor="middle" font-weight="700" fill="var(--core)">보조 Core</text>
+        <text x="228" y="114" text-anchor="middle" fill="var(--core)">CARE · 67</text>
+        <text x="412" y="95" text-anchor="middle" font-weight="700" fill="var(--pat)">패턴</text>
+        <text x="412" y="114" text-anchor="middle" fill="var(--pat)">나보다 먼저 · 74</text>
+        <text x="320" y="96" text-anchor="middle" font-size="20" font-weight="700" fill="var(--ink)">70</text>
+        <text x="320" y="114" text-anchor="middle" font-size="10.5" fill="var(--ink-2)">겹침 강도</text>
+        <text x="520" y="80" fill="var(--ink)" font-weight="700">의미 있는 강화</text>
+        <text x="520" y="102" fill="var(--ink-2)" font-size="11.5">서로 다른 Layer가</text>
+        <text x="520" y="120" fill="var(--ink-2)" font-size="11.5">같은 방향으로 밀어요.</text>
+      </g>
+    </svg>
+    <figcaption>보조 Core와 패턴이 같은 방향을 가리켜, 이 조합이 당신의 행동을 특히 강하게 움직여요.</figcaption>
+  </figure>
+  <p>당신의 보조 Core CARE와 “내 욕구보다 상대의 욕구를 먼저”라는 패턴이 같은 방향으로 겹쳐 있어요. 이 조합은 당신을 놀랍도록 따뜻하고 믿음직한 사람으로 만들어요. 힘든 사람 곁에 가장 먼저 가고, 팀에서 빠진 부분을 조용히 메우고, 누구도 부탁하지 않은 일까지 챙겨요. 이런 사람이 한 명 있으면 팀 전체의 온도가 달라져요.</p>
+  <p>비용은 이 힘이 “선택”에서 “자동”으로 바뀔 때 생겨요. 돕고 싶어서 돕는 게 아니라 돕지 않으면 불편해서 돕게 되고, 내 몫은 자연스럽게 목록에서 빠져요. 그러다 “나는 이만큼 하는데 아무도 몰라준다”는 마음이 올라오면, 그건 상대의 문제라기보다 당신이 자기 조건을 말할 기회를 너무 오래 미뤄온 신호일 수 있어요. 그리고 그때 당신이 택하기 쉬운 반응은 “말하기”가 아니라 “더 잘하기”라서, 아무도 알아채지 못한 채 루프가 계속 돌 수 있어요.</p>
+  <div class="duo">
+    <div class="cell"><b>강점</b>세심한 돌봄 · 팀의 접착제 · 깊은 신뢰</div>
+    <div class="cell"><b>비용</b>내 욕구의 지연 · 거절의 어려움 · 쌓이는 서운함</div>
+  </div>
+
+  <h3>전형적인 설명이 전부는 아닙니다</h3>
+  <p>TRUST는 흔히 “불안하고 의심이 많은 사람”으로 단순하게 설명돼요. 하지만 당신의 결과는 그 설명을 강하게 뒷받침하지 않았어요. 사람의 의도를 살피는 경향도, 관계가 멀어질까 하는 걱정도 중간 정도였고, 무엇보다 지난 한 달의 당신은 자신에게 관대하고 유연했어요. 흔들려도 금방 돌아왔고요.</p>
+  <div class="note"><b>당신에게 더 가까운 설명</b>“경계하는 사람이 아니라 준비하는 사람. 의심해서 신중한 게 아니라, 책임지고 싶어서 신중한 사람.”</div>
+  <p>그래서 이 리포트는 “불안을 다스리는 법”을 말하지 않아요. 당신의 신중함은 문제가 아니라 자산이고, 지금은 그 자산이 잘 쓰이고 있어요. 대신 이 리포트가 주목하는 건 그 신중함이 “누군가에게 필요한 사람이 되는 것”과 어떻게 연결되어 있는가예요. 이 연결을 알면, 당신이 유난히 열심히 챙기는 시기가 언제인지, 그리고 그때 정말 필요한 게 무엇인지 스스로 읽을 수 있게 돼요.</p>
+  <div class="duo">
+    <div class="cell"><b>전형적 라벨</b>TRUST = 불안 · 의심 · 확인</div>
+    <div class="cell"><b>당신의 결과</b>TRUST = 준비 · 책임 · 함께 안전해지기</div>
+  </div>
+</section>
+
+<section class="page l-state">
+  <div class="kicker">GROWTH · 지금의 나에게 필요한 방향</div>
+  <h2>지켜주는 나에서, 지켜주지 않아도 여기 있는 나로</h2>
+  <div class="trio">
+    <div class="cell"><b>Keep</b>위험을 미리 읽는 눈<br>끝까지 가는 충실함<br>힘들 때 사람에게 다가가는 힘<br>자신에게 관대한 요즘의 태도</div>
+    <div class="cell"><b>Watch</b>내 몫이 목록에서 빠지는 순간<br>위로가 아니라 확인을 구하고 있는 순간<br>이해가 끝날 때까지 행동을 미루는 순간</div>
+    <div class="cell"><b>Develop</b>챙기기 전에 내 조건을 말하는 힘<br>확인하지 않고도 믿는 힘<br>충분히 모른 채로 한 걸음 내딛는 힘</div>
+  </div>
+  <p class="lead">당신의 다음 성장은 신중함을 줄이는 데 있지 않아요. 지금까지 다른 사람의 안전을 잘 지켜온 힘에 “내 자리를 내가 지키는 권한”을 더하는 데 있어요. 필요한 사람에서, 필요하지 않아도 괜찮은 사람으로 범위를 넓히는 거예요. 그렇게 되면 당신의 돌봄은 줄어드는 게 아니라 오히려 가벼워져요. 의무에서 나오는 돌봄과 여유에서 나오는 돌봄은 받는 사람도 다르게 느끼거든요.</p>
+  <div class="note"><b>조금 내려놓아도 되는 것</b>모든 부탁에 응해야 한다는 마음은 조금 내려놓아도 돼요. 어떤 도움은 “지금은 어려워요”라는 말과 함께 가도 되고, 어떤 관계는 내가 챙기지 않는 동안에도 그대로 있어요. 그리고 어떤 결정은 완전히 이해하기 전에 내려도 괜찮아요.</div>
+
+  <h3>나를 위한 작은 실험</h3>
+  <p>지금의 당신은 여유가 있는 상태라 실험을 세 가지 제안해요. 목적은 성격을 고치는 게 아니에요. 익숙한 반응이 자동으로 나오기 전에 한 박자 멈추고, 원래 갖고 있었지만 덜 쓰던 선택지를 실제로 꺼내보는 거예요.</p>
+  <div class="note"><b>01 · 관계에서 — 이번 주</b>누군가의 부탁을 받았을 때, “네”라고 답하기 전에 속으로 한 문장을 먼저 만들어보세요. “나는 지금 ___가 필요하다.” 그 문장을 말할지 말지는 자유예요. 다만 그 문장이 있다는 걸 아는 것만으로 돌봄이 자동에서 선택으로 바뀌어요.</div>
+  <div class="note"><b>02 · 확인하고 싶을 때</b>가까운 사람의 반응이 달라졌다고 느껴질 때, 확인하는 대신 하루만 기다려보세요. 그리고 “확인된 사실 / 내가 붙인 의미”를 두 줄로 적어보세요. 하루 뒤에도 의미가 남아 있다면, 그때 질문 한 문장으로 직접 물어보세요.</div>
+  <div class="note"><b>03 · 결정 앞에서</b>이번 주에 작은 결정 하나를 “70%만 이해한 상태”에서 내려보세요. 점심 메뉴여도 되고, 회의에서의 한마디여도 돼요. 결과가 어땠는지보다 “완전히 알지 못한 채로도 움직였다”는 경험 자체를 기록해두세요.</div>
+</section>
+
+<section class="page l-cross">
+  <div class="kicker">지금의 나에게 필요한 메시지</div>
+  <h2>Letter to Myself</h2>
+  <p class="lead">당신은 아마 오랫동안 “먼저 살피는 사람”으로 살아왔을 거예요. 무슨 일이 생기기 전에 미리 대비하고, 누가 힘든지 먼저 알아채고, 사람들 사이가 불편해지기 전에 조용히 다리를 놓는 사람. 그 덕분에 많은 사람이 당신 곁에서 안심했고, 당신도 그 안심 속에서 자기 자리를 찾았을 거예요.</p>
+  <p>그 힘은 앞으로도 당신의 것이에요. 다만 이제는 하나를 더 알아도 괜찮아요. 당신의 자리는 당신이 지켜준 만큼 생기는 게 아니라는 것. 아무도 챙기지 않은 날에도, 확인하지 못한 채로 잠든 밤에도, 당신은 여전히 그 자리에 있어요. 지켜주는 사람이어서 여기 있는 게 아니라, 여기 있어서 지켜줄 수 있는 거예요.</p>
+  <p>요즘의 당신은 그걸 조금씩 알아가고 있는 것 같아요. 자신에게 가혹하지 않고, 흔들려도 금방 돌아오고, 마음을 말할 수 있는 사람이 곁에 있어요. 이 계절이 오래가길 바라요. 그리고 힘든 계절이 다시 오더라도, 이 리포트가 “더 잘하려 하기 전에, 먼저 말을 걸어도 된다”는 걸 기억하게 해주면 좋겠어요.</p>
+  <div class="quote">“나는 지금도, 누군가를 지키지 않는 순간에도, 여기 있는 사람인가?”</div>
+
+  <h3>결국, 나는</h3>
+  <div class="selfcard">
+    <div class="t">MY SELF CARD</div>
+    <div class="q">“나는 지켜줌으로써 자리를 얻는 사람이 아니라,<br>이미 있는 자리에서 지켜주는 사람.”</div>
+    <div class="g">
+      <div><b>MY CORE</b>믿을 수 있는 기반을 찾고 끝까지 가는 힘</div>
+      <div><b>MY RELATIONSHIP</b>서로를 지켜주는 관계 속의 안전</div>
+      <div><b>MY PATTERN</b>나보다 먼저 상대를 챙기는 마음</div>
+      <div><b>MY DIRECTION</b>함께 안전하게, 천천히 넓어지는 삶</div>
+      <div style="grid-column:1/-1"><b>MY QUESTION</b>“이 돌봄은 선택인가, 확인인가?”</div>
+    </div>
+  </div>
+  <p class="small">실제 서비스에서는 이 카드를 1:1 / 9:16 공유 이미지로 별도 생성할 수 있습니다.</p>
+
+  <h3>이 리포트를 덮기 전에</h3>
+  <ol class="reflect">
+    <li>아무도 부탁하지 않았는데 내가 먼저 챙기고 있는 일은 무엇인가요? 그중 정말 하고 싶어서 하는 건 몇 개인가요?</li>
+    <li>최근 “확인하지 않았는데도 괜찮았던” 순간이 있었나요?</li>
+    <li>내가 필요하지 않아도 그대로 남아 있을 관계는 누구와의 관계인가요?</li>
+    <li>지금의 내가 완전히 이해하기 전에 내려보고 싶은 작은 결정 하나는 무엇인가요?</li>
+  </ol>
+  <p class="small" style="margin-top:36px">2~4주 뒤 한 번 더 돌아와 보세요. 실제 생활에서 패턴을 한두 번 알아차린 뒤 다시 읽으면 문장의 의미가 달라질 수 있어요. SELF-LAYERS의 목적은 자신을 고정하는 것이 아니라 선택할 수 있는 여지를 늘리는 데 있어요.</p>
+  <p class="disclaimer" style="margin-top:28px">SELF-LAYERS V1.0 · 핵심 동기 이론, 성인 애착, 초기부적응도식, 자기결정이론 등을 바탕으로 자체 개발한 자기이해 도구입니다. 의학적·임상적 진단을 제공하지 않으며, 본 샘플의 모든 점수는 설계 검증용 예시 값입니다.</p>
+</section>
+
+</div>
+</body>
+</html>

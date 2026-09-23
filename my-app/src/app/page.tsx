@@ -1,5 +1,5 @@
-import SurveyScreen from "../components/survey/survey-screen";
+import SurveyApp from "../components/survey/survey-app";
 
 export default function Home() {
-  return <SurveyScreen />;
+  return <SurveyApp />;
 }
