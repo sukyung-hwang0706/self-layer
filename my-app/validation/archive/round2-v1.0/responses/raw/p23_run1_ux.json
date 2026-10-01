@@ -1,0 +1,31 @@
+{
+  "overall": {
+    "perceived_minutes": 25,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": "Q52 무렵부터 멍해져서 문항을 몇 번씩 다시 읽음",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "시작했으면 끝은 봐야죠. 근데 중간중간 엄마 생각이 나서 화면만 보고 있던 때가 좀 있었어요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "회의에서 반대하는 거, 공 가져간 거 같은 건 바로 골랐는데 여행이나 주말은 요즘 그럴 여유가 없어서 감으로 골랐어요." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 말이 좀 걸렸어요. 요즘 잃은 게 있어서." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 3, "note": "애인 연락 얘기 나오는 데서 좀 찔렸어요. 비슷한 문장이 계속 나와서 앞에서 뭐라고 했는지 헷갈렸어요." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "여기서 멍해졌어요. 평소의 나랑 요즘의 나가 달라서 어느 쪽으로 답해야 할지 몇 번 다시 봤어요." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 2, "note": "지난 한 달이라고 딱 정해줘서 오히려 답하기 쉬웠어요. 좋은 한 달은 아니었으니까." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "B랑 C 사이에서 고민했어요. 어르신 지켜낸 날도 좋고, 곁에 있는 사람도 중요하고." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 거에서 점수 매기는 걸로 바뀌니까 오히려 편했어요. 근데 점수는 기분 따라 달라질 것 같아요." },
+  "hard_items": [
+    { "q": "Q27", "reason": "답하기 불편함", "detail": "원래 저는 말하는 사람인데 요즘은 회의에서 꾹 참는 날이 많아서 어느 쪽으로 답해야 할지 모르겠더라고요." },
+    { "q": "Q23", "reason": "어려운 표현", "detail": "에너지가 밖으로 빠져나가는 걸 경계한다는 게 무슨 뜻인지 잘 와닿지 않았어요." },
+    { "q": "Q40", "reason": "모호함", "detail": "갈등이 있어도 관계가 안 흔들린다는 건 머리로는 아는데 막상 연락 안 되면 불안해서요." },
+    { "q": "Q60", "reason": "모호함", "detail": "일할 때는 차분한데 요즘 감정은 전혀 차분하지 않아서 평소 기준인지 요즘 기준인지 헷갈렸어요." }
+  ],
+  "careless_items": ["Q06", "Q33", "Q57"],
+  "emotional": {
+    "uncomfortable": true,
+    "note": "Q24 기댈 곳이 없어지는 상황, Q29 갑자기 멀어질 수 있다는 문항에서 엄마 생각이 나서 잠깐 멈췄어요. Q74 마음 편하게 말할 사람이 있었냐는 것도 좀 아팠어요."
+  }
+}

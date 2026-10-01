@@ -1,0 +1,38 @@
+{
+  "id": "p25",
+  "alias": "은행 창구, 중재로 침묵을 덮는 FLOW",
+  "response_style": "normal",
+  "core": { "primary": "T9", "secondary": "T2", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Compensation", "secondary": "Reinforced", "detail": "말하지 못할 때 흔들림(ST5)·상대 먼저(SS)라는 취약성을 '분위기 메이커·중재자' 강점으로 덮음. ST5 높아 FLOW 강화도 함께" },
+  "channel": "SX",
+  "mbti": { "type": "ESFJ", "fit_note": "동기·친구 사이를 커피와 웃긴 사진으로 이어 붙이는(E·F) 분위기 메이커이고 정해진 자리와 순서가 편한(S·J) 은행원. FLOW의 조화 추구가 사교적 중재로 드러남", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["SS", "ABN", "DEP"],
+  "schema_low": ["MIS", "US"],
+  "values_top3": ["REL", "SEC", "EXP"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST5", "ST6"], "reactivity": "mid", "dominant_coping": ["SC5", "SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 26,
+    "age_band": "20s",
+    "motivation": "self",
+    "focus": "mid",
+    "reading_speed": "normal",
+    "condition_today": "low",
+    "test_setting": "휴대폰, 점심시간 지점 휴게실",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "할 말은 다 하고 싫으면 싫다고 하며, 분위기를 맞출 뿐 참는 건 아니다.",
+    "blind_spot": "자기 몫의 부당함엔 웃고 넘기고, 생각은 일기장에만 쓰며, 이유를 묻기 전에 사과한다"
+  },
+  "self_image_gap": { "level": "large", "description": "자기주장을 한다고 믿지만 장면은 일관된 침묵과 양보" },
+  "notes": "large gap 납득도 검증. 사회적 바람직성은 낮음(자기 인식 자체가 어긋난 것이지 잘 보이려는 것이 아님). 두통·삼킴 → protection."
+}

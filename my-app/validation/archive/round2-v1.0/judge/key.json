@@ -1,0 +1,336 @@
+{
+  "seed": 4242,
+  "note": "평가자에게 보이지 않는 정답표",
+  "trials": {
+    "t01": {
+      "persona": "p05",
+      "answer": "B",
+      "options": {
+        "A": "p06",
+        "B": "p05",
+        "C": "p15",
+        "D": "p13"
+      },
+      "sameCoreDistractor": "p15"
+    },
+    "t02": {
+      "persona": "p29",
+      "answer": "D",
+      "options": {
+        "A": "p09",
+        "B": "p15",
+        "C": "p07",
+        "D": "p29"
+      },
+      "sameCoreDistractor": "p07"
+    },
+    "t03": {
+      "persona": "p04",
+      "answer": "C",
+      "options": {
+        "A": "p24",
+        "B": "p08",
+        "C": "p04",
+        "D": "p25"
+      },
+      "sameCoreDistractor": "p25"
+    },
+    "t04": {
+      "persona": "p24",
+      "answer": "D",
+      "options": {
+        "A": "p09",
+        "B": "p22",
+        "C": "p06",
+        "D": "p24"
+      },
+      "sameCoreDistractor": "p09"
+    },
+    "t05": {
+      "persona": "p16",
+      "answer": "D",
+      "options": {
+        "A": "p14",
+        "B": "p20",
+        "C": "p05",
+        "D": "p16"
+      },
+      "sameCoreDistractor": "p14"
+    },
+    "t06": {
+      "persona": "p19",
+      "answer": "A",
+      "options": {
+        "A": "p19",
+        "B": "p20",
+        "C": "p15",
+        "D": "p16"
+      },
+      "sameCoreDistractor": "p20"
+    },
+    "t07": {
+      "persona": "p23",
+      "answer": "B",
+      "options": {
+        "A": "p13",
+        "B": "p23",
+        "C": "p10",
+        "D": "p25"
+      },
+      "sameCoreDistractor": "p25"
+    },
+    "t08": {
+      "persona": "p01",
+      "answer": "A",
+      "options": {
+        "A": "p01",
+        "B": "p28",
+        "C": "p03",
+        "D": "p09"
+      },
+      "sameCoreDistractor": "p03"
+    },
+    "t09": {
+      "persona": "p28",
+      "answer": "D",
+      "options": {
+        "A": "p26",
+        "B": "p14",
+        "C": "p30",
+        "D": "p28"
+      },
+      "sameCoreDistractor": "p30"
+    },
+    "t10": {
+      "persona": "p26",
+      "answer": "A",
+      "options": {
+        "A": "p26",
+        "B": "p29",
+        "C": "p28",
+        "D": "p16"
+      },
+      "sameCoreDistractor": "p28"
+    },
+    "t11": {
+      "persona": "p02",
+      "answer": "A",
+      "options": {
+        "A": "p02",
+        "B": "p26",
+        "C": "p27",
+        "D": "p07"
+      },
+      "sameCoreDistractor": "p26"
+    },
+    "t12": {
+      "persona": "p22",
+      "answer": "B",
+      "options": {
+        "A": "p23",
+        "B": "p22",
+        "C": "p29",
+        "D": "p21"
+      },
+      "sameCoreDistractor": "p23"
+    },
+    "t13": {
+      "persona": "p03",
+      "answer": "C",
+      "options": {
+        "A": "p08",
+        "B": "p04",
+        "C": "p03",
+        "D": "p12"
+      },
+      "sameCoreDistractor": "p08"
+    },
+    "t14": {
+      "persona": "p21",
+      "answer": "B",
+      "options": {
+        "A": "p13",
+        "B": "p21",
+        "C": "p20",
+        "D": "p28"
+      },
+      "sameCoreDistractor": "p28"
+    },
+    "t15": {
+      "persona": "p12",
+      "answer": "D",
+      "options": {
+        "A": "p26",
+        "B": "p14",
+        "C": "p03",
+        "D": "p12"
+      },
+      "sameCoreDistractor": "p03"
+    },
+    "t16": {
+      "persona": "p06",
+      "answer": "B",
+      "options": {
+        "A": "p19",
+        "B": "p06",
+        "C": "p20",
+        "D": "p30"
+      },
+      "sameCoreDistractor": "p30"
+    },
+    "t17": {
+      "persona": "p30",
+      "answer": "B",
+      "options": {
+        "A": "p27",
+        "B": "p30",
+        "C": "p02",
+        "D": "p12"
+      },
+      "sameCoreDistractor": "p02"
+    },
+    "t18": {
+      "persona": "p11",
+      "answer": "A",
+      "options": {
+        "A": "p11",
+        "B": "p12",
+        "C": "p10",
+        "D": "p17"
+      },
+      "sameCoreDistractor": "p10"
+    },
+    "t19": {
+      "persona": "p20",
+      "answer": "D",
+      "options": {
+        "A": "p26",
+        "B": "p14",
+        "C": "p19",
+        "D": "p20"
+      },
+      "sameCoreDistractor": "p19"
+    },
+    "t20": {
+      "persona": "p15",
+      "answer": "A",
+      "options": {
+        "A": "p15",
+        "B": "p13",
+        "C": "p04",
+        "D": "p19"
+      },
+      "sameCoreDistractor": "p13"
+    },
+    "t21": {
+      "persona": "p13",
+      "answer": "B",
+      "options": {
+        "A": "p09",
+        "B": "p13",
+        "C": "p20",
+        "D": "p15"
+      },
+      "sameCoreDistractor": "p15"
+    },
+    "t22": {
+      "persona": "p25",
+      "answer": "C",
+      "options": {
+        "A": "p19",
+        "B": "p27",
+        "C": "p25",
+        "D": "p23"
+      },
+      "sameCoreDistractor": "p23"
+    },
+    "t23": {
+      "persona": "p10",
+      "answer": "B",
+      "options": {
+        "A": "p11",
+        "B": "p10",
+        "C": "p08",
+        "D": "p04"
+      },
+      "sameCoreDistractor": "p11"
+    },
+    "t24": {
+      "persona": "p07",
+      "answer": "B",
+      "options": {
+        "A": "p29",
+        "B": "p07",
+        "C": "p16",
+        "D": "p10"
+      },
+      "sameCoreDistractor": "p29"
+    },
+    "t25": {
+      "persona": "p08",
+      "answer": "B",
+      "options": {
+        "A": "p23",
+        "B": "p08",
+        "C": "p01",
+        "D": "p19"
+      },
+      "sameCoreDistractor": "p01"
+    },
+    "t26": {
+      "persona": "p18",
+      "answer": "A",
+      "options": {
+        "A": "p18",
+        "B": "p16",
+        "C": "p30",
+        "D": "p26"
+      },
+      "sameCoreDistractor": "p16"
+    },
+    "t27": {
+      "persona": "p14",
+      "answer": "A",
+      "options": {
+        "A": "p14",
+        "B": "p17",
+        "C": "p07",
+        "D": "p10"
+      },
+      "sameCoreDistractor": "p17"
+    },
+    "t28": {
+      "persona": "p27",
+      "answer": "A",
+      "options": {
+        "A": "p27",
+        "B": "p10",
+        "C": "p06",
+        "D": "p05"
+      },
+      "sameCoreDistractor": "p10"
+    },
+    "t29": {
+      "persona": "p09",
+      "answer": "B",
+      "options": {
+        "A": "p07",
+        "B": "p09",
+        "C": "p03",
+        "D": "p29"
+      },
+      "sameCoreDistractor": "p07"
+    },
+    "t30": {
+      "persona": "p17",
+      "answer": "A",
+      "options": {
+        "A": "p17",
+        "B": "p14",
+        "C": "p18",
+        "D": "p25"
+      },
+      "sameCoreDistractor": "p14"
+    }
+  }
+}

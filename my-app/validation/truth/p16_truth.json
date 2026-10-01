@@ -1,0 +1,38 @@
+{
+  "id": "p16",
+  "alias": "병동 간호사, 가까움을 원하며 물러서는 TRUST",
+  "response_style": "normal",
+  "core": { "primary": "T6", "secondary": "T2", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Conflict", "secondary": "Reinforced", "detail": "관계 가치(REL)·떠날까 두려움(ABN)이 높은데 결혼 이야기가 나오자 거리두기(AVO)도 높아짐. ANX+ABN 높아 TRUST 강화도 함께" },
+  "channel": "SX",
+  "mbti": { "type": "ISFJ", "fit_note": "체크리스트·알람으로 환자를 지키는(S·J) 간호사이고 관계에 민감하며(F) 오프 날엔 이불 속에 머무는(I) 사람. TRUST의 대비와 관계 흔들림 민감성이 맞물림", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["ABN", "MIS", "DEP"],
+  "schema_low": ["SS", "ED"],
+  "values_top3": ["SEC", "REL", "CONTR"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST3", "ST6"], "reactivity": "high", "dominant_coping": ["SC3", "SC2"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 28,
+    "age_band": "20s",
+    "motivation": "self",
+    "focus": "mid",
+    "reading_speed": "normal",
+    "condition_today": "low",
+    "test_setting": "휴대폰, 나이트 근무 후 아침 침대",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "불안한 게 아니라 준비성이 좋은 것이고 연애도 쿨하게 하며 매달리지 않는다.",
+    "blind_spot": "위치 공유를 확인하고 떠날까 무서워하며, 밤새 선배들에게 확인 전화를 돌린다"
+  },
+  "self_image_gap": { "level": "large", "description": "불안과 확인 행동을 '준비성'과 '쿨함'으로 해석" },
+  "notes": "large gap 납득도 검증. 수간호사 결정의 뒷사정 캐기 → MIS. protection이지만 지정 '힘든 시기' 아님."
+}

@@ -1,0 +1,38 @@
+{
+  "id": "p15",
+  "alias": "은퇴 정비사, 기본형 INSIGHT",
+  "response_style": "normal",
+  "core": { "primary": "T5", "secondary": "T1", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Basic", "secondary": null, "detail": "INSIGHT가 뚜렷하고 거리두기(AVO)는 중간. 혼자를 좋아하지만 가족 관계는 편안함" },
+  "channel": "SP",
+  "mbti": { "type": "ISTP", "fit_note": "회로도를 읽고 손으로 원리를 확인하는(I·S·T) 정비사이고 재촉에도 자기 속도로 고치는(P) 사람. 이해하고 나서 움직이는 INSIGHT가 손기술로 드러남", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "mid" },
+  "schema_top3": ["US", "ED", "MIS"],
+  "schema_low": ["ABN", "AS"],
+  "values_top3": ["GROW", "AUT", "SEC"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST3"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 66,
+    "age_band": "60s",
+    "motivation": "referral",
+    "focus": "high",
+    "reading_speed": "slow",
+    "condition_today": "good",
+    "test_setting": "휴대폰(돋보기), 오후 거실 소파",
+    "digital_literacy": "low",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "말보다 손이 먼저이고 혼자를 좋아하지만 사람을 싫어하진 않는다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "디지털·용어 익숙도 낮음(뒤로 잘못 가기 → 응답 실수 가능). ED는 중간 정도(말이 짧음). 깔끔한 마무리로 T1 secondary·US."
+}

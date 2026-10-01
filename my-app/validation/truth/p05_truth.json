@@ -1,0 +1,38 @@
+{
+  "id": "p05",
+  "alias": "과수원 이장, 자기희생 낮은 CARE",
+  "response_style": "normal",
+  "core": { "primary": "T2", "secondary": "T7", "primary_strength": "clear" },
+  "supporting_level": "low",
+  "case": { "primary": "Counterevidence", "secondary": null, "detail": "남을 돕고 쓸모 있는 사람이 되려는 동기는 뚜렷하지만 자기희생(SS)과 인정 기대(AS)가 낮음. 내 일 먼저 끊고, 표창도 사양" },
+  "channel": "SP",
+  "mbti": { "type": "ESTP", "fit_note": "공구 들고 바로 가서 고치는 현장형(S·P)이고 거절과 손익 판단이 분명한(T) 사람. CARE의 돕기가 감정 돌봄보다 손으로 해결하기로 나타나 자기희생이 낮은 것과 맞물림", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "MIS", "DEP"],
+  "schema_low": ["SS", "AS"],
+  "values_top3": ["CONTR", "REL", "EXP"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST6"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 61,
+    "age_band": "60s",
+    "motivation": "referral",
+    "focus": "mid",
+    "reading_speed": "slow",
+    "condition_today": "good",
+    "test_setting": "휴대폰(돋보기), 저녁 집 마루",
+    "digital_literacy": "low",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "오지랖이 넓지만 내 것 먼저 챙기고 남는 힘으로 돕는다. 고맙다는 말 들으려는 건 아니다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "디지털·용어 익숙도 낮음. US(흠 있는 사과 안 보냄), MIS(외지 업자 의심), DEP(군청 서류는 딸에게)를 중간 이상으로. 안 가 본 산 → T7 secondary·EXP."
+}

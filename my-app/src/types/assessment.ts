@@ -28,14 +28,15 @@ export type Channel = (typeof CHANNELS)[number];
 export type ContextTag = "변화" | "관계" | "회복" | "성과" | "갈등" | "기회" | "미래" | "규칙";
 
 export type PartNumber = 1 | 2 | 3 | 4 | 5 | 6;
-export type OptionKey = "A" | "B" | "C";
+/** 선택지 키. Part 1은 A~D(4지선다), Part 6은 A~C를 쓴다. 문항별 허용 키는 그 문항의 options가 정한다. */
+export type OptionKey = "A" | "B" | "C" | "D";
 export type LikertValue = 1 | 2 | 3 | 4 | 5;
 
 /** 리커트 문항이 측정하는 코드. */
 export type LikertCode = CoreType | AttachmentCode | SchemaCode | TriggerCode | "SR" | CopingCode | StateCode;
 
 export interface ChoiceOption { key: OptionKey; text: string; type: CoreType; value: ValueCode }
-export interface ChoiceItem { id: string; part: 1; kind: "choice"; context: ContextTag; stem: string; options: readonly [ChoiceOption, ChoiceOption, ChoiceOption] }
+export interface ChoiceItem { id: string; part: 1; kind: "choice"; context: ContextTag; stem: string; options: readonly [ChoiceOption, ChoiceOption, ChoiceOption, ChoiceOption] }
 export interface LikertItem { id: string; part: 2 | 3 | 4 | 5; kind: "likert"; text: string; code: LikertCode; reverse: boolean; lead?: string }
 export interface RankOption { key: OptionKey; text: string; channel: Channel }
 export interface RankItem { id: string; part: 6; kind: "rank"; stem: string; options: readonly [RankOption, RankOption, RankOption] }

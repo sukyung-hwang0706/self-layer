@@ -1,0 +1,16 @@
+{
+  "id": "p10",
+  "alias": "바닷가 그림책 작가",
+  "design_intent": ["강화형"],
+  "response_style": "normal",
+  "core": { "primary": "T4", "secondary": "T5", "primary_strength": "clear" },
+  "channel": "SX",
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["ED", "ABN", "DEF"],
+  "schema_low": ["MIS", "SS"],
+  "values_top3": ["AUTH", "REL", "GROW"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST5", "ST2"], "reactivity": "high", "dominant_coping": ["SC2", "SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "notes": "나다운 의미를 찾는 Core와 이해받지 못할 거라는 기대(ED)가 함께 강한 강화형. 관계 변화 민감도 높음, 보호 상태."
+}

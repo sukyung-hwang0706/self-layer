@@ -1,0 +1,29 @@
+{
+  "overall": {
+    "perceived_minutes": 35,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": "Q50 무렵부터 눈이 좀 침침함",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "아들이 해 보라 캐서 끝까진 했소. 비슷한 말을 자꾸 묻는 것 같던데, 그래도 천천히 읽으니 할 만은 했어요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "회사 회의니 팀이니 하는 건 은퇴하고 나니 옛날 공장 생각하며 골랐소. 두 개 고르라 해서 처음엔 헷갈렸지." },
+    { "part": 2, "perceived_length": "적당", "boredom": 2, "difficulty": 4, "note": "'무엇을 잃을까 봐'라는 제목이 무슨 뜻인지 두 번 읽었소. 문장이 좀 어렵게 쓰였어요." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 3, "note": "관계 얘기가 많이 길었소. 한 번 화면을 뒤로 잘못 넘겨서 앞 문항을 다시 봤어요." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "'흔들린다'는 말이 위에 한 번만 나와서 아래 문장들이 뭘 묻는 건지 처음엔 몰랐소." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "요즘 편하게 지내니 답하기 쉬웠소." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "나는 뭘 새로 알게 된 날이 제일 좋은데 그런 보기가 없어서 그나마 가까운 걸 골랐소." }
+  ],
+  "transition_1_to_2": { "burden": 3, "note": "고르는 거에서 숫자 매기는 걸로 바뀌어서 잠깐 어떻게 하는 건지 다시 봤소." },
+  "hard_items": [
+    { "q": "Q23", "reason": "어려운 표현", "detail": "'시간과 에너지가 밖으로 빠져나간다'는 게 무슨 말인지 두 번 읽고 짐작으로 답했소." },
+    { "q": "Q16", "reason": "상황이 와닿지 않음", "detail": "이 나이에 5년 뒤 되고 싶은 모습이라니, 그냥 지금처럼 고치고 배우며 사는 게 다요." },
+    { "q": "Q07", "reason": "상황이 와닿지 않음", "detail": "회의할 일이 이제 없어서 반상회 생각하며 골랐소." },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "몰랐던 걸 알게 된 날이 잘 보낸 날인데 그게 보기에 없었소." },
+    { "q": "Q52", "reason": "모호함", "detail": "Q52~Q57이 '흔들린다'에 대한 건지 알아채는 데 시간이 걸렸소." }
+  ],
+  "careless_items": [],
+  "emotional": { "uncomfortable": false, "note": "딱히 불편한 건 없었소. 감정 얘기 묻는 건 좀 쑥스럽긴 했지." }
+}

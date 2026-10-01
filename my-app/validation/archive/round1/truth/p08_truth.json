@@ -1,0 +1,16 @@
+{
+  "id": "p08",
+  "alias": "1위 하고도 덤덤한 은행원",
+  "design_intent": ["약한 동기형"],
+  "response_style": "normal",
+  "core": { "primary": "T3", "secondary": "T7", "primary_strength": "moderate" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["DEP", "SS", "ABN"],
+  "schema_low": ["US", "MIS"],
+  "values_top3": ["SEC", "REL", "ACH"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST3"], "reactivity": "low", "dominant_coping": ["SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": true },
+  "notes": "상황 선택은 성과 쪽으로 가지만 그 동기를 스스로 강하게 느끼지 않는 약한 동기형. 높은 자기기준도 낮음."
+}

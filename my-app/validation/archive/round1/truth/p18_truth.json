@@ -1,0 +1,16 @@
+{
+  "id": "p18",
+  "alias": "덤덤한 대비형 공무원",
+  "design_intent": ["약한 동기형"],
+  "response_style": "normal",
+  "core": { "primary": "T6", "secondary": "T3", "primary_strength": "moderate" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "SS", "AS"],
+  "schema_low": ["ABN", "DEP"],
+  "values_top3": ["ACH", "SEC", "CONTR"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": true },
+  "notes": "행동 선택은 대비·안전 쪽이지만 그 밑의 불안 동기를 스스로 강하게 느끼지 않는 약한 동기형. 판단 의존(DEP)도 낮음."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "p03",
+  "alias": "원칙의 교감",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T1", "secondary": "T8", "primary_strength": "clear" },
+  "channel": "SO",
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["ABN", "US", "SS"],
+  "schema_low": ["DEP", "MIS"],
+  "values_top3": ["CONTR", "SEC", "REL"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST1", "ST2"], "reactivity": "high", "dominant_coping": ["SC4", "SC6"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "원칙 지향 Core에 관계 혼합(가까워지기 어렵고 멀어질까 불안), 보호 상태. 밀어붙이기와 자기비난이 함께 나타남."
+}

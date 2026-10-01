@@ -9,7 +9,15 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit --incremental false",
     "test": "node scripts/run-tests.mjs",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "validate": "node validation/run.mjs",
+    "validate:spec": "node validation/run.mjs extract-spec",
+    "validate:questionnaire": "node validation/run.mjs export-questionnaire",
+    "validate:responses": "node validation/run.mjs normalize-responses",
+    "validate:montecarlo": "node validation/run.mjs montecarlo",
+    "validate:score": "node validation/run.mjs score-personas",
+    "validate:capture": "playwright test --config validation/capture/playwright.validation.config.ts",
+    "validate:analyze": "node validation/run.mjs analyze"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",

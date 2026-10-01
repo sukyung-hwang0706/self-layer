@@ -1,0 +1,38 @@
+{
+  "id": "p19",
+  "alias": "여행 영상 PD, 스스로 목표형이라 믿는 SPARK",
+  "response_style": "normal",
+  "core": { "primary": "T7", "secondary": "T8", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Reinforced", "secondary": null, "detail": "SPARK + 선택지가 없을 때 흔들림(ST4)이 함께 강함. 정해진 동선에 계약을 깸" },
+  "channel": "SO",
+  "mbti": { "type": "ENTP", "fit_note": "기획 세 개를 동시에 벌이고(N·P) 광고주와 맞서 판을 깨는(E·T) 즉흥형. 몇 년 전 받은 ENTJ를 믿지만 실제로는 계획을 닫지 못하는 P라 SPARK와 맞물림", "self_reported": "ENTJ" },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["AS", "ED", "MIS"],
+  "schema_low": ["DEP", "SS"],
+  "values_top3": ["EXP", "AUT", "ACH"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "mid", "dominant_coping": ["SC5", "SC4"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 37,
+    "age_band": "30s",
+    "motivation": "curious",
+    "focus": "low",
+    "reading_speed": "fast",
+    "condition_today": "good",
+    "test_setting": "휴대폰, 오후 카페",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "high",
+    "social_desirability": "low",
+    "prior_knowledge": "MBTI·성격검사를 즐겨 함",
+    "believed_core": "T3",
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "무조건 목표형 인간이고 구독자 목표를 향해 달리며 재미는 그다음이다.",
+    "blind_spot": "실제 선택은 재미·새로움·즉흥이 이끌고, 정해진 틀을 못 견뎌 계약까지 깬다"
+  },
+  "self_image_gap": { "level": "large", "description": "DRIVE로 확신하지만 truth는 SPARK. 조회수 집착(AS)이 확신을 지탱함" },
+  "notes": "believed_core(T3)와 truth(T7)가 다른 납득도 검증용. self_reported MBTI(ENTJ)도 type(ENTP)과 다름. AS 높음이 T3 오인을 부를 수 있어 일부러 둠. 위약금 즉시 지불·밀어붙임 → T8 secondary·SC4."
+}

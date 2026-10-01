@@ -1,0 +1,16 @@
+{
+  "id": "p23",
+  "alias": "국밥집 사장",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T8", "secondary": "T6", "primary_strength": "clear" },
+  "channel": "SX",
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["MIS", "ABN", "DEF"],
+  "schema_low": ["DEP", "SS"],
+  "values_top3": ["CONTR", "REL", "AUTH"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST6", "ST2"], "reactivity": "high", "dominant_coping": ["SC4", "SC6"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "자기 사람을 지키는 Core에 관계 혼합, 의도 살피기·멀어질 걱정·노출 걱정. 밀어붙인 뒤 자기비난."
+}

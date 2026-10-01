@@ -3,7 +3,7 @@ import { test } from "node:test";
 import { DISPLAY_ORDER, ITEMS, PART1, PART2, PART3, PART4, PART5, PART6 } from "../data/items";
 import { CORE_TYPES, VALUE_CODES } from "../types/assessment";
 
-test("문항 수는 설계서 3장과 일치한다 (18+9+24+15+9+1=76)", () => {
+test("문항 수는 설계서 3장과 일치한다 (18+9+24+15+9+1=76, 선택지 수만 V1.1-app에서 4개로 변경)", () => {
   assert.deepEqual([PART1.length, PART2.length, PART3.length, PART4.length, PART5.length, PART6.length], [18, 9, 24, 15, 9, 1]);
   assert.equal(ITEMS.length, 76);
 });
@@ -20,20 +20,34 @@ test("노출 순서는 Part 1→6을 지킨다", () => {
   assert.deepEqual(parts, [...parts].sort((a, b) => a - b));
 });
 
-test("Part 1에서 9개 유형은 각각 정확히 6회 등장한다", () => {
-  for (const t of CORE_TYPES) assert.equal(PART1.flatMap((i) => i.options).filter((o) => o.type === t).length, 6, t);
-});
-
-test("Part 1 Value 등장 횟수는 설계서와 같다 (CONTR·EXP 6회, 나머지 7회)", () => {
-  for (const v of VALUE_CODES) {
-    const n = PART1.flatMap((i) => i.options).filter((o) => o.value === v).length;
-    assert.equal(n, v === "CONTR" || v === "EXP" ? 6 : 7, v);
+test("Part 1은 4지선다(A~D)이고 한 문항 안에서 유형이 겹치지 않는다", () => {
+  for (const item of PART1) {
+    assert.deepEqual(item.options.map((o) => o.key), ["A", "B", "C", "D"], item.id);
+    assert.equal(new Set(item.options.map((o) => o.type)).size, 4, item.id);
   }
 });
 
-test("같은 문항 안에 같은 Value가 두 번 나오는 문항은 E03·E06·E14뿐이다", () => {
-  const dup = PART1.filter((i) => new Set(i.options.map((o) => o.value)).size < 3).map((i) => i.id);
-  assert.deepEqual(dup, ["E03", "E06", "E14"]);
+test("Part 1에서 9개 유형은 각각 정확히 8회 등장한다 (V1.1-app)", () => {
+  for (const t of CORE_TYPES) assert.equal(PART1.flatMap((i) => i.options).filter((o) => o.type === t).length, 8, t);
+});
+
+test("Part 1 선택지 위치 균형: 각 유형은 A·B·C·D 위치에 2회씩 놓인다", () => {
+  for (const t of CORE_TYPES) {
+    const perPos = [0, 1, 2, 3].map((p) => PART1.filter((i) => i.options[p].type === t).length);
+    assert.deepEqual(perPos, [2, 2, 2, 2], t);
+  }
+});
+
+test("Part 1 Value 등장 횟수: AUTH 10회, EXP 8회, 나머지 9회 (V1.1-app)", () => {
+  for (const v of VALUE_CODES) {
+    const n = PART1.flatMap((i) => i.options).filter((o) => o.value === v).length;
+    assert.equal(n, v === "AUTH" ? 10 : v === "EXP" ? 8 : 9, v);
+  }
+});
+
+test("같은 문항 안에 같은 Value가 두 번 나오는 문항은 없다", () => {
+  const dup = PART1.filter((i) => new Set(i.options.map((o) => o.value)).size < 4).map((i) => i.id);
+  assert.deepEqual(dup, []);
 });
 
 test("Part 3 같은 코드의 문항은 노출 순서에서 6문항 이상 떨어져 있다", () => {

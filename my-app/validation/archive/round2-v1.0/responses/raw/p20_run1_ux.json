@@ -1,0 +1,28 @@
+{
+  "overall": {
+    "perceived_minutes": 12,
+    "boredom": 3,
+    "difficulty": 2,
+    "fatigue_from": "Q60 무렵부터 졸려서 대충 누름",
+    "would_finish_in_real_life": "maybe",
+    "dropout_point": null,
+    "comment": "MBTI보다 좀 길긴 한데 연애 문항 나올 땐 완전 나 얘기라 뜨끔했어요ㅋㅋ 근데 결과 나오면 친구들한테 보낼 거예요!"
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "상황 고르는 건 재밌었는데 2순위까지 고르라니까 귀찮았음. 회의, 공 가져간 거 이런 건 내 상황이랑 좀 안 맞음" },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "문장이 좀 어려워서 대충 느낌으로 누름" },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 2, "note": "연락 안 되면 계속 생각난다는 거 완전 나… 근데 비슷한 질문 계속 나오는 느낌" },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "누구한테 위로받는다, 이건 바로 5" },
+    { "part": 5, "perceived_length": "적당", "boredom": 4, "difficulty": 3, "note": "이쯤 되니 졸려서 거의 3, 4로 누름. 지난 한 달 생각하니까 좀 우울해짐" },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "새로운 거 하는 날이 보기에 없어서 아쉬웠음" }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 거에서 숫자 누르는 걸로 바뀌니까 오히려 빨라서 좋았음" },
+  "hard_items": [
+    { "q": "Q23", "reason": "어려운 표현", "detail": "시간이랑 에너지가 밖으로 빠져나가는 걸 경계한다는 게 무슨 말인지 잘 모르겠음" },
+    { "q": "Q07", "reason": "상황이 와닿지 않음", "detail": "회의 같은 거 안 해 봐서 그냥 찍음" },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "처음 해 본 일이 재밌었던 날이 제일 좋은데 그런 보기가 없음" },
+    { "q": "Q40", "reason": "모호함", "detail": "남친이랑 싸우면 흔들리는데 진짜 끝나진 않을 것 같기도 해서 헷갈림" }
+  ],
+  "careless_items": ["Q21", "Q22", "Q41", "Q43", "Q67", "Q68", "Q69", "Q70"],
+  "emotional": { "uncomfortable": true, "note": "Q42, Q49 연락 관련 문항에서 지금 남친 답장 기다리는 중이라 괜히 더 신경 쓰였음" }
+}

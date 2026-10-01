@@ -1,0 +1,30 @@
+{
+  "overall": {
+    "perceived_minutes": 22,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": null,
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "하기로 했으니 끝까지 했습니다. 다만 몇 문항은 '언제 기준인지'가 빠져 있어서 두 번씩 읽었고, 이 결과가 얼마나 근거가 있는지는 좀 보고 판단하겠습니다."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "보기 셋 중 딱 맞는 게 없는 상황이 몇 개 있어서 2순위 고르는 데 시간이 걸렸음. 18개는 좀 많다." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "'가치 없는 사람처럼 느껴진다' 같은 표현은 좀 과하다. 그 정도까진 아니라 중간 쪽으로 찍게 됨." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 2, "note": "비슷한 질문이 여러 번 나오는 느낌. 일부러 그런 건지 모르겠지만 앞에서 뭐라 답했는지 신경 쓰였음." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "앞 6개는 '흔들린다'의 정도를 어떻게 매기라는 건지 처음에 헷갈렸다." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "한 달 기준이라고 정해줘서 답하기 편했음." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "보기에 '할 일을 다 끝냈을 때'가 없어서 셋 다 딱 맞진 않았다." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 방식이 바뀌는 건 안내가 있어서 괜찮았는데, Part 2 제목 '무엇을 잃을까 봐'는 문항이랑 연결이 바로 안 됐음." },
+  "hard_items": [
+    { "q": "Q04", "reason": "선택지가 다 안 맞음", "detail": "마감이 언제냐, 얼마나 부족하냐에 따라 다름. 조건이 없다." },
+    { "q": "Q10", "reason": "모호함", "detail": "'재량으로 할 수 있는 역할'이 어떤 수준인지 불분명해서 셋 다 해당될 수 있었음." },
+    { "q": "Q21", "reason": "어려운 표현", "detail": "'가치 없는 사람'까지 가는 건 표현이 세서 동의 정도를 정하기 애매했다." },
+    { "q": "Q23", "reason": "모호함", "detail": "'밖으로 빠져나가는 것을 경계한다'가 무슨 뜻인지 다시 읽었다." },
+    { "q": "Q52", "reason": "모호함", "detail": "'평소보다 크게 흔들린다'의 기준이 없다. 신경은 쓰이는데 흔들린다고까지 할지." },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "하루를 잘 보냈다는 건 할 일을 끝냈을 때인데 그런 보기가 없음." }
+  ],
+  "careless_items": [],
+  "emotional": { "uncomfortable": false, "note": "불편하진 않았다. 다만 Q13·Q37 같은 건 작년 승진 심사 생각이 나서 잠깐 멈췄음." }
+}

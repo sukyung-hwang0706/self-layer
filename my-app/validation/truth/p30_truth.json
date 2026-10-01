@@ -1,0 +1,38 @@
+{
+  "id": "p30",
+  "alias": "생산관리 사원, 성의 없는 응답",
+  "response_style": "careless",
+  "core": { "primary": null, "secondary": null, "primary_strength": "invalid_response" },
+  "supporting_level": "n/a",
+  "case": { "primary": null, "secondary": null, "detail": "회사 필수 과제로 억지 응시. 문항을 읽지 않고 같은 칸 연속 응답. 엔진이 판정 유보를 내거나 리포트가 무리한 단정을 하지 않는지 확인" },
+  "channel": "SO",
+  "mbti": { "type": "ISTP", "fit_note": "말수 적고 맡은 설비만 문제없이 돌리는(I·S·T) 사원이며 게임과 잠으로 자기 시간을 보내는(P) 사람. 응답이 성의 없어 검사 결과와의 대조는 의미가 약함", "self_reported": null },
+  "attachment": { "ANX": "unknown", "AVO": "unknown" },
+  "schema_top3": [],
+  "schema_low": [],
+  "values_top3": ["CONTR", "SEC", "EXP"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": [], "reactivity": "low", "dominant_coping": [] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": true, "weak_motive": true },
+  "behavior": {
+    "age": 32,
+    "age_band": "30s",
+    "motivation": "referral",
+    "focus": "low",
+    "reading_speed": "skip",
+    "condition_today": "low",
+    "test_setting": "휴대폰, 야간 근무 후 아침 휴게실",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "무난한 사람이고 시키는 건 다 하며 딱히 할 말이 없다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "성의 없음 검증용. bio의 성향은 일부러 밋밋하게 두었고, 가치(팀에 도움·집 마련)만 약하게 넣음. 응답 자체가 무작위·연속 패턴이라 truth 비교는 판정 유보 여부만 본다."
+}

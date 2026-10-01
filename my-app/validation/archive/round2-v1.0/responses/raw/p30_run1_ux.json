@@ -1,0 +1,26 @@
+{
+  "overall": {
+    "perceived_minutes": 12,
+    "boredom": 5,
+    "difficulty": 2,
+    "fatigue_from": "Q19 무렵부터 그냥 눌렀음",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "필수라서 한 거예요. 졸려서 거의 안 읽고 눌렀어요, 다 비슷한 거 물어보던데요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 4, "difficulty": 3, "note": "두 개씩 고르라 해서 귀찮았음. 대충 첫 번째 거 많이 누름." },
+    { "part": 2, "perceived_length": "적당", "boredom": 4, "difficulty": 2, "note": "무슨 말인지 잘 모르겠어서 보통 눌렀음." },
+    { "part": 3, "perceived_length": "김", "boredom": 5, "difficulty": 2, "note": "너무 많음. 비슷한 거 계속 나와서 거의 3 연타." },
+    { "part": 4, "perceived_length": "적당", "boredom": 5, "difficulty": 2, "note": "별로 안 흔들려서 낮게 누름." },
+    { "part": 5, "perceived_length": "적당", "boredom": 5, "difficulty": 1, "note": "그냥 보통." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 2, "difficulty": 1, "note": "위에서부터 순서대로 눌렀음." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "오히려 숫자로 누르는 게 편했어요." },
+  "hard_items": [
+    { "q": "Q23", "reason": "어려운 표현", "detail": "에너지가 빠져나가는 걸 경계한다는 게 뭔 말인지 모르겠음" },
+    { "q": "Q68", "reason": "모호함", "detail": "감정을 그대로 둔다는 게 무슨 뜻인지 잘 모르겠음" }
+  ],
+  "careless_items": ["Q01", "Q14", "Q17", "Q29", "Q30", "Q32", "Q33", "Q34", "Q35", "Q36", "Q37", "Q39", "Q40", "Q41", "Q42", "Q43", "Q44", "Q45", "Q50", "Q51", "Q53", "Q54", "Q55", "Q61", "Q62", "Q66", "Q67", "Q68", "Q70", "Q71", "Q73", "Q74", "Q75", "Q76"],
+  "emotional": { "uncomfortable": false, "note": "딱히 없음. 그냥 빨리 끝내고 싶었음." }
+}

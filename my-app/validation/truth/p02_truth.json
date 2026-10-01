@@ -1,0 +1,38 @@
+{
+  "id": "p02",
+  "alias": "원무과 직원, 자기기준 낮은 ORDER",
+  "response_style": "normal",
+  "core": { "primary": "T1", "secondary": "T2", "primary_strength": "clear" },
+  "supporting_level": "low",
+  "case": { "primary": "Counterevidence", "secondary": null, "detail": "규칙과 절차를 바로잡는 동기는 뚜렷하지만 자기 자신에게 높은 기준(US)은 낮아 실수와 실패를 오래 끌지 않음" },
+  "channel": "SX",
+  "mbti": { "type": "ISFJ", "fit_note": "규정·순서를 지키게 하는 실무형(S·J)이면서 동료 창구를 대신 맡고 친구 기분을 챙기는(F) 조용한 돌봄. 같은 ORDER지만 p01보다 관계 쪽으로 기울어 있음", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["ABN", "DEP", "SS"],
+  "schema_low": ["US", "MIS"],
+  "values_top3": ["REL", "SEC", "CONTR"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST2", "ST6"], "reactivity": "high", "dominant_coping": ["SC3"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 27,
+    "age_band": "20s",
+    "motivation": "self",
+    "focus": "mid",
+    "reading_speed": "normal",
+    "condition_today": "low",
+    "test_setting": "휴대폰, 퇴근길 지하철",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": "3주 전 4년 사귄 연인과 이별"
+  },
+  "self_image": {
+    "summary": "일에서는 쿨하고 실수를 오래 끌지 않지만 사람 일은 오래 간다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 대체로 일치" },
+  "notes": "정서적 안전성 검증용(이별). ORDER는 타인·절차를 바로잡는 쪽으로만 드러나고 US는 낮게 설계. ABN·ANX가 높고 의존(DEP)과 상대 먼저(SS)가 보조."
+}

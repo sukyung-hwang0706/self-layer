@@ -1,0 +1,38 @@
+{
+  "id": "p21",
+  "alias": "캠핑장 주인, 기본형 SPARK",
+  "response_style": "normal",
+  "core": { "primary": "T7", "secondary": "T9", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Basic", "secondary": null, "detail": "SPARK가 뚜렷하고 ST4는 중간. 특별한 상호작용 없음" },
+  "channel": "SO",
+  "mbti": { "type": "ENFP", "fit_note": "시즌마다 새 이벤트를 떠올리고(N·P) 손님·가족과 웃으며 어울리는(E·F) 캠핑장 주인. 장부는 아내에게 맡기는 느슨함까지 기본형 SPARK와 맞물림", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["AS", "DEP", "SS"],
+  "schema_low": ["ED", "ABN"],
+  "values_top3": ["EXP", "REL", "AUT"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "low", "dominant_coping": ["SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 49,
+    "age_band": "40s",
+    "motivation": "curious",
+    "focus": "mid",
+    "reading_speed": "slow",
+    "condition_today": "good",
+    "test_setting": "휴대폰, 저녁 캠핑장 관리동",
+    "digital_literacy": "low",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "재밌는 걸 하며 살고 걱정은 길게 하지 않는다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "Schema는 전반적으로 낮은 편이고 Top3(AS·DEP·SS)도 중간 수준. 밤 장작 배달 → SS, 장부·큰 결정은 아내 → DEP. 손님 다툼을 맥주로 푸는 장면 → T9 secondary. 디지털·용어 익숙도 낮음(40대)."
+}

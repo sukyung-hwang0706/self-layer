@@ -1,0 +1,38 @@
+{
+  "id": "p12",
+  "alias": "국어 교사, 이해받지 못할 기대를 자기해결로 덮는 DEPTH",
+  "response_style": "normal",
+  "core": { "primary": "T4", "secondary": "T5", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Compensation", "secondary": null, "detail": "이해받지 못할 거라는 기대(ED)를 철저한 자기해결·준비(SC1)로 덮음. 묻지 않고 매뉴얼을 다 읽고, 회의 대신 30쪽 자료" },
+  "channel": "SP",
+  "mbti": { "type": "INFJ", "fit_note": "시를 저마다 다르게 읽게 하는 의미 지향(N·F)이면서 회의 대신 30쪽 자료를 준비해 조용히 관철하는(I·J) 교사. DEPTH의 깊이와 철저한 자기해결 보상과 맞물림", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["ED", "DEF", "US"],
+  "schema_low": ["DEP", "AS"],
+  "values_top3": ["GROW", "AUTH", "AUT"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST5"], "reactivity": "mid", "dominant_coping": ["SC1", "SC2"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 57,
+    "age_band": "50s",
+    "motivation": "self",
+    "focus": "high",
+    "reading_speed": "slow",
+    "condition_today": "good",
+    "test_setting": "노트북, 토요일 오전 거실",
+    "digital_literacy": "mid",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "남에게 기대지 않고 내 일은 내가 해결하며, 그게 편하다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면의 표면과 일치(보상 구조 자체는 의식하지 않음)" },
+  "notes": "DEF는 '빈틈이 안 보이도록 더 공부'로 중간. 산사 이틀·조별 활동 불편으로 AVO와 T5 secondary."
+}

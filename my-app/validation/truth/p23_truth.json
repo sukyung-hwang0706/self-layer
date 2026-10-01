@@ -1,0 +1,38 @@
+{
+  "id": "p23",
+  "alias": "복지관 팀장, 의심 없는 STAND",
+  "response_style": "normal",
+  "core": { "primary": "T8", "secondary": "T2", "primary_strength": "clear" },
+  "supporting_level": "low",
+  "case": { "primary": "Counterevidence", "secondary": null, "detail": "앞에 나서서 지키는 동기는 뚜렷하지만 의도부터 살피기(MIS)가 낮아 처음 본 사람도 쉽게 믿음" },
+  "channel": "SX",
+  "mbti": { "type": "ENFJ", "fit_note": "약한 사람 편에 서서 회의와 협의회를 이끄는(E·J) 사회복지사이고 사람을 쉽게 믿고 마음을 여는(F) 사람. 의심 없이 나서는 STAND 반증 사례와 맞물림", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["ABN", "SS", "US"],
+  "schema_low": ["MIS", "DEP"],
+  "values_top3": ["CONTR", "REL", "AUTH"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST5", "ST2"], "reactivity": "high", "dominant_coping": ["SC4", "SC3"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 33,
+    "age_band": "30s",
+    "motivation": "self",
+    "focus": "mid",
+    "reading_speed": "normal",
+    "condition_today": "low",
+    "test_setting": "PC, 퇴근 후 빈 사무실",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": "5주 전 어머니 사별"
+  },
+  "self_image": {
+    "summary": "강한 사람이지만 요즘은 무너졌고, 사람을 잘 믿는 편이다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "정서적 안전성 검증용(사별). 회의에서 말을 삼키는 최근 변화 → ST5. 밤샘 재작성 → SC4."
+}

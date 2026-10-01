@@ -1,0 +1,16 @@
+{
+  "id": "p16",
+  "alias": "최악을 대비하는 손해사정사",
+  "design_intent": ["강화형"],
+  "response_style": "normal",
+  "core": { "primary": "T6", "secondary": "T1", "primary_strength": "clear" },
+  "channel": "SO",
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["DEP", "ABN", "AS"],
+  "schema_low": ["ED", "MIS"],
+  "values_top3": ["SEC", "REL", "CONTR"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST3", "ST4"], "reactivity": "high", "dominant_coping": ["SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "notes": "대비하고 믿을 기반을 찾는 Core와 판단 의존(DEP)·멀어질 걱정(ABN)이 함께 강한 강화형."
+}

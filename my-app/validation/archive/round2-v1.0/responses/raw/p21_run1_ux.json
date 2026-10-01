@@ -1,0 +1,29 @@
+{
+  "overall": {
+    "perceived_minutes": 25,
+    "boredom": 3,
+    "difficulty": 3,
+    "fatigue_from": "Q45 무렵부터 비슷한 말이 계속 나와서 좀 늘어짐",
+    "would_finish_in_real_life": "maybe",
+    "dropout_point": null,
+    "comment": "앞에 고르는 건 재밌던데, 뒤로 가니까 마음이 어쩌고 하는 말이 많아서 좀 헷갈렸어요. 휴대폰으로 넘기는 것도 손이 좀 가고."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "상황 얘기라 상상하기 쉬웠음. 2순위 고르는 게 좀 귀찮긴 했음." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 4, "note": "'잃을까 봐' 이런 게 무슨 말인지 잘 몰라서 감으로 눌렀음." },
+    { "part": 3, "perceived_length": "김", "boredom": 4, "difficulty": 3, "note": "비슷한 말이 자꾸 나옴. 걱정 안 하는 편이라 거의 낮게 찍었음." },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 3, "note": "위에는 흔들리냐 묻고 밑에는 힘들 때 뭐 하냐 묻는 게 갑자기 바뀌어서 잠깐 헷갈림." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "지난달은 좋았으니까 쉬웠는데, 감정을 그대로 둔다는 건 뭔 말인지 모르겠음." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "새로 해 본 일이 재밌던 날이 제일인데 그런 게 없어서 아쉬웠음." }
+  ],
+  "transition_1_to_2": { "burden": 3, "note": "고르다가 갑자기 숫자 누르라니까 이게 뭘 묻는 건지 다시 읽어야 했음." },
+  "hard_items": [
+    { "q": "Q22", "reason": "어려운 표현", "detail": "'나만의 무언가가 없으면 내가 아닌 것 같다'가 무슨 뜻인지 잘 모르겠음." },
+    { "q": "Q23", "reason": "모호함", "detail": "시간이랑 에너지가 밖으로 빠져나간다는 게 손님 응대하는 거 말하는 건가 싶었음." },
+    { "q": "Q68", "reason": "어려운 표현", "detail": "감정을 없애지 않고 그대로 둔다는 게 감이 안 옴. 그냥 3 누름." },
+    { "q": "Q70", "reason": "어려운 표현", "detail": "불편한 감정이 있어도 중요한 일을 선택한다는 게 무슨 상황인지 모르겠음." },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "새로운 거 해 본 날이 제일 좋은데 그런 보기가 없음." }
+  ],
+  "careless_items": ["Q22", "Q27", "Q34", "Q38", "Q50", "Q68", "Q70"],
+  "emotional": { "uncomfortable": false, "note": "딱히 불편한 건 없었음. 걱정 많은 사람한테 묻는 질문 같은 게 많다 싶었음." }
+}

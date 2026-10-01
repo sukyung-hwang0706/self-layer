@@ -1,0 +1,16 @@
+{
+  "id": "p17",
+  "alias": "갈등에 지치는 기관사",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T6", "secondary": "T9", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["MIS", "ABN", "DEF"],
+  "schema_low": ["AS", "US"],
+  "values_top3": ["REL", "SEC", "GROW"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST6"], "reactivity": "mid", "dominant_coping": ["SC2", "SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "대비·신뢰 Core에 관계 혼합, 의도 살피기와 멀어질 걱정. 사람들 사이 갈등에 취약하고 철수·주의 전환으로 대처."
+}

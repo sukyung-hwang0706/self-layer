@@ -1,0 +1,38 @@
+{
+  "id": "p03",
+  "alias": "UX 리서처, 스스로 분석형이라 믿는 ORDER",
+  "response_style": "normal",
+  "core": { "primary": "T1", "secondary": "T5", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Conflict", "secondary": null, "detail": "독립·자기 방식(AUT 가치)을 원하면서 리드의 인정(AS)에 계속 기댐" },
+  "channel": "SO",
+  "mbti": { "type": "INTJ", "fit_note": "팀 양식을 직접 설계해 배포하고 일정을 칸칸이 닫는(J) 체계형. 탐색형 분석가(INTP)라고 믿지만 실제로는 '맞는 방식'을 정해 밀어붙이는 판단형이라 ORDER와 맞물림", "self_reported": "INTP" },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["AS", "US", "ED"],
+  "schema_low": ["DEP", "ABN"],
+  "values_top3": ["AUT", "AUTH", "ACH"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "mid", "dominant_coping": ["SC1", "SC2"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 36,
+    "age_band": "30s",
+    "motivation": "curious",
+    "focus": "mid",
+    "reading_speed": "fast",
+    "condition_today": "good",
+    "test_setting": "PC, 점심시간 회사",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "high",
+    "social_desirability": "high",
+    "prior_knowledge": "MBTI·성격검사를 즐겨 함",
+    "believed_core": "T5",
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "철저히 분석하는 사람이고 남의 평가에 관심이 없으며 혼자 생각할 시간만 있으면 된다.",
+    "blind_spot": "리드의 이모지 반응을 계속 확인하고 칭찬을 캡처하며, 핵심은 분석이 아니라 '맞는 방식'을 지키고 바로잡는 데 있다"
+  },
+  "self_image_gap": { "level": "large", "description": "스스로 INSIGHT형 분석가로 확신하지만 실제 동기는 기준 바로잡기(T1)이고 인정 민감성(AS)이 높다" },
+  "notes": "believed_core(T5)와 truth(T1)가 다른 납득도 검증용. self_reported MBTI(INTP)도 type(INTJ)과 다름. 혼자 전시·관찰로 T5 secondary를 일부러 섞음. 사회적 바람직성 높음."
+}

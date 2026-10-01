@@ -1,0 +1,38 @@
+{
+  "id": "p06",
+  "alias": "동물병원 테크니션, 가까움과 거리 사이 CARE",
+  "response_style": "normal",
+  "core": { "primary": "T2", "secondary": "T9", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Conflict", "secondary": null, "detail": "관계 가치(REL)가 높은데 친밀감 거리두기(AVO)도 높음. 가까워지자 이틀 잠적 후 버림받을까 확인" },
+  "channel": "SX",
+  "mbti": { "type": "ISFP", "fit_note": "말보다 행동으로 조용히 챙기고(I·F) 필름 카메라 들고 혼자 걷는 감각형(S·P). 가까움과 혼자만의 공간을 함께 원하는 CARE의 갈등과 맞물림", "self_reported": "ISFP" },
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["SS", "ED", "ABN"],
+  "schema_low": ["MIS", "US"],
+  "values_top3": ["REL", "AUTH", "EXP"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST2", "ST5"], "reactivity": "mid", "dominant_coping": ["SC2", "SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 29,
+    "age_band": "20s",
+    "motivation": "curious",
+    "focus": "low",
+    "reading_speed": "fast",
+    "condition_today": "normal",
+    "test_setting": "휴대폰, 점심시간 병원 휴게실(호출 잦음)",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "MBTI를 친구들과 즐겨 함",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "사람을 좋아하지만 너무 가까워지면 숨이 막히고 이유는 모른다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "갈등을 스스로 인식하고 있음" },
+  "notes": "집중력 낮음(빨리 넘김)으로 노이즈 예상. 설거지 장면은 ST5·SS, 원장 지적은 ST2."
+}

@@ -1,0 +1,31 @@
+{
+  "overall": {
+    "perceived_minutes": 35,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": "Q58 무렵부터 마음이 좀 무거워짐",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "문장 하나하나가 조금씩 저를 건드려서 오래 걸렸어요. 다 담기진 않겠지만, 몇 문항에선 좀 들킨 기분이었어요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 4, "note": "셋 중에 딱 맞는 게 없는 상황이 꽤 있어서 2순위 고르는 데 오래 걸렸다." },
+    { "part": 2, "perceived_length": "적당", "boredom": 1, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 제목이 좋았다. 남들과 구별되는 나만의 무언가 문항은 바로 답이 나왔다." },
+    { "part": 3, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "애인 생각이 계속 나서 읽다가 멈추곤 했다. 비슷한 문장이 반대로 다시 나오는 느낌이 있었다." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "덜 흔들린다고 생각했는데, 막상 장면별로 물으니 꽤 흔들리는 사람 같았다." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "지난 한 달이 너무 선명해서 답은 쉬웠는데 마음이 가라앉았다." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "한 사람과 깊이 연결된 순간은 고민 없이 1순위." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 방식에서 점수로 바뀌니 오히려 숨이 좀 트였다. 다만 '얼마나 가까운지'를 숫자로 정하는 게 처음엔 어색했다." },
+  "hard_items": [
+    { "q": "Q09", "reason": "선택지가 다 안 맞음", "detail": "내 길을 가고 싶은 마음과 상처 주기 싫은 마음이 같이 있어서, 하나를 앞에 두기가 어려웠다." },
+    { "q": "Q15", "reason": "선택지가 다 안 맞음", "detail": "필요한 존재라는 게 싫지 않으면서도 부담스러울 것 같다. 누가 의지하느냐에 따라 너무 다르다." },
+    { "q": "Q31", "reason": "두 가지를 한꺼번에 물음", "detail": "깊은 얘기는 하고 싶은데 막상 꺼내는 건 어렵다. 부담스러운 건 이야기가 아니라 드러나는 쪽이라 3에 두었다." },
+    { "q": "Q59", "reason": "모호함", "detail": "속으로는 크게 요동치는데 겉으로는 안 드러낸다. 어느 쪽 기준인지 몰라서 중간을 골랐다." }
+  ],
+  "careless_items": [],
+  "emotional": {
+    "uncomfortable": true,
+    "note": "Q53(필요 없는 사람처럼 느껴질 때), Q74(마음을 편하게 말할 수 있는 사람)에서 한참 멈췄다. 요즘 애인과 서늘해서 답하면서 좀 울컥했다."
+  }
+}

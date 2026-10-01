@@ -1,0 +1,16 @@
+{
+  "id": "p04",
+  "alias": "병동의 해결사 간호사",
+  "design_intent": ["강화형"],
+  "response_style": "normal",
+  "core": { "primary": "T2", "secondary": "T9", "primary_strength": "clear" },
+  "channel": "SO",
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["SS", "AS", "ABN"],
+  "schema_low": ["MIS", "ED"],
+  "values_top3": ["REL", "CONTR", "SEC"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST2"], "reactivity": "high", "dominant_coping": ["SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "notes": "필요한 사람이 되려는 동기와 자기희생·인정 의존이 함께 강한 강화형. 필요 없다고 느낄 때 크게 흔들리고 확인·위로를 찾음."
+}

@@ -1,0 +1,35 @@
+{
+  "overall": {
+    "perceived_minutes": 25,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": null,
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "음, 천천히 곱씹으면서 하니까 오히려 좋았어요. 관계 문항들은 읽다가 애인 생각이 나서 좀 오래 멈춰 있었어요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "셋 다 조금씩 나 같아서 1순위·2순위 고르기가 은근 어려웠다. 이상적인 나와 실제 나 사이에서 고민한 문항이 있었다." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 제목이 좀 묵직했다. 문장이 추상적이라 한 번씩 더 읽었다." },
+    { "part": 3, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "장면을 떠올리라고 해서 애인이랑 요가원 원장님이 계속 떠올랐다. 비슷한 질문이 반복되는 느낌도 조금 있었다." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "'힘들 때 나는' 문항은 바로 답이 나왔다. 혼자 물러나는 건 너무 나라서." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "한 달은 그냥 평소 같아서 대부분 중간쯤으로 골랐다." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "보기에 '솔직하게 말해도 괜찮았던 날' 같은 게 딱 있진 않아서 제일 가까운 걸 골랐다." }
+  ],
+  "transition_1_to_2": {
+    "burden": 2,
+    "note": "고르는 방식에서 점수 매기는 방식으로 바뀌니까 잠깐 리듬이 끊겼지만 금방 적응했다."
+  },
+  "hard_items": [
+    { "q": "Q09", "reason": "답하기 불편함", "detail": "'그래도 내 길을 간다'를 고르고 싶은데 실제로는 상처 안 주는 쪽으로 가는 나를 알아서 망설였다." },
+    { "q": "Q16", "reason": "선택지가 다 안 맞음", "detail": "작은 요가 공간을 여는 꿈은 '이룬 사람'이기도 하고 '의미 있는 존재'이기도 해서 나누기 어려웠다." },
+    { "q": "Q23", "reason": "어려운 표현", "detail": "'에너지가 밖으로 빠져나가는 것을 경계한다'가 무슨 뜻인지 잠깐 생각했다. 혼자 시간 지키는 얘기로 이해했다." },
+    { "q": "Q45", "reason": "모호함", "detail": "평소엔 답답하지 않은데, 집 합치자는 말 들었을 땐 답답했어서 어느 쪽으로 답할지 애매했다." },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "내가 하루 잘 보냈다고 느끼는 순간은 솔직하게 말해도 괜찮았던 날인데 그런 보기가 없었다." }
+  ],
+  "careless_items": [],
+  "emotional": {
+    "uncomfortable": true,
+    "note": "Q39, Q50 같은 주장·거절 문항에서 원장님께 '네, 좋아요' 했던 게 떠올라 마음이 좀 쓰였다. Q42는 애인 늦을 때 휴대폰 보는 내가 생각나서 살짝 부끄러웠다."
+  }
+}

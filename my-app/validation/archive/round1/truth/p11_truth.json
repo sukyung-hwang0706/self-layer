@@ -1,0 +1,16 @@
+{
+  "id": "p11",
+  "alias": "장인과 해결사 사이의 공방 주인",
+  "design_intent": ["판정 유보형"],
+  "response_style": "normal",
+  "core": { "primary": "T4", "secondary": "T2", "primary_strength": "ambiguous" },
+  "channel": "SX",
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["SS", "ED", "AS"],
+  "schema_low": ["DEP", "MIS"],
+  "values_top3": ["REL", "AUTH", "CONTR"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST2", "ST5"], "reactivity": "mid", "dominant_coping": ["SC3", "SC2"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": true, "weak_motive": false },
+  "notes": "나다움을 찾는 동기와 필요한 사람이 되려는 동기가 비슷하게 강한 판정 유보형. primary/secondary는 순서 의미가 약함."
+}

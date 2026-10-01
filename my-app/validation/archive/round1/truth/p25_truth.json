@@ -1,0 +1,16 @@
+{
+  "id": "p25",
+  "alias": "조율하는 관리소장",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T9", "secondary": "T2", "primary_strength": "clear" },
+  "channel": "SO",
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["SS", "DEP", "ABN"],
+  "schema_low": ["MIS", "US"],
+  "values_top3": ["REL", "SEC", "EXP"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST6"], "reactivity": "mid", "dominant_coping": ["SC3", "SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "조화를 지키는 Core, 관계 변화 민감도만 높음. 갈등에 취약하고 위로 찾기·주의 전환."
+}

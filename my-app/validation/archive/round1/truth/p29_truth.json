@@ -1,0 +1,16 @@
+{
+  "id": "p29",
+  "alias": "모범 답안 인사과장",
+  "design_intent": ["엣지:사회적 바람직성형"],
+  "response_style": "social_desirability",
+  "core": { "primary": "T1", "secondary": "T3", "primary_strength": "moderate" },
+  "channel": "SO",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["AS", "US", "SS"],
+  "schema_low": ["ABN", "ED"],
+  "values_top3": ["CONTR", "GROW", "ACH"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "평가 상황에서 늘 바람직한 답을 고르는 응답 스타일. 실제 패턴(인정 의존 등)이 응답에서 축소되고 STATE·관계가 실제보다 좋게 나올 가능성이 있음."
+}

@@ -1,0 +1,16 @@
+{
+  "id": "p12",
+  "alias": "제주의 여행작가",
+  "design_intent": ["충돌형"],
+  "response_style": "normal",
+  "core": { "primary": "T4", "secondary": "T7", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["MIS", "US", "DEP"],
+  "schema_low": ["ABN", "SS"],
+  "values_top3": ["EXP", "AUTH", "AUT"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "low", "dominant_coping": ["SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "자율 가치를 자부하지만 혼자 판단하기 어려운 패턴(DEP)이 높은 충돌형. 거리두기만 높고 여유 상태."
+}

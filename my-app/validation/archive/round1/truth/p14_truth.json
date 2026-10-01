@@ -1,0 +1,16 @@
+{
+  "id": "p14",
+  "alias": "사교적인 대학원생",
+  "design_intent": ["반증형"],
+  "response_style": "normal",
+  "core": { "primary": "T5", "secondary": "T6", "primary_strength": "clear" },
+  "channel": "SO",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["SS", "US", "AS"],
+  "schema_low": ["ED", "DEF"],
+  "values_top3": ["GROW", "CONTR", "REL"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "이해 후 움직이는 Core지만 그 Core에서 흔히 기대되는 거리두기·이해받지 못할 기대(ED)·노출 걱정(DEF)이 낮은 반증형."
+}

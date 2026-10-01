@@ -1,0 +1,38 @@
+{
+  "id": "p01",
+  "alias": "감사팀 차장, 자기기준 강화",
+  "response_style": "normal",
+  "core": { "primary": "T1", "secondary": "T6", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Reinforced", "secondary": null, "detail": "ORDER + 스스로에게 높은 기준(US)이 함께 강함. 남이 넘긴 일을 직접 다시 함" },
+  "channel": "SP",
+  "mbti": { "type": "ISTJ", "fit_note": "증빙·절차를 사실 단위로 확인하고(S·T) 출장도 엑셀로 미리 짜는(J) 조용한 감사 담당. ORDER의 기준 지키기가 내향적 점검 습관으로 드러남", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "MIS", "DEF"],
+  "schema_low": ["ABN", "DEP"],
+  "values_top3": ["SEC", "AUTH", "GROW"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "mid", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 44,
+    "age_band": "40s",
+    "motivation": "referral",
+    "focus": "high",
+    "reading_speed": "normal",
+    "condition_today": "normal",
+    "test_setting": "PC, 퇴근 후 집 서재",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "원칙은 지키지만 융통성 있는 편이고 후배에게 깐깐하지 않으려 한다.",
+    "blind_spot": "후배가 넘긴 파일을 퇴근 후 직접 다시 맞추고, 칭찬에도 결함을 먼저 말한다"
+  },
+  "self_image_gap": { "level": "small", "description": "융통성이 있다고 믿지만 기준을 내려놓지 못한다" },
+  "notes": "T1 Reinforced 기준 인물. 출장 대비(엑셀·비상연락처)로 T6 secondary, 승진 탈락 후 자격 공부로 GROW와 SC1을 보여 줌."
+}

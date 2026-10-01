@@ -1,0 +1,32 @@
+{
+  "overall": {
+    "perceived_minutes": 25,
+    "boredom": 4,
+    "difficulty": 3,
+    "fatigue_from": "Q30 무렵부터 글씨도 안 보이고 지침",
+    "would_finish_in_real_life": "maybe",
+    "dropout_point": null,
+    "comment": "글씨가 깨알 같아가 반은 감으로 눌렀소. 뭘 알아보는 긴지 모르겠고, 비슷한 말을 자꾸 물어보네."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 3, "difficulty": 3, "note": "회의니 팀이니 마감이니 내 사는 거하고 안 맞는 게 많아서 대충 비슷한 거 골랐다. 두 개씩 고르라 카니 귀찮다." },
+    { "part": 2, "perceived_length": "적당", "boredom": 3, "difficulty": 4, "note": "말이 어려워가 무슨 소린지 잘 모르겠다. 그냥 가운데쯤 눌렀다." },
+    { "part": 3, "perceived_length": "김", "boredom": 5, "difficulty": 3, "note": "끝도 없이 나온다. 같은 말 또 묻는 것 같아서 대충 넘겼다." },
+    { "part": 4, "perceived_length": "김", "boredom": 4, "difficulty": 3, "note": "흔들린다 카는 게 뭔 말인지. 싸우는 거 싫은 건 맞다." },
+    { "part": 5, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "요새는 편하니까 그건 쉽다." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "바다 보고 들어오는 날이 제일이지. 셋 다 순서 매기라 카니 좀 그렇다." }
+  ],
+  "transition_1_to_2": { "burden": 3, "note": "갑자기 숫자 다섯 개 나와서 뭐가 뭔지 한참 봤다. 글씨가 작아서." },
+  "hard_items": [
+    { "q": "Q07", "reason": "상황이 와닿지 않음", "detail": "회의 같은 거 안 한 지 오래다. 버스 기사가 회의 할 일이 있나." },
+    { "q": "Q19", "reason": "어려운 표현", "detail": "잘못된 선택을 한 사실 자체가 어쩌고, 말이 꼬여서 모르겠다." },
+    { "q": "Q23", "reason": "어려운 표현", "detail": "에너지가 밖으로 빠져나간다는 게 뭔 소린지." },
+    { "q": "Q41", "reason": "모호함", "detail": "약점이 가치를 어쩌고, 무슨 말인지 감으로 눌렀다." },
+    { "q": "Q68", "reason": "어려운 표현", "detail": "감정을 그대로 둔다는 게 뭔지 잘 모르겠다." }
+  ],
+  "careless_items": ["Q18", "Q23", "Q24", "Q25", "Q26", "Q33", "Q34", "Q36", "Q41", "Q44", "Q45", "Q51", "Q54", "Q56", "Q68", "Q70", "Q74", "Q75"],
+  "emotional": {
+    "uncomfortable": false,
+    "note": "딱히 불편한 건 없었다. 기댈 데 없어지는 거 묻는 데서 집사람 생각이 잠깐 났을 뿐."
+  }
+}

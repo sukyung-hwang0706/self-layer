@@ -1,0 +1,38 @@
+{
+  "id": "p24",
+  "alias": "프랜차이즈 영업관리, 기본형 STAND",
+  "response_style": "normal",
+  "core": { "primary": "T8", "secondary": "T3", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Basic", "secondary": null, "detail": "STAND가 뚜렷하고 의도 살피기(MIS)는 중간. 관계는 혼합이지만 Core-Supporting 상호작용은 특별하지 않음" },
+  "channel": "SO",
+  "mbti": { "type": "ESTP", "fit_note": "모임에서 10분이면 판을 쥐고(E) 현장에서 바로 맞붙고 바로 푸는(S·T·P) 영업관리자. STAND의 앞장서기가 즉각적 행동으로 드러남", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["MIS", "ABN", "AS"],
+  "schema_low": ["DEP", "DEF"],
+  "values_top3": ["ACH", "REL", "AUT"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "mid", "dominant_coping": ["SC4"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 41,
+    "age_band": "40s",
+    "motivation": "referral",
+    "focus": "mid",
+    "reading_speed": "fast",
+    "condition_today": "good",
+    "test_setting": "휴대폰, 점심 차 안",
+    "digital_literacy": "mid",
+    "psych_term_familiarity": "low",
+    "social_desirability": "high",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "앞장서서 사람을 챙기는 사람이며 집에서도 마찬가지다.",
+    "blind_spot": "집에서는 아내의 대화 요청을 '결론이 뭔데'로 피하고, 떨어져 있으면 전화를 반복한다"
+  },
+  "self_image_gap": { "level": "small", "description": "집에서도 챙기는 사람이라고 믿지만 가까운 관계에서는 거리두기와 확인이 번갈아 나타난다" },
+  "notes": "사회적 바람직성 높음. 실적 1등 목표·칭찬 흘리기 → T3 secondary·AS. 아내와의 장면 하나로 혼합(AVO+ANX) 표현."
+}

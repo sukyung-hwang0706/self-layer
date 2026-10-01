@@ -1,7 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 import { DISPLAY_ORDER, ITEM_BY_ID } from "../../src/data/items";
 
-const KEY = "self-layers:v1.0:session";
+const KEY = "self-layers:v1.1:session";
 const FORBIDDEN = /\d\s*번\s*유형|유형\s*\d|wing|윙|날개|통합|분열|\bT[1-9]\b|\bCORE[1-9]\b/i;
 
 function fullAnswers() {
@@ -31,8 +31,9 @@ test("76문항 전체를 화면에서 응답하고 결과 리포트를 본다", 
       const next = page.getByRole("button", { name: "다음", exact: true });
       await expect(next).toBeDisabled();
       const opts = page.locator(".options button");
-      await opts.nth(i % 3).click();
-      await opts.nth((i + 1) % 3).click();
+      await expect(opts).toHaveCount(4); // V1.1-app 4지선다
+      await opts.nth(i % 4).click();
+      await opts.nth((i + 1) % 4).click();
       await expect(page.locator(".opt.on")).toHaveCount(2);
       await next.click();
     } else if (item.kind === "likert") {

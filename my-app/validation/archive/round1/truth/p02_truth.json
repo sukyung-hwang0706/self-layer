@@ -1,0 +1,16 @@
+{
+  "id": "p02",
+  "alias": "바로잡는 사서",
+  "design_intent": ["반증형"],
+  "response_style": "normal",
+  "core": { "primary": "T1", "secondary": "T6", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["MIS", "ED", "AS"],
+  "schema_low": ["US", "ABN"],
+  "values_top3": ["AUT", "SEC", "AUTH"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "low", "dominant_coping": ["SC2"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "바깥의 기준을 바로잡는 동기는 뚜렷하지만 그 Core에서 흔히 기대되는 높은 자기기준(US)이 낮은 반증형."
+}

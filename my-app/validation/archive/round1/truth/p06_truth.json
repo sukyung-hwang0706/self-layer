@@ -1,0 +1,16 @@
+{
+  "id": "p06",
+  "alias": "반려동물 미용실 사장",
+  "design_intent": ["반증형"],
+  "response_style": "normal",
+  "core": { "primary": "T2", "secondary": "T7", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["MIS", "US", "DEF"],
+  "schema_low": ["SS", "AS"],
+  "values_top3": ["EXP", "REL", "GROW"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST3"], "reactivity": "low", "dominant_coping": ["SC5"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "돕는 동기는 있으나 그 Core에서 흔한 자기희생(SS)·인정 의존(AS)이 낮은 반증형."
+}

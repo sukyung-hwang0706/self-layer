@@ -7,7 +7,7 @@ import {
 } from "../types/assessment";
 
 /** 채점 규칙 버전. 계산식·임계값이 바뀌면 올린다. */
-export const SCORING_VERSION = "v1.0-app.1";
+export const SCORING_VERSION = "v1.1-app.1";
 
 // ── 설계서 2장·7장 매핑 ────────────────────────────────────────────
 export const GROWTH_DIRECTION: Readonly<Record<CoreType, CoreType>> = { T1: "T7", T2: "T4", T3: "T6", T4: "T1", T5: "T8", T6: "T9", T7: "T5", T8: "T2", T9: "T3" };
@@ -45,19 +45,24 @@ export class IncompleteAnswersError extends Error {
 }
 
 // ── 응답 검증 ─────────────────────────────────────────────────────
-const OPTION_KEYS: readonly OptionKey[] = ["A", "B", "C"];
-const isOptionKey = (v: unknown): v is OptionKey => typeof v === "string" && (OPTION_KEYS as readonly string[]).includes(v);
-
 export function isValidAnswer(itemId: string, value: unknown): value is Answer {
   const item = ITEM_BY_ID.get(itemId);
   if (!item || value === null || value === undefined) return false;
   if (item.kind === "likert") return Number.isInteger(value) && (value as number) >= 1 && (value as number) <= 5;
+  // 허용 키는 문항의 선택지가 정한다(Part 1은 A~D, Part 6은 A~C).
+  const keys: readonly string[] = item.options.map((o) => o.key);
+  const isKey = (v: unknown): v is OptionKey => typeof v === "string" && keys.includes(v);
   if (item.kind === "choice") {
     const v = value as Partial<ChoiceAnswer>;
-    return typeof value === "object" && !Array.isArray(value) && isOptionKey(v.first) && isOptionKey(v.second) && v.first !== v.second;
+    return typeof value === "object" && !Array.isArray(value) && isKey(v.first) && isKey(v.second) && v.first !== v.second;
   }
-  return Array.isArray(value) && value.length === 3 && value.every(isOptionKey) && new Set(value).size === 3;
+  return Array.isArray(value) && value.length === keys.length && value.every(isKey) && new Set(value).size === keys.length;
 }
+
+/** 유형별 도달 가능한 최대 TypeRaw = 2점 × Part 1 등장 횟수 (V1.1-app 4지선다: 8회 → 16점). */
+export const TYPE_RAW_MAX: Readonly<Record<CoreType, number>> = Object.fromEntries(
+  CORE_TYPES.map((t) => [t, 2 * PART1.flatMap((i) => i.options).filter((o) => o.type === t).length]),
+) as Record<CoreType, number>;
 
 export function missingItems(answers: Answers): string[] {
   return DISPLAY_ORDER.filter((id) => !Object.hasOwn(answers, id) || !isValidAnswer(id, answers[id]));
@@ -124,7 +129,8 @@ export function scoreAssessment(answers: Answers): AssessmentResult {
       }
     }
   }
-  const typeScore = Object.fromEntries(CORE_TYPES.map((t) => [t, raw[t] / 12 * 100])) as Scores<CoreType>;
+  // 설계서 10.2 TypeScore = TypeRaw / 12 × 100의 12는 V1.0 3지선다의 최대값. V1.1-app은 도달 가능한 최대(16)로 나눈다.
+  const typeScore = Object.fromEntries(CORE_TYPES.map((t) => [t, raw[t] / TYPE_RAW_MAX[t] * 100])) as Scores<CoreType>;
   const motive = Object.fromEntries(PART2.map((i) => [i.code, to100(answers[i.id] as number)])) as Scores<CoreType>;
   const coreKey = (t: CoreType) => [typeScore[t], motive[t], firstPicks[t]];
   const ranking = [...CORE_TYPES].sort((a, b) => {

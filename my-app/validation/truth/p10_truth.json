@@ -1,0 +1,38 @@
+{
+  "id": "p10",
+  "alias": "문학 편집자, 부족함 걱정 강화 DEPTH",
+  "response_style": "normal",
+  "core": { "primary": "T4", "secondary": "T2", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Reinforced", "secondary": null, "detail": "DEPTH + 부족함이 드러날 걱정(DEF)이 함께 강함. '나는 원래 모자란가'로 일주일 칩거" },
+  "channel": "SX",
+  "mbti": { "type": "INFP", "fit_note": "문장의 숨과 자기 결을 지키려 하고(N·F) 마음을 혼자 노트에 쓰는 내향형(I), 마감 앞에서도 고치기를 멈추지 못하는(P) 편집자. DEPTH의 의미·감정 깊이와 맞물림", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["DEF", "ED", "ABN"],
+  "schema_low": ["DEP", "MIS"],
+  "values_top3": ["AUTH", "REL", "EXP"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST2", "ST5"], "reactivity": "high", "dominant_coping": ["SC2", "SC6"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 31,
+    "age_band": "30s",
+    "motivation": "self",
+    "focus": "high",
+    "reading_speed": "slow",
+    "condition_today": "low",
+    "test_setting": "노트북, 주말 오후 집",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "감정이 많지만 다 드러내지 않고, 남보다 덜 흔들린다고 생각한다.",
+    "blind_spot": "애인의 짧은 메시지 하나, 비판 한마디에 며칠씩 흔들린다"
+  },
+  "self_image_gap": { "level": "small", "description": "덜 흔들린다고 믿지만 실제 반응성은 높다" },
+  "notes": "AVO는 낮게(한 사람과 깊이 이야기, 숨기지 않고 싶음). 표지 시안 장면은 ST5. protection은 '힘든 시기' 지정 아님."
+}

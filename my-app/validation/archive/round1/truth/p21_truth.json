@@ -1,0 +1,16 @@
+{
+  "id": "p21",
+  "alias": "분위기 메이커이자 해결사",
+  "design_intent": ["판정 유보형"],
+  "response_style": "normal",
+  "core": { "primary": "T7", "secondary": "T2", "primary_strength": "ambiguous" },
+  "channel": "SO",
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["ABN", "AS", "SS"],
+  "schema_low": ["ED", "MIS"],
+  "values_top3": ["EXP", "REL", "CONTR"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST2", "ST6"], "reactivity": "high", "dominant_coping": ["SC3", "SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": true, "weak_motive": false },
+  "notes": "즐거움을 좇는 동기와 남을 챙기는 동기가 비슷하게 강한 판정 유보형. 관계 변화 민감도 높음, 보호 상태."
+}

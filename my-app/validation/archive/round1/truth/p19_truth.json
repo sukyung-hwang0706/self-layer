@@ -1,0 +1,16 @@
+{
+  "id": "p19",
+  "alias": "새 레시피 바텐더",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T7", "secondary": "T3", "primary_strength": "clear" },
+  "channel": "SO",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["AS", "DEP", "US"],
+  "schema_low": ["ABN", "ED"],
+  "values_top3": ["EXP", "GROW", "ACH"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "low", "dominant_coping": ["SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "새 가능성을 좇는 Core, 관계 안정, 여유 상태. 인정 의존과 판단 의존이 중간 이상."
+}

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "rootDir": "..",
+    "noEmitOnError": true
+  },
+  "include": ["../src/lib/**/*.ts", "../src/types/**/*.ts", "../src/data/**/*.ts", "scripts/**/*.ts"],
+  "exclude": ["../src/**/*.test.ts", "../src/lib/test-fixtures.ts"]
+}

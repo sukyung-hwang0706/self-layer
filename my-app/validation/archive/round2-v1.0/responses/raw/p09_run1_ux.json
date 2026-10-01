@@ -1,0 +1,28 @@
+{
+  "overall": {
+    "perceived_minutes": 12,
+    "boredom": 2,
+    "difficulty": 2,
+    "fatigue_from": "Q45 무렵부터 비슷한 질문이 계속 나와서 좀 빨리 넘김",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "버스에서 내리기 전에 딱 끝냈어요! 앞에 고르는 건 재밌었는데 중간에 관계 질문이 좀 길었어요. 결과 빨리 보고 싶다ㅋㅋ"
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 1, "difficulty": 2, "note": "상황 고르는 거 재밌었음. 근데 2순위까지 고르라니까 가끔 둘 다 별로일 때 있었음" },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 말이 좀 어렵게 느껴졌음. 문장이 묵직함" },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 2, "note": "관계 질문이 계속 나와서 뒤쪽은 비슷비슷하게 찍은 느낌" },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "흔들리는 상황은 금방 답함. 나 원래 잘 안 흔들려서" },
+    { "part": 5, "perceived_length": "짧음", "boredom": 1, "difficulty": 1, "note": "요즘 좋아서 쉽게 답함" },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "체크리스트 다 끝낸 날이 제일 좋은데 그런 선택지가 없어서 애매했음" }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "갑자기 숫자로 고르는 거라 처음엔 좀 낯설었는데 금방 적응함" },
+  "hard_items": [
+    { "q": "Q13", "reason": "선택지가 다 안 맞음", "detail": "결과 나쁘면 잠깐 속상하고 바로 다음 거 하는데, 그게 딱 없음" },
+    { "q": "Q23", "reason": "어려운 표현", "detail": "에너지가 밖으로 빠져나간다는 게 무슨 뜻인지 잘 모르겠어서 감으로 고름" },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "할 일 다 해냈을 때가 제일 뿌듯한데 그 보기가 없음" },
+    { "q": "Q17", "reason": "선택지가 다 안 맞음", "detail": "나는 그냥 먼저 다가가서 인사하는데 그런 선택지가 없음" }
+  ],
+  "careless_items": ["Q45", "Q47", "Q48", "Q49", "Q50", "Q51", "Q73", "Q74"],
+  "emotional": { "uncomfortable": false, "note": "딱히 불편한 건 없었음. 동기들이랑 비교하는 거 떠올리는 질문(Q32)에서 살짝 찔림" }
+}

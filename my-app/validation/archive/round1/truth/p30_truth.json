@@ -1,0 +1,16 @@
+{
+  "id": "p30",
+  "alias": "최대치로 사는 배우 지망생",
+  "design_intent": ["엣지:극단형"],
+  "response_style": "extreme",
+  "core": { "primary": "T4", "secondary": "T7", "primary_strength": "clear" },
+  "channel": "SX",
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["ABN", "ED", "US"],
+  "schema_low": ["MIS", "DEP"],
+  "values_top3": ["EXP", "AUTH", "REL"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST2", "ST5"], "reactivity": "high", "dominant_coping": ["SC3", "SC6"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "모든 것을 강하게 느끼고 양 끝으로 답하는 극단형. 여러 척도가 동시에 높게 나와 상대적 순위 구분이 흐려질 수 있음."
+}

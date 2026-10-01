@@ -1,0 +1,38 @@
+{
+  "id": "p07",
+  "alias": "휴직 중 영업팀장, 부족함을 성과로 덮는 DRIVE",
+  "response_style": "normal",
+  "core": { "primary": "T3", "secondary": "T1", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Compensation", "secondary": "Reinforced", "detail": "부족함이 드러날 걱정(DEF)을 성과·과업 몰입(SC1)으로 덮음. 인정 기대(AS)도 높아 DRIVE 강화가 함께 나타남" },
+  "channel": "SO",
+  "mbti": { "type": "ESTJ", "fit_note": "명함부터 내밀고 실적표·체크리스트로 움직이는(E·S·T·J) 영업 관리자. 숫자로 증명하려는 DRIVE가 목표 관리 습관과 맞물림", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["DEF", "AS", "US"],
+  "schema_low": ["DEP", "SS"],
+  "values_top3": ["ACH", "GROW", "SEC"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST1", "ST3"], "reactivity": "high", "dominant_coping": ["SC1", "SC6"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 34,
+    "age_band": "30s",
+    "motivation": "self",
+    "focus": "mid",
+    "reading_speed": "normal",
+    "condition_today": "low",
+    "test_setting": "노트북, 아침 동네 카페",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "high",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": "번아웃으로 3주 전 휴직"
+  },
+  "self_image": {
+    "summary": "남들 인정보다 숫자로 말하는 사람이고, 지금은 쉬어야 한다는 걸 안다.",
+    "blind_spot": "대표의 칭찬 메시지를 캡처하고 실적표 순위에 따라 밤을 새운다"
+  },
+  "self_image_gap": { "level": "small", "description": "인정에 무심하다고 믿지만 인정 신호를 수집하고 순위에 반응한다" },
+  "notes": "정서적 안전성 검증용(번아웃·휴직). 사회적 바람직성 높음. 아내 앞 침묵(AVO)과 혼자 남을 때 실망 걱정(ANX)으로 혼합."
+}

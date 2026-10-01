@@ -1,0 +1,288 @@
+{
+  "version": "v1.1-app.1",
+  "core": {
+    "raw": {
+      "T1": 4,
+      "T2": 7,
+      "T3": 12,
+      "T4": 4,
+      "T5": 4,
+      "T6": 1,
+      "T7": 14,
+      "T8": 8,
+      "T9": 0
+    },
+    "typeScore": {
+      "T1": 25,
+      "T2": 43.75,
+      "T3": 75,
+      "T4": 25,
+      "T5": 25,
+      "T6": 6.25,
+      "T7": 87.5,
+      "T8": 50,
+      "T9": 0
+    },
+    "firstPicks": {
+      "T1": 0,
+      "T2": 3,
+      "T3": 5,
+      "T4": 0,
+      "T5": 1,
+      "T6": 0,
+      "T7": 6,
+      "T8": 3,
+      "T9": 0
+    },
+    "motive": {
+      "T1": 100,
+      "T2": 100,
+      "T3": 100,
+      "T4": 100,
+      "T5": 0,
+      "T6": 100,
+      "T7": 100,
+      "T8": 100,
+      "T9": 0
+    },
+    "ranking": [
+      "T7",
+      "T3",
+      "T8",
+      "T2",
+      "T1",
+      "T4",
+      "T5",
+      "T6",
+      "T9"
+    ],
+    "primary": "T7",
+    "status": "determined",
+    "tiedWith": [],
+    "secondary": "T3",
+    "strongSecondary": false,
+    "separation": 50,
+    "confidence": 83.75,
+    "weakMotive": false,
+    "influence": {
+      "type": "T8",
+      "candidates": [
+        "T6",
+        "T8"
+      ]
+    },
+    "channel": {
+      "scores": {
+        "SP": 0,
+        "SO": 100,
+        "SX": 50
+      },
+      "primary": "SO"
+    }
+  },
+  "values": {
+    "capped": {
+      "ACH": 14,
+      "AUT": 11,
+      "REL": 4,
+      "SEC": 1,
+      "GROW": 1,
+      "AUTH": 7,
+      "CONTR": 5,
+      "EXP": 11
+    },
+    "selection": {
+      "ACH": 77.77777777777779,
+      "AUT": 61.111111111111114,
+      "REL": 22.22222222222222,
+      "SEC": 5.555555555555555,
+      "GROW": 5.555555555555555,
+      "AUTH": 35,
+      "CONTR": 27.77777777777778,
+      "EXP": 68.75
+    },
+    "contextsHit": {
+      "ACH": 6,
+      "AUT": 4,
+      "REL": 2,
+      "SEC": 1,
+      "GROW": 1,
+      "AUTH": 4,
+      "CONTR": 4,
+      "EXP": 3
+    },
+    "contextsAvailable": {
+      "ACH": 6,
+      "AUT": 5,
+      "REL": 5,
+      "SEC": 6,
+      "GROW": 6,
+      "AUTH": 5,
+      "CONTR": 7,
+      "EXP": 5
+    },
+    "diversity": {
+      "ACH": 100,
+      "AUT": 80,
+      "REL": 40,
+      "SEC": 16.666666666666664,
+      "GROW": 16.666666666666664,
+      "AUTH": 80,
+      "CONTR": 57.14285714285714,
+      "EXP": 60
+    },
+    "score": {
+      "ACH": 86.66666666666667,
+      "AUT": 68.66666666666666,
+      "REL": 29.333333333333332,
+      "SEC": 10,
+      "GROW": 10,
+      "AUTH": 53,
+      "CONTR": 39.523809523809526,
+      "EXP": 65.25
+    },
+    "ranking": [
+      "ACH",
+      "AUT",
+      "EXP",
+      "AUTH",
+      "CONTR",
+      "REL",
+      "SEC",
+      "GROW"
+    ],
+    "top3": [
+      "ACH",
+      "AUT",
+      "EXP"
+    ]
+  },
+  "attachment": {
+    "ANX": 100,
+    "AVO": 50
+  },
+  "schemas": {
+    "ABN": 100,
+    "ED": 100,
+    "MIS": 100,
+    "DEF": 100,
+    "DEP": 0,
+    "SS": 50,
+    "AS": 50,
+    "US": 50
+  },
+  "schemaRanking": [
+    "ABN",
+    "ED",
+    "MIS",
+    "DEF",
+    "SS",
+    "AS",
+    "US",
+    "DEP"
+  ],
+  "consistency": {
+    "inconsistentSchemas": [
+      "SS",
+      "AS",
+      "US"
+    ],
+    "flag": false
+  },
+  "stress": {
+    "triggers": {
+      "ST1": 100,
+      "ST2": 100,
+      "ST3": 100,
+      "ST4": 100,
+      "ST5": 100,
+      "ST6": 0
+    },
+    "vulnerable": [
+      "ST1",
+      "ST2"
+    ],
+    "reactivity": 91.66666666666667,
+    "reactivityBand": "high",
+    "coping": {
+      "SC1": 100,
+      "SC2": 0,
+      "SC3": 75,
+      "SC4": 100,
+      "SC5": 100,
+      "SC6": 100
+    },
+    "dominantCoping": [
+      "SC1",
+      "SC4",
+      "SC5",
+      "SC6"
+    ],
+    "coreMatch": false
+  },
+  "state": {
+    "selfCompassion": 0,
+    "flexibility": 58.333333333333336,
+    "needs": {
+      "autonomy": 100,
+      "competence": 0,
+      "relatedness": 0
+    },
+    "index": 30.416666666666668,
+    "band": "protection"
+  },
+  "modes": {
+    "expansion": 18.8125,
+    "expansionBand": "low",
+    "protection": 87.27083333333333,
+    "protectionBand": "high",
+    "growthDirection": "T5",
+    "stressDirection": "T1",
+    "protectionCoping": "SC6"
+  },
+  "growth": {
+    "readiness": 18.751041666666666,
+    "band": "low",
+    "experiments": 0
+  },
+  "message": {
+    "score": {
+      "T1": 35,
+      "T2": 46.25,
+      "T3": 65,
+      "T4": 55,
+      "T5": 35,
+      "T6": 43.75,
+      "T7": 92.5,
+      "T8": 70,
+      "T9": 40
+    },
+    "ranking": [
+      "T7",
+      "T8",
+      "T3",
+      "T4",
+      "T2",
+      "T6",
+      "T9",
+      "T1",
+      "T5"
+    ],
+    "rank1": "T7",
+    "rank2": null,
+    "gap": 22.5,
+    "coreMatch": true
+  },
+  "insights": {
+    "reinforcements": [
+      {
+        "core": "T7",
+        "coreRole": "primary",
+        "linked": "ST4",
+        "linkedScore": 100,
+        "strength": 93.75
+      }
+    ],
+    "counterevidence": null
+  }
+}

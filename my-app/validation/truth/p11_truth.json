@@ -1,0 +1,38 @@
+{
+  "id": "p11",
+  "alias": "패션 MD 인턴, 나다움과 반응 사이 DEPTH",
+  "response_style": "normal",
+  "core": { "primary": "T4", "secondary": "T7", "primary_strength": "clear" },
+  "supporting_level": "low",
+  "case": { "primary": "Conflict", "secondary": "Counterevidence", "detail": "진정성(AUTH) 가치가 높은데 인정 기대(AS)도 높아 반응에 따라 시안을 바꿈. DEPTH 전형 신호(DEF·ED)는 낮아 반증 후보이기도 함" },
+  "channel": "SO",
+  "mbti": { "type": "ENFP", "fit_note": "처음 본 사람과 금방 말을 트고(E) 남다른 아이디어를 내며(N·F) 계획보다 반응에 맞춰 바꾸는(P) 인턴. 밝고 덜 무너지는 DEPTH라 전형 신호가 낮은 것과 맞물림", "self_reported": "ENFP" },
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["AS", "SS", "DEP"],
+  "schema_low": ["DEF", "ED"],
+  "values_top3": ["AUTH", "EXP", "ACH"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "mid", "dominant_coping": ["SC5", "SC3"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 25,
+    "age_band": "20s",
+    "motivation": "self",
+    "focus": "mid",
+    "reading_speed": "fast",
+    "condition_today": "normal",
+    "test_setting": "휴대폰, 퇴근 후 침대",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "high",
+    "social_desirability": "high",
+    "prior_knowledge": "MBTI를 친구들과 자주 함",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "스타일이 확실하지만 반응도 많이 신경 쓰며, 둘 다 자기라고 인식한다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "갈등을 스스로 인식" },
+  "notes": "사회적 바람직성 높음. '진짜' 폴더 장면이 상사 앞 순응(ST4 약하게)과 진정성 동시 표현. 실패에 무너지지 않음 → DEF 낮음."
+}

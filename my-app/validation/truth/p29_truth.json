@@ -1,0 +1,38 @@
+{
+  "id": "p29",
+  "alias": "라이브커머스 진행자, 극단 응답",
+  "response_style": "extreme",
+  "core": { "primary": "T3", "secondary": "T7", "primary_strength": "distorted_by_extreme" },
+  "supporting_level": "n/a",
+  "case": { "primary": null, "secondary": null, "detail": "실제 동기는 DRIVE 쪽이지만 거의 모든 문항을 1 또는 5로 응답해 여러 Core·Schema가 동시에 극단으로 나올 것으로 예상. 리포트가 과장된 단정을 하는지 확인" },
+  "channel": "SX",
+  "mbti": { "type": "ESFP", "fit_note": "방송 무대에서 에너지를 얻고(E) 지금 반응에 따라 기분과 계획이 뒤집히는(S·F·P) 진행자. 매출 기록에 매달리는 DRIVE가 즉흥적 표현 방식과 겹쳐 드러남", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["AS", "SS", "MIS"],
+  "schema_low": ["DEP", "ED"],
+  "values_top3": ["ACH", "EXP", "REL"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST1", "ST2"], "reactivity": "high", "dominant_coping": ["SC4", "SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 24,
+    "age_band": "20s",
+    "motivation": "curious",
+    "focus": "low",
+    "reading_speed": "fast",
+    "condition_today": "low",
+    "test_setting": "휴대폰, 라이브 후 새벽 침대",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "극과 극이고 미지근한 것이 가장 싫다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "극단 응답 검증용. truth의 Core·Schema는 '바탕 성향'이며 엔진 출력과의 일치보다는 과장 해석 여부를 본다. 혼자 남을 때 연락처 삭제(AVO)와 기대 후 서운함(ANX)으로 혼합."
+}

@@ -1,0 +1,31 @@
+{
+  "overall": {
+    "perceived_minutes": 18,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": "Q58 무렵부터 눈이 감기기 시작함",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "졸려서 몇 개는 두 번씩 읽었어요. 근데 제가 찾아서 한 거라 끝까지는 했어요, 혹시 몰라서요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "1순위는 바로 골라지는데 2순위 고르는 게 은근 고민됐어요." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 제목이 좀 찔렸어요." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 3, "note": "연락 얘기 나오는 문항이 계속 나와서 남자친구 생각만 났어요. 비슷한 질문이 반복되는 느낌." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "위에 상황 나오고 아래는 '힘들 때 나는' 하고 바뀌는 게 졸려서 처음엔 헷갈렸어요." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 2, "note": "이번 달은 진짜 별로라 답하면서 좀 우울했어요." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "편하게 쉬는 거랑 한 사람이랑 있는 거 사이에서 잠깐 고민." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 거에서 점수로 바뀌니까 오히려 편했어요. 손가락만 누르면 되니까." },
+  "hard_items": [
+    { "q": "Q13", "reason": "선택지가 다 안 맞음", "detail": "기준에 못 미친 것도, 무능해 보이는 것도 다 걸려서 하나만 고르기 어려웠어요." },
+    { "q": "Q38", "reason": "두 가지를 한꺼번에 물음", "detail": "혼자 해결하는 게 편하긴 한데 실제론 선배들한테 전화 돌리고 있어서 뭐라고 해야 할지." },
+    { "q": "Q45", "reason": "모호함", "detail": "'지나치게 가까워지면'이 어느 정도인지 모르겠어요. 저는 매달리는 거 싫어하는 거지 답답한 건 아닌데." },
+    { "q": "Q68", "reason": "어려운 표현", "detail": "감정을 '그대로 둔다'는 게 무슨 뜻인지 두 번 읽었어요." }
+  ],
+  "careless_items": ["Q59", "Q60", "Q62", "Q65"],
+  "emotional": {
+    "uncomfortable": true,
+    "note": "Q42, Q35처럼 연락이나 상대 마음 확인하는 문항은 요즘 결혼 얘기 때문에 좀 불편했어요. Q24 기댈 곳 없어지는 거 읽을 때도 마음이 쓰였고요."
+  }
+}

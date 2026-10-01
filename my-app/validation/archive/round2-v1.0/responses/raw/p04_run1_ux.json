@@ -1,0 +1,32 @@
+{
+  "overall": {
+    "perceived_minutes": 30,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": "Q52 무렵부터 눈이 침침하고 손님 오가느라 집중이 끊김",
+    "would_finish_in_real_life": "maybe",
+    "dropout_point": null,
+    "comment": "아유, 생각보다 길대요. 손님 오면 끊기고 다시 하고, 그래도 내 얘기 같은 게 몇 개 있어서 끝까지는 했어요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "두 개를 골라야 해서 한 번 더 생각해야 하고, 회의나 공 가져가는 얘기는 우리 가게랑 좀 안 맞았어요." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "필요한 존재 아니면 자리가 없어진다는 말은 딱 내 얘기 같았어요. 몇 개는 무슨 말인지 좀 어려웠고요." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 3, "note": "비슷한 말이 자꾸 나와서 아까 뭐라고 했나 헷갈렸어요. 딸 생각이 많이 났어요." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "위에는 상황이고 아래는 내가 뭘 하는지라서 처음엔 헷갈렸어요." },
+    { "part": 5, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "요즘 시어머니 병원 다니느라 정신없어서 그 생각하면서 했어요." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "식구들 다 모여 밥 먹는 게 제일인데 딱 그런 말이 없어서 사람들 속에 내 자리 있는 걸로 골랐어요." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 거에서 숫자로 바뀌니까 오히려 편했어요. 근데 3번 '보통이다'를 몇 번 눌렀네요." },
+  "hard_items": [
+    { "q": "Q23", "reason": "어려운 표현", "detail": "시간과 에너지가 밖으로 빠져나간다는 게 무슨 말인지 잘 몰라서 감으로 골랐어요." },
+    { "q": "Q07", "reason": "상황이 와닿지 않음", "detail": "회의 같은 걸 해본 적이 없어서 상상이 잘 안 됐어요." },
+    { "q": "Q19", "reason": "모호함", "detail": "결과랑 선택이랑 뭐가 다른 건지 잘 모르겠어요." },
+    { "q": "Q68", "reason": "어려운 표현", "detail": "감정을 그대로 둔다는 게 어떻게 하는 건지 잘 모르겠어요." },
+    { "q": "Q40", "reason": "모호함", "detail": "Q28이랑 비슷한 것 같은데 반대로 물어보는 것 같아서 헷갈렸어요." }
+  ],
+  "careless_items": ["Q29", "Q32", "Q33", "Q34", "Q58", "Q59", "Q67", "Q68", "Q69"],
+  "emotional": {
+    "uncomfortable": true,
+    "note": "Q42 연락 안 닿으면 계속 생각난다는 거랑 Q53 필요 없는 사람 같을 때는 딸 생각이 나서 마음이 좀 그랬어요. Q69 나한테 가혹해진다는 건 그렇다고 하기가 좀 그래서 보통으로 했어요."
+  }
+}

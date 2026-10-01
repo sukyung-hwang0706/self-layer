@@ -1,0 +1,28 @@
+{
+  "overall": {
+    "perceived_minutes": 25,
+    "boredom": 2,
+    "difficulty": 2,
+    "fatigue_from": null,
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "한 문항씩 읽어 보니 생각보다 시간이 좀 걸렸네요. 결과는 참고만 해 볼게요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "1순위는 금방 정해지는데 2순위는 셋 다 애매해서 고민한 문항이 있었어요." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "'잃을까 봐'라는 제목이 처음엔 좀 낯설었어요." },
+    { "part": 3, "perceived_length": "김", "boredom": 2, "difficulty": 2, "note": "비슷한 내용을 반대 방향으로 묻는 문장이 섞여 있어서 천천히 읽었어요." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "흔들리는 정도와 그때 하는 행동을 나눠서 묻는 게 이해는 됐어요." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 1, "difficulty": 1, "note": "지난 한 달은 평소랑 비슷해서 쉽게 답했어요." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "장부 맞고 손님께 설명 잘한 날이 제일 좋은데, 딱 맞는 보기가 없어서 가까운 걸로 골랐어요." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 방식에서 점수 매기는 방식으로 바뀌어서 안내문을 한 번 더 읽었어요. 크게 어렵진 않았어요." },
+  "hard_items": [
+    { "q": "Q03", "reason": "선택지가 다 안 맞음", "detail": "주말엔 보통 밀린 공부나 다음 주 준비를 하는데 그런 보기가 없었어요." },
+    { "q": "Q05", "reason": "상황이 와닿지 않음", "detail": "혼자 약국을 하다 보니 공을 뺏기는 상황이 잘 상상이 안 됐어요." },
+    { "q": "Q23", "reason": "모호함", "detail": "에너지가 '밖으로 빠져나간다'는 게 어떤 뜻인지 확실하지 않았어요." },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "일을 제대로 해냈다는 보기가 없어서 순서 정하기가 애매했어요." }
+  ],
+  "careless_items": [],
+  "emotional": { "uncomfortable": false, "note": "Q66, Q69처럼 나를 탓하는 문항에서 예전 용량 실수가 잠깐 떠올랐지만 불편할 정도는 아니었어요." }
+}

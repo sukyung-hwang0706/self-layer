@@ -1,0 +1,28 @@
+{
+  "overall": {
+    "perceived_minutes": 8,
+    "boredom": 3,
+    "difficulty": 2,
+    "fatigue_from": "Q40 무렵부터 그냥 손가락이 먼저 눌렀음",
+    "would_finish_in_real_life": "maybe",
+    "dropout_point": null,
+    "comment": "앞에 고르는 건 완전 재밌었는데 뒤로 갈수록 비슷한 말 계속 물어봐서 좀 지겨웠어요ㅋㅋ 결과 별로면 진짜 최악일 듯."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "상황 고르는 건 재밌음. 근데 두 번째 고르는 거 귀찮음. 낯선 모임 문항은 나는 아예 안 가거나 다 쥐거나라서 맞는 게 없었음" },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 2, "note": "그냥 확 와닿는 건 5, 아니면 1" },
+    { "part": 3, "perceived_length": "김", "boredom": 4, "difficulty": 3, "note": "너무 길고 비슷한 말이 반대로 또 나와서 헷갈림. 뒤쪽은 앞부분만 읽고 누름" },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "흔들리는 거? 나 다 흔들림ㅋㅋ" },
+    { "part": 5, "perceived_length": "짧음", "boredom": 3, "difficulty": 2, "note": "요즘 얘기라 좀 우울해짐" },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "방송 기록 찍은 날 같은 보기가 없어서 그나마 비슷한 거 고름" }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "갑자기 숫자로 바뀌어서 어? 했는데 양 끝만 누르면 돼서 오히려 편했음" },
+  "hard_items": [
+    { "q": "Q17", "reason": "선택지가 다 안 맞음", "detail": "나는 자연스럽게 섞이는 타입이 아님. 아예 안 가거나 분위기 잡거나 둘 중 하나" },
+    { "q": "Q19", "reason": "어려운 표현", "detail": "결과보다 선택이 더 견디기 어렵다는 게 무슨 말인지 잘 모르겠음. 결과가 제일 중요하지" },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "내가 잘했다고 느끼는 건 기록 깼을 때인데 그런 보기가 없음" },
+    { "q": "Q40", "reason": "모호함", "detail": "갈등 생기면 관계 흔들리냐고? 흔들리는 정도가 아니라 끝나는데" }
+  ],
+  "careless_items": ["Q41", "Q45", "Q47", "Q48", "Q49", "Q50", "Q57", "Q58", "Q62", "Q70"],
+  "emotional": { "uncomfortable": true, "note": "Q44, Q74 힘들 때 알아주는 사람 있냐는 거. 얼마 전에 친구 끊은 게 생각나서 좀 짜증났음" }
+}

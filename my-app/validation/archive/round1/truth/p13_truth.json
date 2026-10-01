@@ -1,0 +1,16 @@
+{
+  "id": "p13",
+  "alias": "혼자 생각하는 분석가",
+  "design_intent": ["강화형"],
+  "response_style": "normal",
+  "core": { "primary": "T5", "secondary": "T1", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["DEF", "ED", "MIS"],
+  "schema_low": ["SS", "ABN"],
+  "values_top3": ["AUT", "GROW", "SEC"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST3"], "reactivity": "mid", "dominant_coping": ["SC2"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "notes": "이해한 뒤 움직이는 Core와 부족함 노출 걱정·이해받지 못할 기대가 함께 강한 강화형. 거리두기 높음."
+}

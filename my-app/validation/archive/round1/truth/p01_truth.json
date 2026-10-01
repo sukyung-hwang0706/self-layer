@@ -1,0 +1,16 @@
+{
+  "id": "p01",
+  "alias": "품질관리 팀장",
+  "design_intent": ["강화형"],
+  "response_style": "normal",
+  "core": { "primary": "T1", "secondary": "T5", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "DEF", "MIS"],
+  "schema_low": ["ABN", "DEP"],
+  "values_top3": ["GROW", "AUTH", "SEC"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "mid", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "notes": "기준을 바로잡는 동기와 높은 자기기준이 함께 강한 강화형. 관계는 안정적(ANX·AVO 모두 낮음)."
+}

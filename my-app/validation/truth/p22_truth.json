@@ -1,0 +1,38 @@
+{
+  "id": "p22",
+  "alias": "철물점 사장, 의도 살피기 강화 STAND",
+  "response_style": "normal",
+  "core": { "primary": "T8", "secondary": "T1", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Reinforced", "secondary": null, "detail": "STAND + 의도부터 살피기(MIS)가 함께 강함. 칭찬에도 '원하는 게 뭐요'" },
+  "channel": "SP",
+  "mbti": { "type": "ESTJ", "fit_note": "설명회 맨 앞줄에서 따지고 상인회를 이끄는(E·T) 사장이며 계약서 조항·진열 순서를 자기 식으로 고정하는(S·J) 사람. STAND의 앞에 나서 지키기와 맞물림", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["MIS", "ED", "US"],
+  "schema_low": ["DEP", "ABN"],
+  "values_top3": ["AUT", "CONTR", "SEC"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "mid", "dominant_coping": ["SC4"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 58,
+    "age_band": "50s",
+    "motivation": "referral",
+    "focus": "high",
+    "reading_speed": "slow",
+    "condition_today": "normal",
+    "test_setting": "휴대폰(글씨 확대), 낮 가게 계산대",
+    "digital_literacy": "low",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "속을 다 보여 주고 숨기는 게 없으며 싫고 좋음을 그대로 말한다.",
+    "blind_spot": "건강 문제·사업 실패 같은 취약한 이야기는 아내에게도 숨긴다"
+  },
+  "self_image_gap": { "level": "small", "description": "호불호는 드러내지만 약한 부분은 철저히 숨긴다" },
+  "notes": "디지털·용어 익숙도 낮음. 진열 원상복귀·계약서 빨간 펜 → T1 secondary·US. 상인 보호 → CONTR."
+}

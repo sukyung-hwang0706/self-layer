@@ -1,0 +1,38 @@
+{
+  "id": "p17",
+  "alias": "안전관리 부장, 관계 불안 없는 TRUST",
+  "response_style": "normal",
+  "core": { "primary": "T6", "secondary": "T5", "primary_strength": "clear" },
+  "supporting_level": "low",
+  "case": { "primary": "Counterevidence", "secondary": null, "detail": "대비·규정·지침 의존 동기는 뚜렷하지만 관계 흔들림 민감성(ANX·ABN)과 의도 살피기(MIS)가 낮음" },
+  "channel": "SP",
+  "mbti": { "type": "ISTJ", "fit_note": "점검표·매뉴얼·본사 지침을 따르는(S·T·J) 안전관리자이고 속 얘기를 하지 않는 내향형(I). TRUST의 대비·규정 신뢰가 관계 불안 없이 드러남", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["DEP", "US", "DEF"],
+  "schema_low": ["ABN", "MIS"],
+  "values_top3": ["AUT", "SEC", "GROW"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST3"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 54,
+    "age_band": "50s",
+    "motivation": "referral",
+    "focus": "high",
+    "reading_speed": "normal",
+    "condition_today": "normal",
+    "test_setting": "PC, 점심 후 사무실",
+    "digital_literacy": "mid",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "걱정이 많은 게 아니라 대비할 뿐이고 가족에게도 할 건 다 한다.",
+    "blind_spot": "가족에게 실무는 다 하지만 속마음은 나누지 않는다"
+  },
+  "self_image_gap": { "level": "small", "description": "'할 건 다 한다'고 믿지만 정서적 거리가 있다" },
+  "notes": "TRUST 반증 후보. DEP는 '본사 지침 대기'로 표현. 사고 후 자기책임 → US·DEF. 혼자 캠핑카 → T5 secondary·AUT."
+}

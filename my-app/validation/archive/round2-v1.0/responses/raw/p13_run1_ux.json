@@ -1,0 +1,29 @@
+{
+  "overall": {
+    "perceived_minutes": 18,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": null,
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "문항 구성은 나름 정리돼 있네요. 다만 비슷한 걸 반대 방향으로 다시 묻는 문항이 꽤 보여서, 이걸로 뭘 얼마나 정확히 잴 수 있을지는 좀 더 알아봐야 할 것 같습니다."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "선택지 셋 중 딱 맞는 게 없을 때가 있어서 2순위 고르는 게 은근히 고민됐음. 각 선택지가 어떤 성향에 대응하는지 대충 보이긴 함." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "'내가 아닌 것 같다', '가치 없는 사람처럼' 같은 표현이 좀 강해서 그 정도까진 아니라 중간을 골랐음." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 2, "note": "같은 내용을 반대로 묻는 문항이 섞여 있는 게 보임. 일관성 체크용이겠지 싶음." },
+    { "part": 4, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "'평소보다 크게 흔들린다'의 기준이 애매함. 흔들린다는 게 감정인지 업무 효율인지." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "요즘은 프로젝트 공백기라 답하기 편했음. 한 달 기준이라 평소랑은 다를 수 있음." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 4, "note": "제일 가까운 '혼자 몰입한 날'이 선택지에 없음. 셋 다 썩 맞지 않아서 그나마 가까운 순으로 골랐음." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "형식이 바뀌어도 크게 부담은 없었음. 다만 Part 2 문장들이 갑자기 꽤 무겁게 느껴졌음." },
+  "hard_items": [
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "혼자 깊이 몰입한 날이 가장 만족스러운데 그런 선택지가 없음." },
+    { "q": "Q05", "reason": "선택지가 다 안 맞음", "detail": "공개적으로 문제 삼진 않지만 관계 때문이라기보다 따로 정리해서 전달하는 쪽이라 B도 A도 정확하진 않음." },
+    { "q": "Q13", "reason": "두 가지를 한꺼번에 물음", "detail": "내 기준에 못 미친 것과 능력 부족해 보이는 것 둘 다 걸리는데 하나만 1순위로 고르기 어려웠음." },
+    { "q": "Q44", "reason": "모호함", "detail": "'충분히 알아주는'의 기준이 모호함. 아내가 있긴 한데 감정 얘기를 많이 하는 편은 아니라서." },
+    { "q": "Q52", "reason": "모호함", "detail": "'흔들린다'가 감정적으로 흔들린다는 건지 신경이 쓰인다는 건지 불분명함." }
+  ],
+  "careless_items": [],
+  "emotional": { "uncomfortable": false, "note": "특별히 불편한 문항은 없었음. 감정 얘기를 털어놓는지 묻는 문항들은 조금 어색했지만 답하기 곤란한 정도는 아니었음." }
+}

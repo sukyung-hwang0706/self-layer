@@ -1,0 +1,16 @@
+{
+  "id": "p05",
+  "alias": "아동지원 활동가",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T2", "secondary": "T3", "primary_strength": "clear" },
+  "channel": "SX",
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["DEF", "ED", "DEP"],
+  "schema_low": ["AS", "MIS"],
+  "values_top3": ["AUTH", "REL", "CONTR"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST5"], "reactivity": "mid", "dominant_coping": ["SC2", "SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "돕는 동기에 관계 혼합, 부족함 노출 걱정과 판단 의존. 말하지 못할 때 철수 후 과업 몰입."
+}

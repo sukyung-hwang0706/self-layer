@@ -1,0 +1,27 @@
+{
+  "overall": {
+    "perceived_minutes": 15,
+    "boredom": 3,
+    "difficulty": 3,
+    "fatigue_from": "Q40 무렵부터 좀 비슷비슷해서 길게 느껴짐",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "뭐, 괜찮았어요. 근데 그때그때 다른 거라 가운데 많이 찍었네요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 3, "note": "2순위까지 고르라니까 좀 고민됨. 셋 다 아닌 것도 있었음." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "가치 없는 사람 같다, 이런 말은 저랑 좀 거리가 있어서." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 3, "note": "비슷한 질문이 계속 나오는 느낌. 대부분 그냥 보통이에요." },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "크게 흔들리는 일이 별로 없어서 금방 했음." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 2, "note": "지난 한 달이 그냥 평소 같아서 다 보통." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "편안한 게 제일이죠." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르다가 점수로 바뀌니 오히려 편했어요. 가운데 누르면 되니까." },
+  "hard_items": [
+    { "q": "Q05", "reason": "선택지가 다 안 맞음", "detail": "공 가져가는 일이 별로 없어서 잘 모르겠음. 그냥 넘어갈 것 같긴 함." },
+    { "q": "Q23", "reason": "어려운 표현", "detail": "에너지가 밖으로 빠져나간다는 게 무슨 말인지 잘 안 와닿음." },
+    { "q": "Q68", "reason": "모호함", "detail": "감정을 그대로 둔다는 게 뭔지, 그냥 지나가던데요." }
+  ],
+  "careless_items": ["Q36", "Q41", "Q43", "Q45", "Q46"],
+  "emotional": { "uncomfortable": false, "note": "딱히 불편한 건 없었어요." }
+}

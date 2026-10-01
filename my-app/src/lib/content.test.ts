@@ -22,6 +22,13 @@ test("사용자에게 보이는 문구에 금지어가 없다", () => {
   for (const s of userText) for (const re of FORBIDDEN) assert.doesNotMatch(s, re, s);
 });
 
+/** 정서적 안전성(검증 보고서 §5): 사람을 낙인찍듯 읽히는 단어는 행동 서술로 쓴다. */
+const STIGMA = [/분노/, /통제하려/, /가혹/, /척하/, /이별 연습/, /이것밖에 안 될까/];
+
+test("리포트 문구에 낙인처럼 읽히는 단어가 없다", () => {
+  for (const s of strings(content)) for (const re of STIGMA) assert.doesNotMatch(s, re, s);
+});
+
 test("문구의 치환 자리는 {nm}·{primary}만 쓴다", () => {
   for (const s of strings(content)) for (const m of s.matchAll(/\{(\w+)\}/g)) assert.ok(["nm", "primary"].includes(m[1]), s);
 });
@@ -46,7 +53,9 @@ test("리포트 도우미", () => {
 });
 
 test("Core 문장은 판정 유보와 낮은 신뢰도에서 단정하지 않는다", () => {
-  const undetermined = scoreAssessment(makeAnswers({ E07: { first: "A", second: "C" }, M1: 1 }));
+  // 모든 Part 1을 A→B로 고르면 V1.1-app의 위치 균형 때문에 9개 유형이 완전 동점이 된다.
+  const allAB = Object.fromEntries(items.PART1.map((i) => [i.id, { first: "A" as const, second: "B" as const }]));
+  const undetermined = scoreAssessment(makeAnswers(allAB));
   assert.match(coreSentence(undetermined, "당신"), /한 가지로 좁혀지지 않았어요/);
   const weak = scoreAssessment(makeAnswers({ M1: 1 }));
   assert.match(coreSentence(weak, "당신"), /가까워 보여요/);

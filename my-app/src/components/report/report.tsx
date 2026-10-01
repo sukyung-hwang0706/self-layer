@@ -5,9 +5,13 @@ import {
 import { PART2 } from "../../data/items";
 import { band, coreName, coreSentence, fillText, linkedLabel, quadrant, r, selfMapAxes, strengthWord, valueLife } from "../../lib/report";
 import { rankBy } from "../../lib/scoring";
-import { COPING_CODES, CORE_TYPES, TRIGGER_CODES, type AssessmentResult, type CoreType } from "../../types/assessment";
+import { COPING_CODES, CORE_TYPES, TRIGGER_CODES, type AssessmentResult, type CoreType, type SchemaCode } from "../../types/assessment";
 import type { Narrative, NarrativeField } from "../../lib/narrative";
 import { BarList, Figure, ModesBar, Quadrant, Radar, StateGauge, Venn } from "./charts";
+
+/** PATTERN 문장 강도: 표시 구간(band)의 경계를 그대로 쓴다. 40 미만은 규칙으로 서술하지 않고, 60 이상만 단정형으로 쓴다. */
+const RULE_SHOWN = 40;
+const RULE_ASSERT = 60;
 
 export const SECTIONS = [
   ["summary", "요약"], ["map", "Self Map"], ["core", "Core"], ["influence", "보조 Core"], ["state", "지금의 나"], ["modes", "두 가지 모드"],
@@ -43,7 +47,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
     <section className="page cover l-cross" aria-label="표지">
       <div className="brand-line">SELF-LAYERS</div>
       <h1>나를 이루는<br />여러 겹의 이야기</h1>
-      <div className="sub">DEEP SELF-UNDERSTANDING REPORT · V1.0</div>
+      <div className="sub">DEEP SELF-UNDERSTANDING REPORT · V1.1</div>
       <div className="form">
         <div><span>이름</span><b>{name || "—"}</b></div>
         <div><span>검사일</span><b>{date}</b></div>
@@ -107,7 +111,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
     {/* 04 Core */}
     <Page id="core" layer="l-core" kicker="CORE · 무엇이 나를 움직이는가">
       <h2 id="core-title">My Core · {pc.name}<span className="h2-sub">{pc.title}</span></h2>
-      <Figure title="상황선택 18문항에서 쌓인 점수" caption="이 힘들은 누구에게나 조금씩 있어요. 이 표는 그중 어떤 힘이 선택을 가장 자주 움직였는지를 보여줘요. 상황선택형 문항이라 점수는 상대적인 비중이에요.">
+      <Figure title="상황선택 18문항에서 쌓인 점수" caption="열여덟 상황에서 어떤 힘이 선택을 가장 자주 움직였는지를 보여줘요. 상황선택형 문항이라 점수는 상대적인 비중이에요.">
         <div className="core-grid">
           {CORE_TYPES.map((t) => <div key={t} className={`core-tile${t === P ? " pri" : t === S ? " sec" : ""}`}>
             <div className="nm">{CORE[t].name}</div><div className="sc">{r(core.typeScore[t])}</div>
@@ -117,7 +121,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
         <BarList label="Core 점수 순위" rows={core.ranking.map((t, i) => ({ name: CORE[t].name, value: core.typeScore[t], strong: i === 0, muted: i > 2 }))} />
         <p className="small" style={{ marginTop: 12 }}>{(() => {
           const m = rankBy(CORE_TYPES, core.motive);
-          return `동기 진술(9문항)에서는 ${CORE[m[0]].name} ${r(core.motive[m[0]])} · ${CORE[m[1]].name} ${r(core.motive[m[1]])} 순으로 높았어요. ${m[0] === P ? "선택과 같은 방향이에요." : `${pc.name}의 동기 진술은 ${r(core.motive[P])}였어요.`}`;
+          return `동기 진술(“무엇을 잃을까 봐 그렇게 하는가”를 묻는 9문항)에서는 ${CORE[m[0]].name} ${r(core.motive[m[0]])} · ${CORE[m[1]].name} ${r(core.motive[m[1]])} 순으로 높았어요. ${m[0] === P ? "선택과 같은 방향이에요." : `${pc.name}의 동기 진술은 ${r(core.motive[P])}였어요.`}`;
         })()}</p>
       </Figure>
       <p className="lead">{f(pc.body)}</p>
@@ -157,13 +161,13 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
         ? <p className="lead">같은 {pc.name}여도 곁의 힘에 따라 모습이 꽤 달라요. {pc.name} 곁의 두 힘 중 {CORE[core.influence.type].name}이 더 높게 나왔어요. {CORE[core.influence.type].influenceNote}</p>
         : <p className="lead">{pc.name} 곁의 두 힘이 같은 점수로 나와, 한쪽으로 기운 Influence는 보이지 않았어요. 상황에 따라 두 결을 모두 꺼내 쓰는 편일 수 있어요.</p>}
       <h3>보조 Core · {sc.name} — {sc.title}</h3>
-      <p>보조 Core는 {sc.name}({r(core.typeScore[S])})예요. {f(sc.secondaryNote)} {core.strongSecondary ? "동기 진술에서도 이 마음이 강하게 나와, 단순한 “두 번째”가 아니라 함께 움직이는 힘으로 읽어요." : "다만 동기 진술에서는 주된 힘만큼 강하지 않아, 상황에 따라 꺼내 쓰는 보조적인 결로 읽어요."}</p>
+      <p>보조 Core는 {sc.name}({r(core.typeScore[S])})예요. {f(sc.secondaryNote)} {core.strongSecondary && "동기 진술에서도 이 마음이 강하게 나와, 단순한 “두 번째”가 아니라 함께 움직이는 힘으로 읽어요."}</p>
       <div className="grid2">
         <div className="cell"><b>{pc.name}의 힘</b>{pc.strengths}</div>
         <div className="cell"><b>{sc.name}의 힘</b>{sc.strengths}</div>
       </div>
       {core.status === "undetermined" && <p className="flag">{[P, ...core.tiedWith].map(coreName).join(" · ")}가 선택·동기 진술·1순위 횟수에서 모두 같은 무게로 나왔어요. 한 가지로 판정하지 않고, 이 리포트는 {pc.name}을 기준으로 쓰되 다른 힘의 설명도 함께 참고하길 권해요.</p>}
-      <p className="small">※ Influence와 보조 Core는 18개 상황선택 문항과 9개 동기 진술에서 파생된 참고 지표이며, 별도의 전용 측정으로 보지 않습니다.</p>
+      <p className="small">※ Influence는 내 Core 양옆에 있는 두 힘 중 선택에서 더 자주 함께 쓰인 쪽이고, 보조 Core는 Core 다음으로 많이 선택된 힘이에요. 둘 다 18개 상황선택 문항과 9개 동기 진술에서 파생된 참고 지표이며, 별도의 전용 측정으로 보지 않습니다.</p>
     </Page>
 
     {/* 06 STATE */}
@@ -180,7 +184,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
             <BarList label="현재 상태 구성 요소" rows={parts.map((p) => ({ name: p.label, value: p.value, strong: p === hi }))} />
           </Figure>
           <div className="note"><b>지금의 위치 · {stateBand.label}</b>{stateBand.note}</div>
-          <p>한 가지만 기억해두면 좋겠어요. 이 상태는 성격이 아니라 계절 같은 거예요. 다음 달에 다시 재면 달라질 수 있어요. 힘든 시기가 오면 이 페이지로 돌아와 “{lo.label}”처럼 가장 낮은 요소가 무엇인지 보세요. 무엇부터 채워야 하는지 힌트가 될 거예요.</p>
+          <p>힘든 시기가 오면 이 페이지로 돌아와 “{lo.label}”처럼 가장 낮은 요소가 무엇인지 보세요. 무엇부터 채워야 하는지 힌트가 될 거예요.</p>
         </>;
       })()}
     </Page>
@@ -198,14 +202,14 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
           <h3>건강할 때의 나 — {modes.expansionBand === "high" ? "지금 가까운 모습" : modes.expansionBand === "mid" ? "상황에 따라 오가는 모습" : "여유가 생기면 돌아오는 모습"}</h3>
           <p>{pc.healthy.text}</p>
           <div className="grid3">{pc.healthy.cells.map((c) => <div key={c.title} className="cell"><b>{c.title}</b>{c.text}</div>)}</div>
-          <p>이번 결과에서 Expansion 지수는 {r(modes.expansion)}예요. {modes.expansionBand === "high" ? "지금은 이 모습에 상당히 가까이 와 있어요. 그래서 이 리포트의 제안은 “고치기”보다 “이미 하고 있는 걸 더 자주 하기”에 가까워요." : modes.expansionBand === "mid" ? "상황에 따라 이 모습과 평소의 모습을 오가고 있어요. 어떤 조건에서 이 모습이 나오는지 알아두면, 그 조건을 조금 더 자주 만들 수 있어요." : "지금은 이 모습을 꺼낼 여유가 많지 않은 시기예요. 이 설명은 목표가 아니라, 여유가 생겼을 때 돌아올 수 있는 방향으로 읽어주세요."}</p>
+          <p>이번 결과에서 Expansion 지수(여유 있을 때의 모습에 얼마나 가까운지)는 {r(modes.expansion)}예요. {modes.expansionBand === "high" ? "지금은 이 모습에 상당히 가까이 와 있어요. 그래서 이 리포트의 제안은 “고치기”보다 “이미 하고 있는 걸 더 자주 하기”에 가까워요." : modes.expansionBand === "mid" ? "상황에 따라 이 모습과 평소의 모습을 오가고 있어요. 어떤 조건에서 이 모습이 나오는지 알아두면, 그 조건을 조금 더 자주 만들 수 있어요." : "지금은 이 모습을 꺼낼 여유가 많지 않은 시기예요. 이 설명은 목표가 아니라, 여유가 생겼을 때 돌아올 수 있는 방향으로 읽어주세요."}</p>
           <div className="quote">{pc.healthy.quote}</div>
         </div>;
         const stressed = <div key="s">
           <h3>스트레스받을 때의 나 — {modes.protectionBand === "high" ? "지금 가까울 수 있는 모습" : modes.protectionBand === "mid" ? "부분적으로 켜져 있는 모습" : "여유가 줄어들면 나타날 수 있는 모습"}</h3>
           <p>{pc.stress.text}</p>
           <div className="grid3">{pc.stress.signals.map((s, i) => <div key={s} className="cell l-str"><b>신호 0{i + 1}</b>{s}</div>)}</div>
-          <p>이번 결과에서 Protection 지수는 {r(modes.protection)}예요. {modes.protectionBand === "high" ? "지금은 이 모드가 꽤 켜져 있을 수 있어요. 스스로를 탓하기보다, 지금 이 방식이 나를 지키려고 애쓰고 있다는 걸 먼저 알아차려주세요." : modes.protectionBand === "mid" ? "부분적으로 켜져 있어요. 힘든 일이 겹치는 날에 이 모습이 더 자주 보일 수 있어요." : "지금은 이 모드가 거의 켜져 있지 않아요. 그래서 이 설명은 “지금의 나”가 아니라 “힘든 시기가 왔을 때 알아차릴 신호”로 읽어주세요."} 이 모드에서 흔히 켜지는 대처는 “{COPING[modes.protectionCoping].name}”이고, 이번 응답에서는 {r(stress.coping[modes.protectionCoping])}로 나타났어요.</p>
+          <p>이번 결과에서 Protection 지수(나를 지키려는 익숙한 방식이 얼마나 켜져 있는지)는 {r(modes.protection)}예요. {modes.protectionBand === "high" ? "지금은 이 모드가 꽤 켜져 있을 수 있어요. 스스로를 탓하기보다, 지금 이 방식이 나를 지키려고 애쓰고 있다는 걸 먼저 알아차려주세요." : modes.protectionBand === "mid" ? "부분적으로 켜져 있어요. 힘든 일이 겹치는 날에 이 모습이 더 자주 보일 수 있어요." : "지금은 이 모드가 거의 켜져 있지 않아요. 그래서 이 설명은 “지금의 나”가 아니라 “힘든 시기가 왔을 때 알아차릴 신호”로 읽어주세요."} 이 모드에서 흔히 켜지는 대처는 “{COPING[modes.protectionCoping].name}”이고, 이번 응답에서는 {r(stress.coping[modes.protectionCoping])}로 나타났어요.</p>
           <div className="note l-str"><b>알아차림 포인트</b>{pc.stress.note}</div>
         </div>;
         return modes.protectionBand === "high" && modes.expansionBand !== "high" ? [stressed, healthy] : [healthy, stressed];
@@ -248,7 +252,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
 
     {/* 10 Pattern */}
     <Page id="pattern" layer="l-pat" kicker="PATTERN · 반복되는 내면의 규칙">
-      <h2 id="pattern-title">{schemaRanking.slice(0, 3).map((k) => SCHEMAS[k].name).join(" · ")}</h2>
+      <h2 id="pattern-title">{(schemaRanking.filter((k, i) => i < 3 && schemas[k] >= RULE_SHOWN).length ? schemaRanking.filter((k, i) => i < 3 && schemas[k] >= RULE_SHOWN) : schemaRanking.slice(0, 1)).map((k) => SCHEMAS[k].name).join(" · ")}</h2>
       {(() => {
         const high = schemaRanking.filter((k) => schemas[k] >= 60);
         return <Figure caption={high.length ? `“다소 높음” 이상 구간에 들어온 규칙은 ${high.length}개예요.` : "모든 규칙이 중간 이하에 머물러, 내면 규칙이 비교적 유연하게 작동하고 있어요."}>
@@ -258,19 +262,28 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
       <p className="lead">패턴은 결함이 아니라 오래 사용해온 내면의 규칙이에요. 같은 규칙이 여유가 있을 때는 배려와 신중함이 되고, 압박이 커지면 자기희생과 과도한 경계가 될 수 있어요. 중요한 건 점수의 높낮이보다 “언제 이 규칙이 나를 돕고, 언제 내 선택권을 줄이는가”예요.</p>
       {(() => {
         const [a, b, c] = schemaRanking;
+        // 같은 점수의 규칙은 정의 순서로만 갈리므로 순서에 의미를 두지 않고 함께 밝힌다.
+        const tiedWith = (k: SchemaCode) => schemaRanking.filter((x) => x !== k && schemas[x] === schemas[k]);
+        const second = [b, c].filter((k) => schemas[k] >= RULE_SHOWN);
+        const tailTies = schemas[c] >= RULE_SHOWN ? schemaRanking.slice(3).filter((x) => schemas[x] === schemas[c]) : [];
+        if (schemas[a] < RULE_SHOWN) return <div className="note"><b>뚜렷하게 작동하는 규칙이 보이지 않아요</b>여덟 가지 규칙이 모두 낮은 구간(40 미만)이에요. 그나마 가장 높게 나온 것은 “{SCHEMAS[a].name}”({r(schemas[a])})이지만, 반복해서 나를 묶는 규칙으로 보기는 어려워요.</div>;
         return <>
           <h3>가장 강하게 나타난 규칙 · {SCHEMAS[a].name} · {r(schemas[a])}</h3>
+          {tiedWith(a).length > 0 && <p className="small">{tiedWith(a).map((k) => SCHEMAS[k].name).join(" · ")}도 같은 점수로 나왔어요. 순서에는 의미가 없으니 함께 읽어주세요.</p>}
           <div className="quote">{SCHEMAS[a].quote}</div>
-          <p>{SCHEMAS[a].text}{schemas[a] < 60 && " 다만 이번 결과에서는 중간 정도라, 늘 작동하기보다는 특정 상황에서 가끔 고개를 드는 규칙에 가까워요."}</p>
+          <p>{schemas[a] >= RULE_ASSERT ? SCHEMAS[a].text : `${SCHEMAS[a].text} 다만 이번 결과에서는 중간 정도라, 늘 작동하기보다는 특정 상황에서 가끔 고개를 드는 규칙에 가까워요.`}</p>
           <div className="grid2">
             <div className="cell"><b>이 규칙이 만들어주는 힘</b>{SCHEMAS[a].strength}</div>
             <div className="cell"><b>이 규칙이 나를 지치게 할 때</b>{SCHEMAS[a].cost}</div>
           </div>
           <div className="note"><b>알아차릴 신호</b>{SCHEMAS[a].signal}</div>
-          <h3>함께 움직이는 두 번째와 세 번째 규칙</h3>
-          <div className="grid2">
-            {[b, c].map((k) => <div key={k} className="cell"><b>{SCHEMAS[k].name} · {r(schemas[k])} · {band(schemas[k])}</b>{SCHEMAS[k].text}</div>)}
-          </div>
+          {second.length > 0 ? <>
+            <h3>함께 움직이는 규칙</h3>
+            <div className="grid2">
+              {second.map((k) => <div key={k} className="cell"><b>{SCHEMAS[k].name} · {r(schemas[k])} · {band(schemas[k])}</b>{schemas[k] >= RULE_ASSERT ? SCHEMAS[k].text : `${SCHEMAS[k].name}의 경향이 중간 정도로 나타났어요. 늘 작동하기보다는 특정 상황에서 가끔 고개를 들 수 있어요.`}</div>)}
+            </div>
+            {tailTies.length > 0 && <p className="small">{[c, ...tailTies].map((k) => SCHEMAS[k].name).join(" · ")}가 같은 점수({r(schemas[c])})로 나왔어요. 이 중 어느 것이 먼저라고 보기 어려워요.</p>}
+          </> : <p>두 번째 이후의 규칙은 모두 낮은 구간(40 미만)이라, 이번 결과에서는 “{SCHEMAS[a].name}” 하나가 두드러진 모습이에요.</p>}
         </>;
       })()}
       <p className="small">내면 규칙은 개념당 두 문항으로 재기 때문에, 점수 하나하나의 크기보다 “어느 방향이 앞에 있는가”로 읽어주세요.</p>
@@ -288,7 +301,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
           </div>
           <div className="l-state">
             <div className="fig-title">흔들린 뒤 돌아오는 속도</div>
-            <BarList label="정서 반응성" rows={[{ name: "반응성", value: stress.reactivity }]} />
+            <BarList label="정서 반응성" rows={[{ name: "회복이 더딘 정도", value: stress.reactivity }]} />
             <p className="small" style={{ marginTop: 8 }}>낮을수록 빨리 회복해요.</p>
           </div>
         </div>
@@ -297,7 +310,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
         <p className="lead">좋은 소식부터요. 여섯 가지 상황 중 어느 것도 “크게 흔들린다”는 기준을 넘지 않았어요. 뚜렷한 취약점은 보이지 않아요. {stress.reactivityBand === "low" ? "한번 흔들려도 원래 상태로 돌아오는 속도도 빠른 편이에요." : ""}</p>
         <p>그래도 상대적으로 조금 더 마음이 쓰이는 곳은 “{TRIGGERS[rankBy(TRIGGER_CODES, stress.triggers)[0]].label}”이에요. 취약점이라기보다, 힘들어질 때 어디서부터 시작되는지를 알려주는 주의 지점으로 읽어주세요.</p>
       </> : <>
-        <p className="lead">{nm}을 크게 흔드는 상황은 {stress.vulnerable.map((k) => `“${TRIGGERS[k].label}”`).join("와 ")}예요. 이 지점은 약점이 아니라, 무엇이 중요한 사람인지를 거꾸로 보여주는 지도이기도 해요.</p>
+        <p className="lead">{nm}을 크게 흔드는 상황은 {stress.vulnerable.map((k) => `“${TRIGGERS[k].label}”`).join("와 ")}예요. 거꾸로 보면 {[...new Set(stress.vulnerable.map((k) => TRIGGERS[k].area))].join(" · ")} 영역이 {nm}에게 그만큼 중요하다는 뜻이기도 해요.</p>
         <div className="grid2">{stress.vulnerable.map((k) => <div key={k} className="cell"><b>{TRIGGERS[k].label} · {r(stress.triggers[k])}</b>{TRIGGERS[k].text}</div>)}</div>
         {stress.coreMatch === true && <p>이 흔들림은 {pc.name}에게서 흔히 보이는 지점과 같은 방향이에요. {pc.name}의 마음이 중요하게 여기는 것이 위협받을 때 크게 반응한다는 뜻이에요.</p>}
         {stress.coreMatch === false && <div className="note"><b>전형과 다른 지점</b>흥미롭게도 이 지점은 {pc.name}에게서 전형적으로 보이는 취약점과는 다른 곳이에요. 유형의 설명보다 지금의 환경이나 역할, 요즘의 관계가 더 크게 작용하고 있을 수 있어요.</div>}
@@ -372,7 +385,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
         <p>지금은 과제를 늘리기보다 회복이 먼저인 시기예요. 그래서 실험 대신 천천히 머물러볼 질문을 드려요. 답을 찾지 않아도 괜찮아요.</p>
         <ol className="reflect">{pc.growth.reflections.map((s) => <li key={s}>{s}</li>)}</ol>
       </>}
-      <p className="small">성장 준비도 {r(result.growth.readiness)} · 요즘의 상태와 여유에 맞춰 제안의 개수를 조절했어요.</p>
+      <p className="small">성장 준비도(지금 새로운 시도를 해볼 여유) {r(result.growth.readiness)} · 요즘의 상태와 여유에 맞춰 제안의 개수를 조절했어요.</p>
     </Page>
 
     {/* 15 Letter */}

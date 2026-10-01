@@ -1,0 +1,16 @@
+{
+  "id": "p15",
+  "alias": "종로의 시계 수리공",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T5", "secondary": "T4", "primary_strength": "clear" },
+  "channel": "SX",
+  "attachment": { "ANX": "high", "AVO": "high" },
+  "schema_top3": ["ABN", "DEP", "ED"],
+  "schema_low": ["AS", "US"],
+  "values_top3": ["SEC", "AUTH", "AUT"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST3", "ST6"], "reactivity": "high", "dominant_coping": ["SC2", "SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "이해 후 움직이는 Core에 관계 혼합, 멀어질 걱정과 판단 의존. 불확실·갈등 상황에서 철수했다가 확인을 찾음."
+}

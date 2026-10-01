@@ -1,0 +1,16 @@
+{
+  "id": "p27",
+  "alias": "새벽 메모장의 야간 관리자",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T9", "secondary": "T4", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["ED", "MIS", "DEF"],
+  "schema_low": ["ABN", "AS"],
+  "values_top3": ["AUTH", "AUT", "SEC"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST5"], "reactivity": "mid", "dominant_coping": ["SC2", "SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "갈등 회피 Core에 거리두기만 높음, 이해받지 못할 기대. 말하지 못할 때 흔들리고 철수·주의 전환. 보호 상태."
+}

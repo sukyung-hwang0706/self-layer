@@ -1,0 +1,38 @@
+{
+  "id": "p01",
+  "alias": "내부 별칭(짧게)",
+  "response_style": "normal",
+  "core": { "primary": "T1", "secondary": "T6", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Reinforced", "secondary": null, "detail": "ORDER + 높은 자기기준이 함께 강함" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "MIS", "DEF"],
+  "schema_low": ["ABN", "DEP"],
+  "values_top3": ["AUTH", "SEC", "GROW"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "mid", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 41,
+    "age_band": "40s",
+    "motivation": "self",
+    "focus": "high",
+    "reading_speed": "normal",
+    "condition_today": "normal",
+    "test_setting": "PC, 퇴근 후 집",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "mbti": { "type": "ISTJ", "fit_note": "왜 이 MBTI인지 한 줄", "self_reported": null },
+  "self_image": {
+    "summary": "저는 원칙을 지키는 편이지만 융통성도 있다고 생각해요.",
+    "blind_spot": "장면에서는 남이 대충 한 일을 그냥 넘기지 못하고 다시 한다"
+  },
+  "self_image_gap": { "level": "small", "description": "융통성이 있다고 믿지만 실제로는 기준을 내려놓기 어렵다" },
+  "notes": "설계 의도 한두 문장"
+}

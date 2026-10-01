@@ -1,0 +1,28 @@
+{
+  "overall": {
+    "perceived_minutes": 25,
+    "boredom": 3,
+    "difficulty": 2,
+    "fatigue_from": null,
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "교육 과제라 끝까지 꼼꼼히 했습니다. 감정 묻는 문항이 좀 많던데, 저는 그런 거 크게 생각 안 하고 삽니다."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "보기 세 개가 다 조금씩 맞거나 다 안 맞는 경우가 있어서 2순위 고르는 데 시간이 걸렸다." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "'잃을까 봐'라는 제목이 무슨 뜻인지 한 번 더 읽었다. 문장이 좀 추상적이다." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 2, "note": "비슷한 질문이 돌아서 또 나오는 느낌. 연락 뜸한 거 신경 쓰냐는 건 애초에 신경 안 쓴다." },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "'흔들린다'는 말이 저한테는 잘 안 맞는다. 대비하면 되는 거라서." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 2, "note": "지난 한 달은 평소랑 같아서 쉽게 답했다." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "사고 없이 끝나는 하루가 제일인데 그 보기가 딱 없어서 안정 쪽으로 골랐다." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 방식이 바뀌어서 처음 안내문을 다시 읽었다. 숫자로 고르는 게 오히려 편했다." },
+  "hard_items": [
+    { "q": "Q08", "reason": "선택지가 다 안 맞음", "detail": "성과 냈다고 특별히 뭘 하지 않는다. 그냥 다음 날 점검 계속하는 거다." },
+    { "q": "Q22", "reason": "상황이 와닿지 않음", "detail": "나만의 무언가가 없으면 내가 아니라는 게 무슨 말인지 잘 모르겠다." },
+    { "q": "Q68", "reason": "어려운 표현", "detail": "감정을 '그대로 두었다'는 게 어떤 걸 말하는 건지 애매했다." },
+    { "q": "Q74", "reason": "모호함", "detail": "말할 사람은 있는데 말을 안 한다. 그걸 뭐로 찍어야 하는지 고민했다." }
+  ],
+  "careless_items": [],
+  "emotional": { "uncomfortable": false, "note": "실수했을 때 나를 탓하냐는 문항에서 작년 사고가 잠깐 떠올랐지만 불편하다고까진 아니다." }
+}

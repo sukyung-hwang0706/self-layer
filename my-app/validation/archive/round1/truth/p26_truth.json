@@ -1,0 +1,16 @@
+{
+  "id": "p26",
+  "alias": "차분한 동네 약사",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T9", "secondary": "T6", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["DEF", "US", "DEP"],
+  "schema_low": ["ABN", "MIS"],
+  "values_top3": ["GROW", "SEC", "AUTH"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "갈등을 피하는 조화 Core, 관계 안정, 여유 상태. 노출 걱정과 자기기준이 중간 이상."
+}

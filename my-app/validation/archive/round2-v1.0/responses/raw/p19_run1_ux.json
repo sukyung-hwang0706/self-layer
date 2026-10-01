@@ -1,0 +1,27 @@
+{
+  "overall": {
+    "perceived_minutes": 9,
+    "boredom": 3,
+    "difficulty": 2,
+    "fatigue_from": "Q40 무렵부터 비슷한 문장이 반복되는 느낌이라 빠르게 넘김",
+    "would_finish_in_real_life": "maybe",
+    "dropout_point": null,
+    "comment": "앞부분 상황 고르는 건 재밌었는데 중간 5점짜리가 좀 길어요. 결과 나오면 영상 소재로 쓸 수 있을지 보죠."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "상황이 그려져서 금방 골랐음. 2순위 고르는 게 살짝 귀찮음" },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "'잃을까 봐'라는 제목이 좀 무거움. 문장은 훑고 느낌대로 누름" },
+    { "part": 3, "perceived_length": "김", "boredom": 4, "difficulty": 2, "note": "관계 얘기가 길게 이어져서 뒤쪽은 대충 읽음" },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "상황만 짧게 나와서 빨리 넘어감" },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 1, "note": "요즘 컨디션 최고라 고민 없이 답함" },
+    { "part": 6, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "보기 세 개가 다 내 얘기랑 좀 거리가 있음. 새로운 데 간 날이 없음" }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 방식이 바뀌어서 잠깐 멈칫했지만 금방 적응함" },
+  "hard_items": [
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "나는 계획에 없던 장면 건진 날이 좋은 날인데 그런 보기가 없음" },
+    { "q": "Q23", "reason": "모호함", "detail": "에너지가 밖으로 빠져나간다는 게 무슨 뜻인지 감이 잘 안 옴" },
+    { "q": "Q40", "reason": "상황이 와닿지 않음", "detail": "갈등 생길 만큼 오래 가는 관계가 별로 없어서 애매함" }
+  ],
+  "careless_items": ["Q29", "Q30", "Q40", "Q47", "Q64", "Q68"],
+  "emotional": { "uncomfortable": false, "note": "관계 문항이 좀 길게 이어져서 귀찮았던 것 말고는 딱히 없음" }
+}

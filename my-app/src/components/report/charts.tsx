@@ -79,7 +79,7 @@ export function ModesBar({ protection, expansion }: { protection: number; expans
   const side = (v: number, color: string, dir: "l" | "r"): CSSProperties => ({ position: "absolute", top: 0, bottom: 0, [dir === "l" ? "right" : "left"]: 0, width: `${v}%`, background: color, borderRadius: 11 });
   return <div role="img" aria-label={`Protection 지수 ${r(protection)}, Expansion 지수 ${r(expansion)}`}>
     <div style={{ display: "flex", justifyContent: "space-between", fontWeight: 700, fontSize: 14 }}>
-      <span style={{ color: "var(--str)" }}>Protection Mode</span><span style={{ color: "var(--state)" }}>Expansion Mode</span>
+      <span style={{ color: "var(--str)" }}>Protection Mode<small style={{ display: "block", fontWeight: 400, fontSize: 12 }}>버틸 때의 나</small></span><span style={{ color: "var(--state)", textAlign: "right" }}>Expansion Mode<small style={{ display: "block", fontWeight: 400, fontSize: 12 }}>여유 있을 때의 나</small></span>
     </div>
     <div style={{ display: "grid", gridTemplateColumns: "1fr 2px 1fr", alignItems: "center", margin: "10px 0 6px" }}>
       <div style={{ position: "relative", height: 22, background: "var(--band-prot)", borderRadius: 11 }}><span style={side(protection, "var(--str)", "l")} /></div>
@@ -120,7 +120,7 @@ export function Quadrant({ anx, avo, labels }: { anx: number; avo: number; label
 
 /** 강화 조합: 두 Layer가 같은 방향으로 겹치는 정도 */
 export function Venn({ left, right, strength }: { left: { title: string; label: string }; right: { title: string; label: string }; strength: number }) {
-  return <svg viewBox="0 0 340 190" role="img" aria-label={`${left.label}와 ${right.label}의 겹침 강도 ${r(strength)}`}>
+  return <svg viewBox="0 0 340 190" role="img" aria-label={`${left.label}와 ${right.label}가 함께 겹친 정도 ${r(strength)}`}>
     <circle cx="125" cy="95" r="80" fill="var(--core)" fillOpacity=".16" stroke="var(--core)" strokeWidth="1.5" />
     <circle cx="215" cy="95" r="80" fill="var(--pat)" fillOpacity=".16" stroke="var(--pat)" strokeWidth="1.5" />
     <g fontFamily="var(--sans)" textAnchor="middle">
@@ -129,7 +129,7 @@ export function Venn({ left, right, strength }: { left: { title: string; label: 
       <text x="252" y="88" fontSize="13" fontWeight="700" fill="var(--pat)">{right.title}</text>
       <text x="252" y="108" fontSize="12.5" fill="var(--pat)">{right.label}</text>
       <text x="170" y="98" fontSize="24" fontWeight="700" fill="var(--ink)">{r(strength)}</text>
-      <text x="170" y="116" fontSize="11" fill="var(--ink-2)">겹침 강도</text>
+      <text x="170" y="116" fontSize="11" fill="var(--ink-2)">함께 겹친 정도</text>
     </g>
   </svg>;
 }

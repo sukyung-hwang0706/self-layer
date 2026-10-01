@@ -2,7 +2,8 @@ import { DISPLAY_ORDER } from "../data/items";
 import type { Answer } from "../types/assessment";
 import { isValidAnswer, missingItems } from "./scoring";
 
-export const SESSION_KEY = "self-layers:v1.0:session";
+/** V1.1-app에서 Part 1 선택지가 바뀌어 V1.0 응답을 그대로 복구하면 다른 보기로 읽히므로 키를 올린다. */
+export const SESSION_KEY = "self-layers:v1.1:session";
 export const NAME_MAX = 20;
 
 export type Stage = "intro" | "question" | "review";

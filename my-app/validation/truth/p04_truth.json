@@ -1,0 +1,38 @@
+{
+  "id": "p04",
+  "alias": "반찬가게 사장, 자기희생 강화 CARE",
+  "response_style": "normal",
+  "core": { "primary": "T2", "secondary": "T6", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Reinforced", "secondary": null, "detail": "CARE + 나보다 상대 먼저(SS)가 함께 강함. 끼니를 거르며 남의 몫까지 맡음" },
+  "channel": "SO",
+  "mbti": { "type": "ESFJ", "fit_note": "단골·교회·가족 사이에서 손발로 챙기는(E·S·F) 사람이고 할 일이 손에 있어야 안심하는(J) 생활형. 필요한 사람이 되려는 CARE가 공동체 역할로 드러남", "self_reported": null },
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["SS", "ABN", "AS"],
+  "schema_low": ["ED", "MIS"],
+  "values_top3": ["REL", "CONTR", "SEC"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST2", "ST6"], "reactivity": "high", "dominant_coping": ["SC3", "SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 52,
+    "age_band": "50s",
+    "motivation": "self",
+    "focus": "mid",
+    "reading_speed": "slow",
+    "condition_today": "low",
+    "test_setting": "휴대폰(글씨 확대), 오후 가게 계산대",
+    "digital_literacy": "mid",
+    "psych_term_familiarity": "low",
+    "social_desirability": "high",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "내 몸은 내가 챙기고 남 돕는 것도 무리하지 않으며 힘든 걸 잘 모른다.",
+    "blind_spot": "점심을 거르며 남의 몫을 떠안고, 혼자 쉬는 것이 불편하며 지금 크게 지쳐 있다"
+  },
+  "self_image_gap": { "level": "large", "description": "무리하지 않는다고 믿지만 장면은 반복되는 자기희생과 탈진" },
+  "notes": "사회적 바람직성 높음 + large gap. protection이지만 지정된 '힘든 시기'(위기 사건)는 아님. 상견례 자리의 할 일 찾기로 '필요한 사람' 동기를 보임."
+}

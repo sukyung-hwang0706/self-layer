@@ -1,0 +1,16 @@
+{
+  "id": "p09",
+  "alias": "자유를 원하는 편집자",
+  "design_intent": ["충돌형"],
+  "response_style": "normal",
+  "core": { "primary": "T3", "secondary": "T1", "primary_strength": "clear" },
+  "channel": "SO",
+  "attachment": { "ANX": "high", "AVO": "low" },
+  "schema_top3": ["AS", "ABN", "DEF"],
+  "schema_low": ["DEP", "MIS"],
+  "values_top3": ["AUT", "ACH", "EXP"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST1", "ST2"], "reactivity": "high", "dominant_coping": ["SC1", "SC6"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "자율 가치가 Top1인데 인정 의존 패턴도 가장 높은 충돌형. 관계 변화 민감도만 높음."
+}

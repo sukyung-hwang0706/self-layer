@@ -1,0 +1,16 @@
+{
+  "id": "p20",
+  "alias": "떠돌던 요가 강사",
+  "design_intent": ["충돌형"],
+  "response_style": "normal",
+  "core": { "primary": "T7", "secondary": "T8", "primary_strength": "clear" },
+  "channel": "SX",
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["SS", "ED", "MIS"],
+  "schema_low": ["ABN", "DEP"],
+  "values_top3": ["AUT", "EXP", "REL"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST4", "ST5"], "reactivity": "mid", "dominant_coping": ["SC5", "SC2"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "자율·경험 가치가 높은데 상대 먼저(SS) 패턴도 높은 충돌형. 거리두기 높음."
+}

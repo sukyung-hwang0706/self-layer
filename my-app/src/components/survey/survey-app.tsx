@@ -107,6 +107,10 @@ export default function SurveyApp() {
 
   const titleId = `q-${id}`;
   const isPartStart = session.index === part.start;
+  // 같은 Part 안에서 리드 문장이 바뀌면(예: Part 4 흔들림 → 평소의 나 → 힘들 때 나는) 전환을 알려준다.
+  const prevItem = session.index > 0 ? ITEM_BY_ID.get(DISPLAY_ORDER[session.index - 1]) : undefined;
+  const leadOf = (i: typeof item | undefined) => (i && i.kind === "likert" ? i.lead : undefined);
+  const leadChanged = !!prevItem && prevItem.part === item.part && leadOf(prevItem) !== leadOf(item);
   const partAnswered = (p: (typeof PART_RANGE)[number]) => DISPLAY_ORDER.slice(p.start, p.end + 1).filter((qid) => isValidAnswer(qid, session.answers[qid])).length;
   const helpText = item.kind === "choice" ? "나와 가장 가까운 답을 먼저 누르고, 그다음으로 가까운 답을 눌러주세요." :
     item.kind === "rank" ? "가장 가까운 것부터 차례로 눌러주세요. 두 개를 고르면 나머지가 3순위가 돼요." :
@@ -160,7 +164,9 @@ export default function SurveyApp() {
         {session.stage === "question" && <section className={PART_LAYER[item.part]} aria-labelledby={titleId} key={id}>
           <div className="part-head"><span className="chip">Part {item.part} · {part.title}</span><span className="count">{session.index - part.start + 1} / {part.total}</span></div>
           {isPartStart && <div className="part-intro"><b>{part.question}</b>{part.instruction}</div>}
+          {!isPartStart && leadChanged && <p className="q-switch" role="note">여기서부터 질문 방식이 바뀌었어요.</p>}
           {item.kind === "likert" && item.lead && <p className="q-lead">{item.lead}</p>}
+          {item.part === 3 && session.index - part.start === Math.floor(part.total / 2) && <p className="q-switch" role="note">Part 3의 절반을 지났어요. 조금만 더 힘내요.</p>}
           <h1 className="q-title" id={titleId} ref={heading} tabIndex={-1}>{item.kind === "likert" ? item.text : item.stem}</h1>
           <p className="q-help" id={`${titleId}-help`}>{helpText}</p>
           {item.kind === "choice" && <ChoiceQuestion item={item} titleId={titleId} answer={session.answers[id] as ChoiceAnswer | undefined} onAnswer={answer} />}

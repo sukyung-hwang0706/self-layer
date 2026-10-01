@@ -1,0 +1,16 @@
+{
+  "id": "p28",
+  "alias": "무난한 회계 대리",
+  "design_intent": ["엣지:평평형"],
+  "response_style": "flat",
+  "core": { "primary": "T9", "secondary": "T4", "primary_strength": "ambiguous" },
+  "channel": "SP",
+  "attachment": { "ANX": "mid", "AVO": "mid" },
+  "schema_top3": ["DEP", "SS", "DEF"],
+  "schema_low": ["ABN", "MIS"],
+  "values_top3": ["SEC", "REL", "GROW"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": [], "reactivity": "mid", "dominant_coping": ["SC5"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": true, "weak_motive": false },
+  "notes": "뚜렷한 특징 없이 가운데로 답하는 평평형. Core·패턴 의도는 약하며 schema_top3는 미세한 차이에 불과함. 판정 유보가 나와도 정상."
+}

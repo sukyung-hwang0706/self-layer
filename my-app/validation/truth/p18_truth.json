@@ -1,0 +1,38 @@
+{
+  "id": "p18",
+  "alias": "동네 약사, 부족함 걱정을 과잉 준비로 덮는 TRUST",
+  "response_style": "normal",
+  "core": { "primary": "T6", "secondary": "T1", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Compensation", "secondary": null, "detail": "부족함이 드러날 걱정(DEF)을 예상 질문 노트·이중 확인·공부량(SC1)으로 덮음" },
+  "channel": "SO",
+  "mbti": { "type": "ESTJ", "fit_note": "손님 앞에서 근거를 차근차근 설명하고(E·T) 재고·장부·학회 동선까지 미리 정리하는(S·J) 약국 운영자. TRUST의 대비가 체계적 준비로 드러남", "self_reported": null },
+  "attachment": { "ANX": "mid", "AVO": "low" },
+  "schema_top3": ["DEF", "DEP", "US"],
+  "schema_low": ["ED", "AS"],
+  "values_top3": ["SEC", "CONTR", "GROW"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST3", "ST1"], "reactivity": "mid", "dominant_coping": ["SC1", "SC3"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 42,
+    "age_band": "40s",
+    "motivation": "self",
+    "focus": "high",
+    "reading_speed": "normal",
+    "condition_today": "good",
+    "test_setting": "노트북, 일요일 저녁 식탁",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "꼼꼼하고 준비를 잘하며, 대비해 두면 마음이 편하다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면 표면과 일치" },
+  "notes": "관계는 안정 쪽(ANX mid). DEP는 큰 결정 시 남편 의견. 손님 확인 전화·장부 → T1 secondary."
+}

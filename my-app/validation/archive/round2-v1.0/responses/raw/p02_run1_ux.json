@@ -1,0 +1,31 @@
+{
+  "overall": {
+    "perceived_minutes": 25,
+    "boredom": 2,
+    "difficulty": 3,
+    "fatigue_from": "Q52 무렵부터 멍해져서 대충 읽음",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "생각보다 길었는데 그래도 끝까지 했어요. 중간에 카톡 보다가 어디까지 했는지 헷갈렸어요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "두 개 고르는 게 은근 고민됐어요. 셋 다 아닌 것도 있었고요." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "문장이 좀 어려워서 두 번 읽은 것도 있어요." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 2, "note": "연락 얘기 나오는 데서 좀 찔렸어요. 비슷한 질문이 계속 나오는 느낌." },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 3, "note": "위에 질문이랑 아래 질문이 묻는 게 달라서 헷갈렸어요." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 2, "note": "요즘 얘기라 그냥 바로 답이 나왔어요." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "" }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 거에서 숫자로 바뀌니까 오히려 편했어요." },
+  "hard_items": [
+    { "q": "Q23", "reason": "어려운 표현", "detail": "에너지가 밖으로 빠져나가는 걸 경계한다는 게 무슨 말인지 잘 모르겠어서 감으로 골랐어요." },
+    { "q": "Q16", "reason": "선택지가 다 안 맞음", "detail": "기댈 수 있는 사람이랑 조용히 사는 거면 B랑 C 중간 같아서 애매했어요." },
+    { "q": "Q14", "reason": "상황이 와닿지 않음", "detail": "요즘 뭘 새로 시작할 생각이 없어서 그냥 골랐어요." },
+    { "q": "Q40", "reason": "답하기 불편함", "detail": "갈등 생겨도 안 흔들린다는 거, 지금은 그렇다고 못 하겠어요." }
+  ],
+  "careless_items": ["Q14", "Q55", "Q56", "Q59", "Q60", "Q65", "Q66"],
+  "emotional": {
+    "uncomfortable": true,
+    "note": "Q28, Q42, Q49 같은 연락 문항에서 헤어진 사람 생각이 나서 좀 울컥했어요. Q24 기댈 곳 없어지는 거 읽을 때도요."
+  }
+}

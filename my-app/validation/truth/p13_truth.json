@@ -1,0 +1,38 @@
+{
+  "id": "p13",
+  "alias": "원격 개발자, 거리두기 강화 INSIGHT",
+  "response_style": "normal",
+  "core": { "primary": "T5", "secondary": "T9", "primary_strength": "clear" },
+  "supporting_level": "high",
+  "case": { "primary": "Reinforced", "secondary": null, "detail": "INSIGHT + 친밀감 거리두기(AVO)가 함께 강함. 아내에게도 해결책 링크, 위로 메시지 미응답" },
+  "channel": "SP",
+  "mbti": { "type": "INTP", "fit_note": "문서와 소스를 다 읽어야 움직이고(I·N·T) 즉답보다 정리된 글을 나중에 내놓는(P) 개발자. 이해 후 행동하는 INSIGHT와 혼자의 공간 선호가 함께 맞물림", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["ED", "MIS", "DEF"],
+  "schema_low": ["ABN", "SS"],
+  "values_top3": ["AUT", "GROW", "SEC"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST6"], "reactivity": "low", "dominant_coping": ["SC2", "SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": true, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 39,
+    "age_band": "30s",
+    "motivation": "referral",
+    "focus": "high",
+    "reading_speed": "normal",
+    "condition_today": "good",
+    "test_setting": "PC, 저녁 집 작업방",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "사람을 싫어하지 않고 필요하면 잘 어울리며, 혼자 시간이 조금 더 필요할 뿐이다.",
+    "blind_spot": "아내의 정서적 요청에도 해결책으로 답하고, 위로 메시지에 답하지 않는다"
+  },
+  "self_image_gap": { "level": "small", "description": "'조금 더' 필요하다고 말하지만 친밀한 관계에서도 거리를 유지한다" },
+  "notes": "INSIGHT Reinforced 기준. 회의 언쟁 시 카메라 끄기 → ST6·T9 secondary. 공개 질문 회피 → DEF."
+}

@@ -1,0 +1,38 @@
+{
+  "id": "p08",
+  "alias": "교량 설계 부장, 인정에 무심한 DRIVE",
+  "response_style": "normal",
+  "core": { "primary": "T3", "secondary": "T8", "primary_strength": "clear" },
+  "supporting_level": "low",
+  "case": { "primary": "Counterevidence", "secondary": null, "detail": "목표 달성 동기는 뚜렷하지만 인정에 기대기(AS)가 낮음. 포상 신청 안 하고 칭찬에 무덤덤" },
+  "channel": "SP",
+  "mbti": { "type": "INTJ", "fit_note": "장기 목표(기술사·다리)를 혼자 설계하고 진도표로 밀고 가는(I·N·T·J) 사람. 남의 인정보다 스스로 정한 기준으로 달리는 DRIVE 반증 사례와 맞물림", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["US", "ED", "MIS"],
+  "schema_low": ["AS", "ABN"],
+  "values_top3": ["GROW", "ACH", "AUT"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "low", "dominant_coping": ["SC1", "SC2"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 48,
+    "age_band": "40s",
+    "motivation": "referral",
+    "focus": "high",
+    "reading_speed": "fast",
+    "condition_today": "good",
+    "test_setting": "PC, 일요일 밤 서재",
+    "digital_literacy": "mid",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "무뚝뚝해 보이겠지만 정한 목표만 보면 되고, 인정은 그다음 문제다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "DRIVE 반증 후보. 시공사 의도 확인(MIS), 아내에게 말 대신 자료(ED·AVO), 혼자 정상 기록(US). T8 secondary는 단호한 거절로 약하게."
+}

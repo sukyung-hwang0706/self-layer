@@ -1,0 +1,27 @@
+{
+  "overall": {
+    "perceived_minutes": 15,
+    "boredom": 3,
+    "difficulty": 2,
+    "fatigue_from": "Q46 무렵부터 호출 때문에 대충 넘김",
+    "would_finish_in_real_life": "maybe",
+    "dropout_point": null,
+    "comment": "점심시간에 하기엔 좀 길었어요. 중간에 호출 와서 몇 개는 그냥 보통으로 찍었어요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "김", "boredom": 2, "difficulty": 3, "note": "상황 고르는 건 재밌었는데 2순위까지 고르려니 시간이 걸림" },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "문장이 좀 무거워서 감으로 고름" },
+    { "part": 3, "perceived_length": "김", "boredom": 4, "difficulty": 2, "note": "비슷한 질문이 계속 나와서 뒤로 갈수록 빨리 넘김" },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "혼자 정리한다는 건 바로 나다 싶었음" },
+    { "part": 5, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "그냥 평범한 한 달이라 거의 보통으로 찍음" },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "혼자 걷는 저녁 같은 선택지가 없어서 조금 애매" }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "고르는 거에서 숫자 누르는 걸로 바뀌니까 오히려 빨라서 편했음" },
+  "hard_items": [
+    { "q": "Q23", "reason": "어려운 표현", "detail": "시간과 에너지가 밖으로 빠져나간다는 게 무슨 뜻인지 한 번에 안 들어옴" },
+    { "q": "Q15", "reason": "선택지가 다 안 맞음", "detail": "부담스러운데 또 필요한 존재인 것도 싫진 않아서 둘 다임" },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "혼자 걷는 시간이 제일 좋은데 딱 맞는 게 없음" }
+  ],
+  "careless_items": ["Q46", "Q48", "Q49", "Q59", "Q61", "Q65", "Q67", "Q68", "Q69", "Q70", "Q71", "Q72", "Q73"],
+  "emotional": { "uncomfortable": true, "note": "Q44, Q51 힘들 때 기댈 사람 묻는 거 보고 좀 멈칫했음. 생각해 보니 말 안 하고 사는 것 같아서." }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "p26",
+  "alias": "은퇴 버스 기사, 참지 않는 FLOW",
+  "response_style": "normal",
+  "core": { "primary": "T9", "secondary": "T5", "primary_strength": "clear" },
+  "supporting_level": "low",
+  "case": { "primary": "Counterevidence", "secondary": null, "detail": "평화를 원하고 갈등에서 물러나는 동기는 뚜렷하지만 상대 먼저(SS)와 말하지 못할 때 흔들림(ST5)이 낮음. 싫은 건 차분히 말함" },
+  "channel": "SP",
+  "mbti": { "type": "ISTP", "fit_note": "말수 적고 혼자 바다로 나가는(I·P) 사람이며 싫은 건 담백하게 선을 긋는(T) 실용형(S). 갈등은 피하지만 자기를 희생하지 않는 FLOW 반증 사례와 맞물림", "self_reported": null },
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["ED", "DEP", "DEF"],
+  "schema_low": ["SS", "AS"],
+  "values_top3": ["EXP", "SEC", "AUT"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST6"], "reactivity": "low", "dominant_coping": ["SC2", "SC5"] },
+  "expected_flags": { "counterevidence": true, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 63,
+    "age_band": "60s",
+    "motivation": "referral",
+    "focus": "low",
+    "reading_speed": "slow",
+    "condition_today": "good",
+    "test_setting": "휴대폰(돋보기 없이), 저녁 집 마루",
+    "digital_literacy": "low",
+    "psych_term_familiarity": "low",
+    "social_desirability": "low",
+    "prior_knowledge": "none",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "싸움을 싫어하지만 할 말은 하고 큰소리를 안 낼 뿐이다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "디지털·용어 익숙도 낮음 + 집중 낮음(대충 감으로) → 노이즈 큼. DEF는 아들 말이 남는 장면 하나로 약하게."
+}

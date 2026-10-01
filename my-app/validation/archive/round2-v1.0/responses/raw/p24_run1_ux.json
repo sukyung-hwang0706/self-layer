@@ -1,0 +1,31 @@
+{
+  "overall": {
+    "perceived_minutes": 15,
+    "boredom": 3,
+    "difficulty": 2,
+    "fatigue_from": "Q45 무렵부터 비슷한 질문 반복 같아서 좀 지루함",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "점심시간에 차에서 후딱 했네요. 친구랑 결과 비교하기로 해서 끝까지는 했는데, 관계 질문은 좀 길더라고요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "상황 고르는 건 재밌었음. 근데 모임 질문은 제가 보통 분위기 잡는 쪽이라 맞는 게 없었음" },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 말이 좀 애매했음" },
+    { "part": 3, "perceived_length": "김", "boredom": 4, "difficulty": 2, "note": "감정, 관계 얘기가 계속 나와서 좀 늘어짐" },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "흔들리냐고 물으니 솔직히 별로 안 흔들린다고 답함" },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 1, "note": "요즘 잘 나가서 답하기 편했음" },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 2, "note": "판 이끌어서 이긴 날 같은 건 보기에 없어서 그나마 가까운 걸로" }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "갑자기 점수 매기는 걸로 바뀌어서 좀 어색했는데 금방 적응함" },
+  "hard_items": [
+    { "q": "Q17", "reason": "선택지가 다 안 맞음", "detail": "모르는 모임 가면 제가 먼저 판을 잡는데, 섞이거나 지켜보거나 그런 보기만 있음" },
+    { "q": "Q23", "reason": "어려운 표현", "detail": "에너지가 밖으로 빠져나가는 걸 경계한다는 게 무슨 말인지 감이 잘 안 옴" },
+    { "q": "Q42", "reason": "답하기 불편함", "detail": "와이프 친정 갔을 때 생각나서 좀 찔림" },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "이겼을 때, 해냈을 때가 보기에 없음" }
+  ],
+  "careless_items": ["Q47", "Q49", "Q65"],
+  "emotional": {
+    "uncomfortable": true,
+    "note": "감정 얘기 깊이 하는 거 부담스럽냐, 연락 안 되면 계속 생각나냐 같은 건 좀 불편했음. 친구한테 보여줄 거라 너무 약해 보이게는 안 찍음"
+  }
+}

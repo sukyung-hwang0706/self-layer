@@ -1,0 +1,28 @@
+{
+  "overall": {
+    "perceived_minutes": 14,
+    "boredom": 2,
+    "difficulty": 2,
+    "fatigue_from": "Part 4 들어가면서 점심시간 신경 쓰여서 빨리 넘김",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "앞쪽 선택형은 재밌었어요. 뒤로 갈수록 비슷한 문장이 반복되는 느낌이라 좀 빨리 찍었고요, 결과가 분석형으로 나오는지 근거부터 볼게요."
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 1, "difficulty": 3, "note": "1·2순위 고르는 거 고민되는 문항이 몇 개 있었음. 선택지가 둘 다 저인 경우." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 제목이 좀 추상적. 문장도 감정 쪽이라 데이터 같지 않음." },
+    { "part": 3, "perceived_length": "김", "boredom": 3, "difficulty": 2, "note": "24개는 길다. 비슷한 질문이 반대 방향으로 또 나오는 느낌." },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 2, "note": "흔들린다는 표현이 저랑 잘 안 맞음. 빨리 넘김." },
+    { "part": 5, "perceived_length": "짧음", "boredom": 2, "difficulty": 1, "note": "평소 상태라 무난하게 답함." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "세 개 다 제 '잘 보낸 하루'가 아님. 일이 깔끔하게 굴러간 날이 없어서 억지로 순서 매김." }
+  ],
+  "transition_1_to_2": { "burden": 2, "note": "상황 고르다가 갑자기 감정 문장에 점수 매기라니까 모드 전환이 약간 있었음. 큰 부담은 아님." },
+  "hard_items": [
+    { "q": "Q05", "reason": "선택지가 다 안 맞음", "detail": "바로잡긴 하는데 감정적으로가 아니라 근거로 정리해서. 그런 선택지가 없음." },
+    { "q": "Q23", "reason": "어려운 표현", "detail": "'에너지가 밖으로 빠져나간다'가 무슨 뜻인지 좀 애매함." },
+    { "q": "Q37", "reason": "답하기 불편함", "detail": "그렇긴 한데 그게 나쁜 건지 모르겠고, 동료들한테 보여줄 거라 5는 안 찍음." },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "내 방식대로 일이 잘 굴러간 날이 제일인데 그 선택지가 없음." }
+  ],
+  "careless_items": ["Q57", "Q59", "Q63", "Q65", "Q67", "Q68", "Q69", "Q73"],
+  "emotional": { "uncomfortable": false, "note": "Q44·Q51 같은 의지하는 사람 질문은 잠깐 멈칫했지만 그냥 솔직하게 낮게 찍음. 불편할 정도는 아님." }
+}

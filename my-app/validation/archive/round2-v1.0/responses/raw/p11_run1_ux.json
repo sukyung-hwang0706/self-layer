@@ -1,0 +1,28 @@
+{
+  "overall": {
+    "perceived_minutes": 18,
+    "boredom": 3,
+    "difficulty": 2,
+    "fatigue_from": "Q40 무렵부터 비슷한 문장이 계속 나와서 좀 졸림",
+    "would_finish_in_real_life": "yes",
+    "dropout_point": null,
+    "comment": "앞에 고르는 건 완전 재밌었는데 중간에 숫자 찍는 거 너무 길어요ㅠ 그래도 결과 친구들한테 보여 주고 싶어서 끝까지 했어요!"
+  },
+  "parts": [
+    { "part": 1, "perceived_length": "적당", "boredom": 1, "difficulty": 2, "note": "상황 고르는 거 MBTI 같고 재밌었음. 근데 2순위까지 고르라니까 둘 다 나 같아서 살짝 고민됨." },
+    { "part": 2, "perceived_length": "짧음", "boredom": 2, "difficulty": 3, "note": "'무엇을 잃을까 봐'라는 말이 좀 무거웠음. 문장이 갑자기 진지해짐." },
+    { "part": 3, "perceived_length": "김", "boredom": 4, "difficulty": 2, "note": "24개는 진짜 길었음. 비슷한 얘기 또 나오는 느낌이라 침대에서 눈 감길 뻔." },
+    { "part": 4, "perceived_length": "적당", "boredom": 3, "difficulty": 3, "note": "위에 상황 목록이랑 아래 '힘들 때 나는' 질문이 섞여 있어서 잠깐 헷갈림." },
+    { "part": 5, "perceived_length": "적당", "boredom": 2, "difficulty": 2, "note": "요즘은 그냥 무난해서 쉽게 답함." },
+    { "part": 6, "perceived_length": "짧음", "boredom": 1, "difficulty": 3, "note": "보기에 '남들이랑 다른 거 했는데 알아봐 줄 때' 같은 게 없어서 좀 아쉬웠음." }
+  ],
+  "transition_1_to_2": { "burden": 3, "note": "고르는 거 하다가 갑자기 숫자로 바뀌니까 테스트 느낌이 확 나서 텐션 떨어짐." },
+  "hard_items": [
+    { "q": "Q23", "reason": "어려운 표현", "detail": "'에너지가 밖으로 빠져나가는 것을 경계한다'가 무슨 뜻인지 잘 모르겠어서 감으로 찍음" },
+    { "q": "Q07", "reason": "선택지가 다 안 맞음", "detail": "사실 회의에선 그냥 '네' 하고 넘어갈 때가 많은데 그런 보기는 없음" },
+    { "q": "Q76", "reason": "선택지가 다 안 맞음", "detail": "내가 하루 잘 보냈다고 느끼는 순간이 셋 중에 딱 없음" },
+    { "q": "Q61", "reason": "모호함", "detail": "위에 '흔들린다' 문장이랑 이어지는 건지 헷갈렸음" }
+  ],
+  "careless_items": ["Q35", "Q37", "Q42", "Q50", "Q57", "Q60"],
+  "emotional": { "uncomfortable": false, "note": "Q53 '필요 없는 사람처럼 느껴질 때'는 살짝 찔렸는데 불편할 정도는 아니었음." }
+}

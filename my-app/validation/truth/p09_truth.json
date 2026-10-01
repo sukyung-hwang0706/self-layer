@@ -1,0 +1,38 @@
+{
+  "id": "p09",
+  "alias": "취준생 공모전 팀장, 기본형 DRIVE",
+  "response_style": "normal",
+  "core": { "primary": "T3", "secondary": "T7", "primary_strength": "clear" },
+  "supporting_level": "mid",
+  "case": { "primary": "Basic", "secondary": null, "detail": "DRIVE가 뚜렷하고 인정 기대(AS)는 중간. 특별한 상호작용 없음" },
+  "channel": "SO",
+  "mbti": { "type": "ENTJ", "fit_note": "팀장을 맡아 역할표를 짜고 기한을 직접 박는(E·T·J) 추진형이며 진로를 큰 그림으로 그림(N). 기본형 DRIVE의 목표 지향과 맞물림", "self_reported": "ENTJ" },
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "AS", "DEF"],
+  "schema_low": ["ABN", "ED"],
+  "values_top3": ["ACH", "EXP", "GROW"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST1", "ST3"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "behavior": {
+    "age": 23,
+    "age_band": "20s",
+    "motivation": "curious",
+    "focus": "low",
+    "reading_speed": "fast",
+    "condition_today": "good",
+    "test_setting": "휴대폰, 알바 가는 버스",
+    "digital_literacy": "high",
+    "psych_term_familiarity": "mid",
+    "social_desirability": "low",
+    "prior_knowledge": "MBTI 등 성격검사를 재미로 자주 함",
+    "believed_core": null,
+    "hard_period": null
+  },
+  "self_image": {
+    "summary": "목표가 생기면 불타고, 남과 비교는 하지만 금방 털고 일어난다.",
+    "blind_spot": null
+  },
+  "self_image_gap": { "level": "none", "description": "자기 인식이 장면과 일치" },
+  "notes": "Basic 기준 인물. 집중 낮음으로 노이즈. 즉흥 여행으로 T7 secondary와 EXP."
+}

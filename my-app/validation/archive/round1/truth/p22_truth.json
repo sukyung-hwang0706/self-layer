@@ -1,0 +1,16 @@
+{
+  "id": "p22",
+  "alias": "정면으로 맞서는 현장 소장",
+  "design_intent": ["기본형"],
+  "response_style": "normal",
+  "core": { "primary": "T8", "secondary": "T5", "primary_strength": "clear" },
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "high" },
+  "schema_top3": ["MIS", "US", "ED"],
+  "schema_low": ["DEP", "AS"],
+  "values_top3": ["ACH", "AUT", "CONTR"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST4"], "reactivity": "mid", "dominant_coping": ["SC4"] },
+  "expected_flags": { "counterevidence": false, "reinforcement": false, "undetermined": false, "weak_motive": false },
+  "notes": "앞에 나서서 지키는 Core, 거리두기만 높음. 선택지가 없을 때 밀어붙이기로 대처."
+}
