@@ -1,0 +1,39 @@
+{
+  "id": "h03",
+  "alias": "여행 상품기획자",
+  "group": "single_clear",
+  "group_detail": "단일 Core 뚜렷함 — 사고 중심",
+  "response_style": "normal",
+  "composition": "single",
+  "cores": [
+    { "type": "T7", "role": "center", "evidence": "같은 패키지 3년에 답답해 TF 자원(일), 지도 끄고 걷기(낯선 상황), 실패 다음 날 새 기획·회고 짧게(실패), 대안 세 개로 옆으로 돌기(갈등), 새로운 경험이 휴식(휴식), 진지한 얘기를 농담으로 풀기(관계)" }
+  ],
+  "not_core": [
+    "T3: 실패 후 바로 다음으로 가지만 성과 증명보다 답답함 탈출과 새로움이 동기. 칭찬을 금방 잊음",
+    "T9: 갈등에서 정면 대결을 피하지만 조화 유지가 아니라 선택지 확장으로 우회"
+  ],
+  "centers_note": "사고 중심 단독",
+  "expected_interpretations": [
+    "새로운 가능성과 즐거움을 향하고 선택지가 막히면 답답해하는 동기가 중심",
+    "힘든 감정을 오래 머물기보다 주의 전환으로 다룸",
+    "지난 한 달은 여유 있는 상태"
+  ],
+  "forbidden_interpretations": [
+    "성취·인정 동기가 중심이라는 해석",
+    "갈등 회피를 조화 추구 동기로 해석",
+    "복수 Core 공존으로 설명"
+  ],
+  "contrary_evidence": [],
+  "coexistence": null,
+  "response_pattern_note": "집중력 낮음, 반복 문항에서 감으로 빠르게 응답 — 노이즈 가능",
+  "channel": "SO",
+  "attachment": { "ANX": "low", "AVO": "mid" },
+  "schema_top3": ["ED", "AS", "US"],
+  "values_top3": ["EXP", "AUT", "GROW"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST4", "ST3"], "reactivity": "low", "dominant_coping": ["SC5"] },
+  "behavior": { "age": 34, "age_band": "30s", "motivation": "curiosity", "focus": "low", "reading_speed": "fast", "condition_today": "normal", "test_setting": "휴대폰, 퇴근 지하철", "digital_literacy": "high", "psych_term_familiarity": "low", "social_desirability": "low", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "진지할 땐 진지하다. 힘든 걸 피하지 않고 빨리 털어낼 뿐이다.", "blind_spot": "실패·서운함 앞에서 반복적으로 농담과 다음 계획으로 넘어감" },
+  "self_image_gap": { "level": "small", "description": "주의 전환을 '털어냄'으로 인식" },
+  "notes": "사고 중심 단일 Core. schema_top3는 전반적으로 낮은 가운데 상대 순위(ED는 진지한 얘기를 농담으로 넘기는 장면 정도)."
+}

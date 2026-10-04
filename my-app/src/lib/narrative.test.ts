@@ -56,3 +56,9 @@ test("보호 상태(실험 0개)에서는 과제·실험 제안을 거부한다"
   const { rejected } = validateNarrative({ ...all(good), letter: good + " 이번 주에 작은 실험을 해보세요." }, low);
   assert.deepEqual(rejected, [{ field: "letter", reason: "보호 상태에서 과제 제안" }]);
 });
+
+test("AI 입력의 가치는 보정 순위의 상위 3(경계 공동 포함)이며 순서를 숫자 없이 말로 전한다", () => {
+  assert.equal(input.values.length, result.values.top3.length);
+  for (const line of input.values) assert.match(line, /^\[(공동 )?(가장 앞섬|두 번째|세 번째|네 번째)\] /);
+  assert.ok(input.values.every((line) => !/\d/.test(line)));
+});

@@ -2,8 +2,8 @@ import assert from "node:assert/strict";
 import { test } from "node:test";
 import * as content from "../data/content";
 import * as items from "../data/items";
-import { CORE_TYPES } from "../types/assessment";
-import { band, coreSentence, fillText, honorific, quadrant, selfMapAxes } from "./report";
+import { CORE_TYPES, VALUE_CODES } from "../types/assessment";
+import { band, coreSentence, fillText, honorific, quadrant, selfMapAxes, valueEvidence, valueRankLabel } from "./report";
 import { scoreAssessment } from "./scoring";
 import { makeAnswers } from "./test-fixtures";
 
@@ -53,7 +53,7 @@ test("리포트 도우미", () => {
 });
 
 test("Core 문장은 판정 유보와 낮은 신뢰도에서 단정하지 않는다", () => {
-  // 모든 Part 1을 A→B로 고르면 V1.1-app의 위치 균형 때문에 9개 유형이 완전 동점이 된다.
+  // 모든 Part 1을 A→B로 고르면 V1.1-app 이후 위치 균형 때문에 9개 유형이 완전 동점이 된다.
   const allAB = Object.fromEntries(items.PART1.map((i) => [i.id, { first: "A" as const, second: "B" as const }]));
   const undetermined = scoreAssessment(makeAnswers(allAB));
   assert.match(coreSentence(undetermined, "당신"), /한 가지로 좁혀지지 않았어요/);
@@ -66,4 +66,19 @@ test("Core 문장은 판정 유보와 낮은 신뢰도에서 단정하지 않는
 test("Self Map은 여섯 Layer 값을 가진다", () => {
   const axes = selfMapAxes(scoreAssessment(makeAnswers()));
   assert.deepEqual(axes.map((a) => a.layer), ["core", "state", "rel", "pat", "str", "dir"]);
+});
+
+test("가치 순위 표기와 선택 근거: 공동이면 '공동'을 붙이고, 근거는 기회·선택·상황 범주 수로 쓴다", () => {
+  const result = scoreAssessment(makeAnswers());
+  const { values } = result;
+  for (const v of VALUE_CODES) {
+    const shared = VALUE_CODES.filter((x) => values.rank[x] === values.rank[v]).length > 1;
+    assert.equal(valueRankLabel(result, v), `${shared ? "공동 " : ""}${values.rank[v]}위`);
+    assert.equal(valueEvidence(result, v), `${values.opportunities[v]}번의 기회 중 ${values.picks[v]}번 선택 · 제시된 상황 ${values.contextsAvailable[v]}종류 중 ${values.contextsHit[v]}종류에서 선택`);
+  }
+  // Self Map의 가치 축은 공동 1위의 실제 선택 비율(평균)이며 결합 점수가 아니다.
+  const dir = selfMapAxes(result).find((a) => a.layer === "dir")!;
+  const expected = values.first.reduce((s, v) => s + values.picks[v] / values.opportunities[v], 0) / values.first.length * 100;
+  assert.ok(Math.abs(dir.score - expected) < 1e-9);
+  assert.equal(dir.label, values.first.map((v) => content.VALUES[v].name).join(" · "));
 });

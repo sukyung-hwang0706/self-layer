@@ -1,0 +1,42 @@
+{
+  "id": "h15",
+  "alias": "학생회 부회장",
+  "group": "boundary",
+  "group_detail": "네 개 Core가 고르게 높음(T2·T3·T7·T8)",
+  "response_style": "normal",
+  "composition": "undetermined",
+  "cores": [
+    { "type": "T8", "role": "co_center", "evidence": "학교 결정에 제일 먼저 반대·행정실 직접 항의·서명 주도, 혼난 후배를 막아섬(갈등), '일단 제가 할게요'(말투)" },
+    { "type": "T2", "role": "co_center", "evidence": "새벽 통화를 무조건 받음·응원 쪽지와 간식(관계), '너 없으면 안 굴러가'가 가장 좋은 말, 누군가를 도운 날(하루)" },
+    { "type": "T3", "role": "co_center", "evidence": "장학금·수상 이력 관리, 순위 페이지 새로 고침(일), 탈락 밤 1등 팀 영상 세 번(실패), '그래도 다 해내잖아요'(비판)" },
+    { "type": "T7", "role": "co_center", "evidence": "빈 날을 못 견디고 새 체험 세 가지(휴식), 같은 일과 2주면 순서 변경(휴식), 다음 날 다른 대회 공고(실패), '그것도 해요 우리'(말투), 처음 해 본 것이 있는 날(하루)" }
+  ],
+  "not_core": [
+    "T9·T5·T4: 해당 장면 없음",
+    "T8 단독: 본인은 앞장서는 사람이라고 확신하지만 장면상 다른 세 동기와 비중이 비슷함"
+  ],
+  "centers_note": "본능(T8)·감정(T2·T3)·사고(T7) 세 중심에 고르게 걸침",
+  "expected_interpretations": [
+    "여러 동기가 고르게 높아 하나의 중심으로 좁히기 어렵다는 점을 그대로 전달",
+    "최대 3개 설명 규칙에 따라 일부를 고를 경우, 나머지도 비슷한 수준임을 밝히거나 판정 유보",
+    "지난 한 달은 바쁘지만 즐거운 상태, 다소 지침"
+  ],
+  "forbidden_interpretations": [
+    "단일 Core로 단정(특히 본인 믿음에 맞춘 T8 단정)",
+    "선택된 3개 외 Core를 '해당 없음'처럼 서술",
+    "여러 Core가 높은 것을 정체성 혼란이나 불안정으로 해석"
+  ],
+  "contrary_evidence": [],
+  "coexistence": "학생회 활동 하나 안에서 맞서고(T8), 챙기고(T2), 성과를 내고(T3), 새 일을 벌인다(T7). 동기들이 서로 경쟁하기보다 같은 활동을 다른 방향에서 밀어줌.",
+  "response_pattern_note": "빠르게 읽고 누름, 두 번 중단. 성격검사 경험이 많아 자기 믿음(앞장서는 사람) 방향으로 기울 가능성",
+  "channel": "SO",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "AS", "SS"],
+  "values_top3": ["EXP", "CONTR", "ACH"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST4", "ST1"], "reactivity": "mid", "dominant_coping": ["SC1", "SC4"] },
+  "behavior": { "age": 22, "age_band": "20s", "motivation": "self", "focus": "low", "reading_speed": "fast", "condition_today": "tired", "test_setting": "휴대폰, 수업 사이 쉬는 시간, 두 번 중단", "digital_literacy": "high", "psych_term_familiarity": "mid", "social_desirability": "low", "prior_knowledge": "enthusiast", "believed_core": "앞장서는 리더(T8) — truth는 네 Core 고른 분포", "hard_period": null },
+  "self_image": { "summary": "하나에 꽂히면 끝까지 간다. 앞에 서는 걸 좋아하고 리더 체질이다.", "blind_spot": "장면에서는 새 일로 계속 옮겨 다니고, 앞장서기 외에 돌봄·성과·새로움 동기가 같은 무게로 보임" },
+  "self_image_gap": { "level": "small", "description": "다면적 동기를 하나로 축소해 인식" },
+  "notes": "composition undetermined: 네 Core가 고르게 높아 중심 판정이 불가능하다는 것이 정답. 역할은 모두 co_center로 표기(동등함을 뜻함). V1.2의 최대 3개 규칙과 충돌하는 사례로, 리포트가 넷째를 조용히 버리면서 셋을 확정적으로 서술하는지 확인."
+}

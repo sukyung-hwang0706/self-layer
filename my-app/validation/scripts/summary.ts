@@ -45,7 +45,8 @@ function rateBy(rows: readonly AssessmentResult[], hit: (r: AssessmentResult) =>
 export function summarize(rows: readonly AssessmentResult[]) {
   const n = rows.length;
   const primary = countBy(rows, (r) => r.core.primary, CORE_TYPES);
-  const valueTop1 = countBy(rows, (r) => r.values.top3[0], VALUE_CODES);
+  // 가치 1위는 공동 1위를 나눠 센다(보정 순위, v1.2-app.2부터)
+  const valueTop1 = Object.fromEntries(VALUE_CODES.map((v) => [v, rows.reduce((s, r) => s + (r.values.first.includes(v) ? 1 / r.values.first.length : 0), 0)])) as Dist;
   const schemaTop1 = countBy(rows, (r) => r.schemaRanking[0], SCHEMA_CODES);
   const valueTop3: Dist = Object.fromEntries(VALUE_CODES.map((v) => [v, rows.filter((r) => r.values.top3.includes(v)).length / (n || 1)]));
   const schemaTop3: Dist = Object.fromEntries(SCHEMA_CODES.map((s) => [s, rows.filter((r) => r.schemaRanking.slice(0, 3).includes(s)).length / (n || 1)]));

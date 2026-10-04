@@ -1,0 +1,46 @@
+{
+  "id": "h07",
+  "alias": "물류센터 관리자",
+  "group": "contrary",
+  "group_detail": "TRUST Core 뚜렷 + 관계 의심·불안 해석과 어긋남",
+  "response_style": "normal",
+  "composition": "single",
+  "cores": [
+    { "type": "T6", "role": "center", "evidence": "태풍 단계별 대응안·예비 업체 상시 확보(일), 비상금 통장 분리(관계), 경로·주차·우회로 사전 확인(낯선 상황), 큰 결정은 믿을 만한 선배 둘에게 확인 후(실패), 공기압 확인(휴식), '만약을 대비해서'(말투), 이직 회사 재무제표 확인(한 달)" }
+  ],
+  "not_core": [
+    "T9: 사람을 믿고 '그럴 수도 있지' 하지만 갈등 회피가 아니라 감사팀에 맞서 직원을 지킴",
+    "T1: 대응안은 기준 준수보다 만일의 대비"
+  ],
+  "centers_note": "사고 중심 단독",
+  "expected_interpretations": [
+    "믿을 수 있는 기반을 만들고 미리 대비하려는 동기가 중심",
+    "대비의 대상은 상황·시스템이며 사람에 대해서는 기본적으로 신뢰를 먼저 건넴",
+    "큰 결정에서 신뢰하는 사람의 확인을 구하는 경향"
+  ],
+  "forbidden_interpretations": [
+    "관계가 흔들릴까 불안해하고 상대의 확인을 계속 구한다는 해석",
+    "타인의 의도를 의심하고 경계한다는 해석",
+    "관계 불안·의심 신호가 낮다는 이유로 T6 자체를 약화하거나 제외"
+  ],
+  "contrary_evidence": [
+    {
+      "interpretation": "사람의 의도를 의심하고 관계 변화에 불안해한다(T6에 흔히 붙는 ANX·ABN·MIS 해석)",
+      "against": "실수한 신입의 사정을 먼저 믿음, 연락 없이 늦는 아내를 기다리지 않고 잠, 차용증 없이 돈을 빌려줌, 감사팀 앞에서 직원을 의심하지 않고 사후에도 캐묻지 않음, 처음 보는 담당자와 금세 편해짐",
+      "scenes": ["일", "가까운 관계", "갈등", "낯선 상황"],
+      "why_not_just_weak": "의심하거나 확인할 수 있는 상황마다 반대로 신뢰를 먼저 선택한다. 대비 행동(비상금 분리)은 하되 그것을 사람 의심으로 바꾸지 않는 선택이 네 장면에서 반복된다."
+    }
+  ],
+  "coexistence": null,
+  "response_pattern_note": "업무 전화로 두 번 끊김 — 중간 문항 일부 집중 저하 가능",
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["DEP", "US", "SS"],
+  "values_top3": ["SEC", "REL", "CONTR"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST3"], "reactivity": "mid", "dominant_coping": ["SC1", "SC3"] },
+  "behavior": { "age": 43, "age_band": "40s", "motivation": "recommended", "focus": "mid", "reading_speed": "normal", "condition_today": "normal", "test_setting": "사무실 PC, 점심 직후, 전화로 두 번 중단", "digital_literacy": "mid", "psych_term_familiarity": "low", "social_desirability": "low", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "겁이 많아서 미리 준비한다. 사람은 웬만하면 믿는다.", "blind_spot": null },
+  "self_image_gap": { "level": "none", "description": null },
+  "notes": "반증 규칙 검증용. 관계 불안·의심 신호의 '부족'이 아니라 반대 방향 선택의 반복. 새 규칙에서는 '관계를 불안하게 확인한다'류 해석만 제외되고 T6 판정과 대비 해석은 유지되어야 함. SC3은 사람에 대한 확인이 아닌 결정 전 조언 구하기 수준."
+}

@@ -27,7 +27,7 @@ test("Part 1은 4지선다(A~D)이고 한 문항 안에서 유형이 겹치지 �
   }
 });
 
-test("Part 1에서 9개 유형은 각각 정확히 8회 등장한다 (V1.1-app)", () => {
+test("Part 1에서 9개 유형은 각각 정확히 8회 등장한다 (V1.1-app 이후)", () => {
   for (const t of CORE_TYPES) assert.equal(PART1.flatMap((i) => i.options).filter((o) => o.type === t).length, 8, t);
 });
 
@@ -38,10 +38,20 @@ test("Part 1 선택지 위치 균형: 각 유형은 A·B·C·D 위치에 2회씩
   }
 });
 
-test("Part 1 Value 등장 횟수: AUTH 10회, EXP 8회, 나머지 9회 (V1.1-app)", () => {
+test("Part 1 Value 등장 횟수: AUT·SEC 10회, GROW·CONTR 8회, 나머지 9회 (V1.2-app, 관리 범위 8~10회)", () => {
+  const expected: Record<string, number> = { AUT: 10, SEC: 10, GROW: 8, CONTR: 8 };
   for (const v of VALUE_CODES) {
     const n = PART1.flatMap((i) => i.options).filter((o) => o.value === v).length;
-    assert.equal(n, v === "AUTH" ? 10 : v === "EXP" ? 8 : 9, v);
+    assert.equal(n, expected[v] ?? 9, v);
+    assert.ok(n >= 8 && n <= 10, `${v} ${n}회는 관리 범위 8~10회를 벗어난다`);
+  }
+});
+
+test("Part 1 모든 문항은 세 중심(본능·감정·사고)을 2·1·1로 담는다 (V1.2-app)", () => {
+  const center: Record<string, string> = { T8: "본능", T9: "본능", T1: "본능", T2: "감정", T3: "감정", T4: "감정", T5: "사고", T6: "사고", T7: "사고" };
+  for (const item of PART1) {
+    const counts = Object.values(item.options.reduce<Record<string, number>>((acc, o) => ({ ...acc, [center[o.type]]: (acc[center[o.type]] ?? 0) + 1 }), {}));
+    assert.deepEqual(counts.sort(), [1, 1, 2], item.id);
   }
 });
 

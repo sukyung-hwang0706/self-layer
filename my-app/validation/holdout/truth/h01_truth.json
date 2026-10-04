@@ -1,0 +1,39 @@
+{
+  "id": "h01",
+  "alias": "반찬가게 사장",
+  "group": "single_clear",
+  "group_detail": "단일 Core 뚜렷함 — 본능 중심",
+  "response_style": "normal",
+  "composition": "single",
+  "cores": [
+    { "type": "T8", "role": "center", "evidence": "관리인 요구에 규약 들고 직접 따지고 옆 가게 몫까지 대변(일), 상인회 형식적 결정에 정면 제동(갈등), 아들 일에 '그 사람 이름이 뭔데'(관계), 공항에서 끝까지 밀어붙여 해결(낯선 상황), 약한 소리 안 함(자기 인식)" }
+  ],
+  "not_core": [
+    "T1: 바로잡는 장면이 있으나 기준 자체보다 휘둘리지 않고 자기·주변을 지키는 쪽. 스스로에게 가혹한 기준·자기비판 장면 없음",
+    "T6: 계약서를 끝까지 읽는 건 실패 이후 상대 의도 경계(MIS)이지 미리 대비·확인 추구가 아님"
+  ],
+  "centers_note": "본능 중심 단독. 감정·사고 중심 Core는 뚜렷하지 않음",
+  "expected_interpretations": [
+    "부당하다고 느끼면 직접 나서서 맞서고 주변 사람까지 지키는 동기가 중심",
+    "처음 보는 사람의 의도를 한 번 걸러 보는 경향이 함께 작동(실패 경험 이후)",
+    "갈등 뒤 앙금을 오래 두지 않음"
+  ],
+  "forbidden_interpretations": [
+    "공격성이나 통제 욕구로만 단정",
+    "복수 Core 공존으로 설명(다른 Core는 근거 부족)",
+    "관계에서 버림받을까 불안해한다는 해석"
+  ],
+  "contrary_evidence": [],
+  "coexistence": null,
+  "response_pattern_note": "애매한 문항에서 반발하며 답할 수 있음. 극단값 다소 많을 가능성",
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "mid" },
+  "schema_top3": ["MIS", "US", "ED"],
+  "values_top3": ["AUT", "SEC", "CONTR"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST4", "ST5"], "reactivity": "mid", "dominant_coping": ["SC4", "SC1"] },
+  "behavior": { "age": 54, "age_band": "50s+", "motivation": "recommended", "focus": "mid", "reading_speed": "slow", "condition_today": "normal", "test_setting": "휴대폰, 가게 한가한 오후, 글씨 확대", "digital_literacy": "low", "psych_term_familiarity": "low", "social_desirability": "low", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "나는 성질이 급해서 손해 보는 사람이다. 틀린 걸 틀렸다고 할 뿐이고 약한 소리는 안 한다.", "blind_spot": null },
+  "self_image_gap": { "level": "none", "description": null },
+  "notes": "본능 중심 단일 Core 대조군. 다정 표현은 적지만 반찬통으로 보호하는 방식이 T2로 오인되지 않도록 돌봄 장면은 하나로 제한."
+}

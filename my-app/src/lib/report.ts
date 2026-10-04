@@ -1,5 +1,5 @@
 import { CORE, LINKED_LABEL, SCHEMAS, TRIGGERS, VALUES, type Quadrant } from "../data/content";
-import type { AssessmentResult, CoreType } from "../types/assessment";
+import { VALUE_CODES, type AssessmentResult, type CoreType, type ValueCode } from "../types/assessment";
 
 /** 표시용 반올림. 판정에는 쓰지 않는다. */
 export const r = (n: number) => Math.round(n);
@@ -57,8 +57,21 @@ export function linkedLabel(key: string) {
 }
 
 export function valueLife(result: AssessmentResult) {
-  const [a, b, c] = result.values.top3.map((v) => VALUES[v].life);
-  return `“${a}, ${b}, ${c} 살아가는 삶.”`;
+  // 상위 3은 경계 공동이면 3개를 넘을 수 있다.
+  return `“${result.values.top3.map((v) => VALUES[v].life).join(", ")} 살아가는 삶.”`;
+}
+
+/** 가치 순위 표기. 같은 순위가 둘 이상이면 "공동"을 붙인다(보정 점수 기준, 숫자는 화면에 내지 않는다). */
+export function valueRankLabel(result: AssessmentResult, v: ValueCode) {
+  const { rank } = result.values;
+  const shared = VALUE_CODES.filter((x) => rank[x] === rank[v]).length > 1;
+  return `${shared ? "공동 " : ""}${rank[v]}위`;
+}
+
+/** 가치 선택 근거: 그 가치가 나온 문항 중 고른 문항 수, 제시된 상황 범주 중 고른 범주 수. 순위를 정하는 지표가 아니다. */
+export function valueEvidence(result: AssessmentResult, v: ValueCode) {
+  const { opportunities, picks, contextsHit, contextsAvailable } = result.values;
+  return `${opportunities[v]}번의 기회 중 ${picks[v]}번 선택 · 제시된 상황 ${contextsAvailable[v]}종류 중 ${contextsHit[v]}종류에서 선택`;
 }
 
 /** Self Map 여섯 꼭짓점 (설계서 11장 03 페이지 변수) */
@@ -67,13 +80,14 @@ export function selfMapAxes(result: AssessmentResult) {
   const relKey = attachment.ANX >= attachment.AVO ? "ANX" : "AVO";
   const relScore = attachment[relKey];
   const topTrigger = [...Object.entries(stress.triggers)].sort((a, b) => b[1] - a[1])[0] as [keyof typeof TRIGGERS, number];
-  const topValue = values.ranking[0];
+  const topValues = values.first;
   return [
     { layer: "core", caption: "나를 움직이는 힘", label: coreName(core.primary), score: core.typeScore[core.primary] },
     { layer: "state", caption: "요즘 마음 상태", label: state.band === "expansion" ? "여유 있음" : state.band === "balanced" ? "평소의 나" : "보호 상태", score: state.index },
     { layer: "rel", caption: "관계에서 나", label: relScore >= 50 ? (relKey === "ANX" ? "살피는 편" : "거리를 두는 편") : "편안한 편", score: relScore },
     { layer: "pat", caption: "반복하는 습관", label: SCHEMAS[schemaRanking[0]].name, score: schemas[schemaRanking[0]] },
     { layer: "str", caption: "가장 흔들리는 순간", label: TRIGGERS[topTrigger[0]].label, score: topTrigger[1] },
-    { layer: "dir", caption: "삶의 기준", label: VALUES[topValue].name, score: values.score[topValue] },
+    // 가치 축은 보정 순위 1위(공동이면 평균)의 실제 선택 비율로 그린다. 보정 점수나 결합 점수를 축 값으로 쓰지 않는다.
+    { layer: "dir", caption: "삶의 기준", label: topValues.map((v) => VALUES[v].name).join(" · "), score: topValues.reduce((sum, v) => sum + values.picks[v] / values.opportunities[v], 0) / topValues.length * 100 },
   ] as const;
 }

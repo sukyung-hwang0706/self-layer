@@ -1,5 +1,5 @@
 import { CHANNEL_CONTENT, CORE, COPING, LINKED_LABEL, MESSAGES, RELATIONSHIP, SCHEMAS, STATE_BANDS, TRIGGERS, VALUES } from "../data/content";
-import type { AssessmentResult, CoreType, Level3 } from "../types/assessment";
+import { VALUE_CODES, type AssessmentResult, type CoreType, type Level3, type ValueCode } from "../types/assessment";
 import { band, quadrant, strengthWord } from "./report";
 
 /**
@@ -7,7 +7,7 @@ import { band, quadrant, strengthWord } from "./report";
  * AI는 규칙엔진이 확정한 사실을 문장으로 옮기기만 한다. 점수·판정·순위는 입력에 이미 확정되어 있고,
  * 출력은 validateNarrative를 통과한 문단만 기본 문장을 대신한다.
  */
-export const NARRATIVE_VERSION = "narrative-v1";
+export const NARRATIVE_VERSION = "narrative-v2";
 
 export const NARRATIVE_FIELDS = ["summary", "core", "modes", "message", "cross", "letter"] as const;
 export type NarrativeField = (typeof NARRATIVE_FIELDS)[number];
@@ -63,7 +63,8 @@ export function buildNarrativeInput(result: AssessmentResult) {
       protectionCoping: COPING[modes.protectionCoping].name,
     },
     message: { texts: [message.rank1, ...(message.rank2 ? [message.rank2] : [])].map((t) => MESSAGES[t].text), fromCore: name(message.rank1), matchesPrimary: message.coreMatch },
-    values: values.top3.map((v) => `${VALUES[v].name}(${VALUES[v].question})`),
+    // 가치 순위는 보정 기준이며 공동 순위를 그대로 전한다(모델이 순위를 새로 정하지 않도록).
+    values: values.top3.map((v) => `${valueOrderWord(result, v)} ${VALUES[v].name}(${VALUES[v].question})`),
     reinforcement: insights.reinforcements.map((x) => `${name(x.core)} × ${LINKED_LABEL[x.linked]} — ${strengthWord(x.strength)} 조합 / 강점: ${CORE[x.core].reinforce.strength} / 비용: ${CORE[x.core].reinforce.cost}`),
     counterevidence: insights.counterevidence ? `전형적 설명(${pc.typical})은 이번 결과에서 뒷받침되지 않음. 더 가까운 설명: ${pc.better}` : null,
     growth: { band: band3(result.growth.band), experimentsOffered: result.growth.experiments, headline: pc.growth.headline },
@@ -71,6 +72,14 @@ export function buildNarrativeInput(result: AssessmentResult) {
   };
 }
 export type NarrativeInput = ReturnType<typeof buildNarrativeInput>;
+
+/** AI 입력용 가치 순위 표기. 모델에는 숫자를 보내지 않으므로 순서를 말로 쓴다. */
+const ORDER_WORDS = ["가장 앞섬", "두 번째", "세 번째", "네 번째", "다섯 번째", "여섯 번째", "일곱 번째", "여덟 번째"];
+function valueOrderWord(result: AssessmentResult, v: ValueCode) {
+  const { rank } = result.values;
+  const shared = VALUE_CODES.filter((x) => rank[x] === rank[v]).length > 1;
+  return `[${shared ? "공동 " : ""}${ORDER_WORDS[rank[v] - 1]}]`;
+}
 
 export function allowedCoreNames(result: AssessmentResult): string[] {
   const { core, message } = result;

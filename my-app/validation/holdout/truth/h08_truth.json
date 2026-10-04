@@ -1,0 +1,46 @@
+{
+  "id": "h08",
+  "alias": "요양병원 간호사",
+  "group": "contrary",
+  "group_detail": "CARE Core 뚜렷 + 자기희생 해석과 어긋남",
+  "response_style": "normal",
+  "composition": "single",
+  "cores": [
+    { "type": "T2", "role": "center", "evidence": "어르신 이름·좋아하는 반찬·손주 이름을 기억하고 손톱을 깎아 드림(일), '선생님 없으면 안 된다'는 말에 피로가 풀림(칭찬), 친구 이사를 오전 내내 도움(관계), 자기 요일에 죽을 쑤어 감(갈등), 실습생을 먼저 챙김(낯선 상황), 내 손이 닿아 누가 편해진 날(하루)" }
+  ],
+  "not_core": [
+    "T8: 거절·분담 요구는 맞서 지키려는 동기가 아니라 자기 몫의 경계를 정하는 방식",
+    "T1: 기록 지적엔 바로 고치고 넘어감 — 기준에 대한 집착 없음"
+  ],
+  "centers_note": "감정 중심 단독",
+  "expected_interpretations": [
+    "누군가에게 도움이 되고 필요한 사람이 되는 데서 힘을 얻는 동기가 중심",
+    "돌봄의 범위를 스스로 정하고 자기 시간을 지키는 방식으로 돌봄을 지속",
+    "관계는 안정적"
+  ],
+  "forbidden_interpretations": [
+    "자기를 희생하며 상대를 먼저 챙긴다는 해석",
+    "거절을 못 해 지치는 사람이라는 해석",
+    "자기희생 신호가 낮다는 이유로 T2 자체를 약화하거나 제외"
+  ],
+  "contrary_evidence": [
+    {
+      "interpretation": "나보다 상대를 먼저 두고 자기를 희생한다(T2에 흔히 붙는 SS 해석)",
+      "against": "동료의 대근 부탁을 웃으며 거절, 친구 이사에 시간을 미리 제한하고 약속대로 떠남, 피곤하면 데이트를 미룸, 언니의 간병 떠넘기기에 분담표로 맞서고 물러서지 않음, 휴식 시간엔 연락을 안 받음",
+      "scenes": ["일", "가까운 관계", "갈등", "휴식"],
+      "why_not_just_weak": "희생을 요구받는 순간마다 경계를 긋는 쪽을 명시적으로 선택한다. 돌봄 의지는 유지하면서 범위를 자기 기준으로 정하는 선택이 네 장면에서 반복된다."
+    }
+  ],
+  "coexistence": null,
+  "response_pattern_note": "나이트 근무 후 졸린 상태, 긴 문항은 훑고 넘김 — 노이즈 가능",
+  "channel": "SO",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["AS", "US", "DEF"],
+  "values_top3": ["CONTR", "AUT", "REL"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST2"], "reactivity": "low", "dominant_coping": ["SC3"] },
+  "behavior": { "age": 29, "age_band": "20s", "motivation": "curiosity", "focus": "low", "reading_speed": "fast", "condition_today": "tired", "test_setting": "휴대폰, 나이트 근무 후 아침 침대", "digital_literacy": "high", "psych_term_familiarity": "low", "social_desirability": "low", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "좀 차갑고 이기적이라는 소리도 듣는다. 남 일에 크게 신경 안 쓴다.", "blind_spot": "장면에서는 환자·친구·가족을 세밀하게 돌봄. 경계 긋기를 차가움으로 오인" },
+  "self_image_gap": { "level": "small", "description": "돌봄 동기를 과소평가" },
+  "notes": "반증 규칙 검증용. schema_top3는 전반적으로 낮은 가운데 상대 순위(AS는 보호자 말에 힘을 얻는 정도). SS는 낮아야 함."
+}

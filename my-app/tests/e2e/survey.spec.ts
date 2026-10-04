@@ -1,7 +1,6 @@
 import { expect, test, type Page } from "@playwright/test";
 import { DISPLAY_ORDER, ITEM_BY_ID } from "../../src/data/items";
-
-const KEY = "self-layers:v1.1:session";
+import { SESSION_KEY as KEY } from "../../src/lib/session";
 const FORBIDDEN = /\d\s*번\s*유형|유형\s*\d|wing|윙|날개|통합|분열|\bT[1-9]\b|\bCORE[1-9]\b/i;
 
 function fullAnswers() {

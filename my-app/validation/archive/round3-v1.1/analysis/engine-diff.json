@@ -1,0 +1,751 @@
+{
+  "scoringVersion": "v1.1-app.1",
+  "seed": 777,
+  "total": 2350,
+  "perStyle": {
+    "uniform": 1000,
+    "all3": 50,
+    "extreme": 300,
+    "acquiescent": 300,
+    "desirable": 300,
+    "firstA": 100,
+    "firstB": 100,
+    "firstC": 100,
+    "firstD": 100
+  },
+  "rows": [
+    {
+      "path": "core.raw.T1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T3",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T4",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T5",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T6",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T7",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T8",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.raw.T9",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T3",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T4",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T5",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T6",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T7",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T8",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.typeScore.T9",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T3",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T4",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T5",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T6",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T7",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T8",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.firstPicks.T9",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T3",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T4",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T5",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T6",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T7",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T8",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.motive.T9",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.ranking",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.primary",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.status",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.tiedWith",
+      "compared": 2350,
+      "mismatched": 336,
+      "examples": [
+        {
+          "style": "uniform",
+          "app": [
+            "T6"
+          ],
+          "ref": [
+            "T3",
+            "T6"
+          ]
+        },
+        {
+          "style": "uniform",
+          "app": [
+            "T8"
+          ],
+          "ref": [
+            "T1",
+            "T8"
+          ]
+        },
+        {
+          "style": "uniform",
+          "app": [
+            "T5"
+          ],
+          "ref": [
+            "T3",
+            "T5"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "core.secondary",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.strongSecondary",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.separation",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.confidence",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.weakMotive",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.channel.scores.SP",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.channel.scores.SO",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.channel.scores.SX",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "core.channel.primary",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.ACH",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.AUT",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.REL",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.SEC",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.GROW",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.AUTH",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.CONTR",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "values.capped.EXP",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "attachment.ANX",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "attachment.AVO",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.ABN",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.ED",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.MIS",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.DEF",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.DEP",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.SS",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.AS",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "schemas.US",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "consistency.inconsistentSchemas",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "consistency.flag",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.triggers.ST1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.triggers.ST2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.triggers.ST3",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.triggers.ST4",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.triggers.ST5",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.triggers.ST6",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.vulnerable",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.reactivity",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.reactivityBand",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.coping.SC1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.coping.SC2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.coping.SC3",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.coping.SC4",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.coping.SC5",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.coping.SC6",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.dominantCoping",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "stress.coreMatch",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "state.selfCompassion",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "state.flexibility",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "state.needs.autonomy",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "state.needs.competence",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "state.needs.relatedness",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "state.index",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "state.band",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "modes.expansion",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "modes.expansionBand",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "modes.protection",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "modes.protectionBand",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "modes.growthDirection",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "modes.stressDirection",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "modes.protectionCoping",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "growth.readiness",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "growth.band",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "growth.experiments",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T3",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T4",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T5",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T6",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T7",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T8",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.score.T9",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.ranking",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.rank1",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.rank2",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.gap",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    },
+    {
+      "path": "message.coreMatch",
+      "compared": 2350,
+      "mismatched": 0,
+      "examples": []
+    }
+  ]
+}

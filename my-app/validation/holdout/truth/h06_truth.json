@@ -1,0 +1,40 @@
+{
+  "id": "h06",
+  "alias": "영업팀장",
+  "group": "coexist",
+  "group_detail": "상황에 따라 다른 Core가 앞섬(일: 감정 중심 T3, 가까운 관계: 본능 중심 T9)",
+  "response_style": "normal",
+  "composition": "co_center",
+  "cores": [
+    { "type": "T3", "role": "co_center", "evidence": "화이트보드 목표·리허설 5회(일), 납기 협상 관철(일 갈등), 계약 상실 후 새벽 분석과 만회(실패), 고객 결정권자에 맞춰 자신을 조정(낯선 상황-일), 칭찬을 다음 목표로 받음" },
+    { "type": "T9", "role": "co_center", "evidence": "'네가 좋은 걸로'(관계), 부모 다툼 중재·화제 전환(관계), 연인과 의견 차에 바로 양보하고 나중에야 자기 선호를 깨닫고 말 안 함(관계 갈등), 무계획 일요일(휴식), 낯선 사적 모임에서 듣기만(낯선 상황-사적)" }
+  ],
+  "not_core": [
+    "T8: 일에서 관철하지만 맞서 지키려는 동기보다 목표 달성이 목적",
+    "T2: 연인에게 맞추지만 필요한 사람이 되려는 게 아니라 마찰 없는 평온이 목적"
+  ],
+  "centers_note": "감정 중심(T3)과 본능 중심(T9)에 나뉨",
+  "expected_interpretations": [
+    "일에서는 해내고 증명하려는 동기가, 가까운 관계에서는 평온을 지키려는 동기가 앞섬",
+    "두 모습 모두 그 사람의 실제 동기이며 상황(영역)에 따라 전면에 서는 쪽이 다름",
+    "가까운 관계에서 자기 선호를 늦게 알아차리고 말하지 않는 패턴"
+  ],
+  "forbidden_interpretations": [
+    "집에서의 순응을 일에서 지친 결과(소진)로만 설명하거나, 일에서의 추진을 가면으로 설명",
+    "한쪽 Core를 반증으로 약화",
+    "두 Core를 갈등·모순으로만 묘사하고 영역 분리를 놓침"
+  ],
+  "contrary_evidence": [],
+  "coexistence": "업무 맥락에서는 목표와 성과가 그를 움직이고, 연인·가족 사이에서는 갈등 없는 잔잔함이 그를 움직인다. 같은 주에 회의실에서 세 시간 버티고, 집에서는 바로 양보한 장면이 대표적.",
+  "response_pattern_note": "Part 1 상황 선택형에서 장면이 일인지 사적 관계인지에 따라 선택이 갈릴 것으로 기대",
+  "channel": "SX",
+  "attachment": { "ANX": "low", "AVO": "mid" },
+  "schema_top3": ["AS", "SS", "US"],
+  "values_top3": ["ACH", "REL", "SEC"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST5", "ST1"], "reactivity": "mid", "dominant_coping": ["SC1", "SC5"] },
+  "behavior": { "age": 31, "age_band": "30s", "motivation": "recommended", "focus": "mid", "reading_speed": "fast", "condition_today": "normal", "test_setting": "휴대폰, 일요일 저녁 소파", "digital_literacy": "high", "psych_term_familiarity": "mid", "social_desirability": "low", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "어디서나 똑같다. 집에서 조용한 건 피곤해서다.", "blind_spot": "영역에 따라 동기 자체가 바뀌는 것을 인식하지 못하고 피로로 설명" },
+  "self_image_gap": { "level": "small", "description": "영역별 차이를 부인" },
+  "notes": "상황 의존 공존. 앞선 Core가 영역에 따라 갈리는 사례. 리포트가 '평소에는 A, 가까운 관계에서는 B'처럼 맥락을 붙여 설명하는지 확인."
+}

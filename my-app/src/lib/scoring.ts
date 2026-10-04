@@ -3,11 +3,13 @@ import {
   ATTACHMENT_CODES, CHANNELS, COPING_CODES, CORE_TYPES, SCHEMA_CODES, TRIGGER_CODES, VALUE_CODES,
   type Answer, type Answers, type AssessmentResult, type AttachmentCode, type Channel, type ChoiceAnswer, type CopingCode,
   type CoreType, type Counterevidence, type Level3, type LikertCode, type LikertItem, type LikertValue, type OptionKey,
-  type RankAnswer, type Reinforcement, type SchemaCode, type Scores, type StateBand, type TriggerCode, type ValueCode,
+  type RankAnswer, type RawValueResult, type Reinforcement, type SchemaCode, type Scores, type StateBand, type TriggerCode, type ValueCode,
 } from "../types/assessment";
+import { VALUE_CALIBRATION } from "../data/value-calibration";
+import { rankCalibrated, rankGroups, standardizeValues, VALUE_ITEM_CAP, VALUE_WEIGHTS, type ValueCalibration } from "./value-calibration";
 
 /** 채점 규칙 버전. 계산식·임계값이 바뀌면 올린다. */
-export const SCORING_VERSION = "v1.1-app.1";
+export const SCORING_VERSION = "v1.2-app.2";
 
 // ── 설계서 2장·7장 매핑 ────────────────────────────────────────────
 export const GROWTH_DIRECTION: Readonly<Record<CoreType, CoreType>> = { T1: "T7", T2: "T4", T3: "T6", T4: "T1", T5: "T8", T6: "T9", T7: "T5", T8: "T2", T9: "T3" };
@@ -29,7 +31,8 @@ export const TYPICAL_SIGNALS: Readonly<Record<CoreType, readonly (SchemaCode | A
 const VULNERABLE_TRIGGER = 65;
 const MESSAGE_PAIR_GAP = 8;
 const STRONG_SECONDARY_MOTIVE = 75;
-const STRONG_SECONDARY_GAP = 8;
+/** 설계서의 "TypeScore 차이 ≤ 8"을 원점수 차이로 옮긴 앱 규칙. 4지선다(1점 = 6.25점)에서 두 조건은 같은 응답을 고른다. */
+const STRONG_SECONDARY_RAW_GAP = 1;
 const WEAK_MOTIVE = 40;
 const CONSISTENCY_PENALTY = 5;
 const INCONSISTENT_PAIR_DIFF = 4;
@@ -39,6 +42,7 @@ const REINFORCE_CORE_MIN = 50;
 const REINFORCE_LINKED_MIN = 60;
 const REINFORCE_STRENGTH_MIN = 55;
 const COUNTEREVIDENCE_MAX = 45;
+
 
 export class IncompleteAnswersError extends Error {
   constructor(public readonly missing: string[]) { super(`${missing.length}개 문항에 응답이 없습니다.`); }
@@ -89,7 +93,29 @@ function likertScore(items: readonly LikertItem[], code: LikertCode, answers: An
 }
 
 // ── 메인 ──────────────────────────────────────────────────────────
+/** 가치 보정 전 결과. 보정값 산출 등 검증용으로만 쓴다. */
+export type UncalibratedResult = Omit<AssessmentResult, "values"> & { values: RawValueResult };
+
+/** 채점(보정 포함). 가치 순위는 문항 배치에 맞는 고정 보정값으로 정한다(배치가 다르면 오류). */
 export function scoreAssessment(answers: Answers): AssessmentResult {
+  return applyValueCalibration(scoreUncalibrated(answers), VALUE_CALIBRATION);
+}
+
+/** B안: 결합 점수를 가치별 무작위 평균·표준편차로 표준화해 순위·공동 순위를 정한다. 점수는 바꾸지 않는다. */
+export function applyValueCalibration(result: UncalibratedResult, cal: ValueCalibration): AssessmentResult {
+  const calibrated = standardizeValues(result.values.score, cal);
+  const { rank, groups } = rankGroups(calibrated);
+  const r = rankCalibrated(calibrated);
+  return {
+    ...result,
+    values: {
+      ...result.values, calibrated, rank, ranking: groups.flat(), first: r.first, top3: r.top3, top3Tied: r.boundaryTied,
+      calibration: { method: cal.method, fingerprint: cal.fingerprint },
+    },
+  };
+}
+
+export function scoreUncalibrated(answers: Answers): UncalibratedResult {
   const missing = missingItems(answers);
   if (missing.length) throw new IncompleteAnswersError(missing);
 
@@ -105,7 +131,7 @@ export function scoreAssessment(answers: Answers): AssessmentResult {
 
   // 10.2 Core
   const raw = fill(CORE_TYPES), firstPicks = fill(CORE_TYPES);
-  const cappedValues = fill(VALUE_CODES), maxValues = fill(VALUE_CODES);
+  const cappedValues = fill(VALUE_CODES), maxValues = fill(VALUE_CODES), opportunities = fill(VALUE_CODES), picks = fill(VALUE_CODES);
   const contextsHit = new Map<ValueCode, Set<string>>(), contextsAll = new Map<ValueCode, Set<string>>();
   for (const item of PART1) {
     const a = answers[item.id] as ChoiceAnswer;
@@ -121,9 +147,11 @@ export function scoreAssessment(answers: Answers): AssessmentResult {
     }
     for (const [value, p] of valuePoints) {
       // 4장: 같은 문항 안에서 같은 Value의 득점은 최대 2점
-      cappedValues[value] += Math.min(2, p);
-      maxValues[value] += 2;
+      cappedValues[value] += Math.min(VALUE_ITEM_CAP, p);
+      maxValues[value] += VALUE_ITEM_CAP;
+      opportunities[value] += 1;
       if (p > 0) {
+        picks[value] += 1;
         if (!contextsHit.has(value)) contextsHit.set(value, new Set());
         contextsHit.get(value)!.add(item.context);
       }
@@ -158,9 +186,8 @@ export function scoreAssessment(answers: Answers): AssessmentResult {
     hit[v] = contextsHit.get(v)?.size ?? 0;
     available[v] = contextsAll.get(v)!.size;
     diversity[v] = hit[v] / available[v] * 100;
-    valueScore[v] = 0.6 * selection[v] + 0.4 * diversity[v];
+    valueScore[v] = VALUE_WEIGHTS.selection * selection[v] + VALUE_WEIGHTS.diversity * diversity[v];
   }
-  const valueRanking = rankBy(VALUE_CODES, valueScore);
 
   // 7장 Stress
   const triggers = Object.fromEntries(TRIGGER_CODES.map((c) => [c, likertScore(PART4, c, answers)])) as Scores<TriggerCode>;
@@ -209,12 +236,12 @@ export function scoreAssessment(answers: Answers): AssessmentResult {
     core: {
       raw, typeScore, firstPicks, motive, ranking, primary,
       status: tiedWith.length ? "undetermined" : "determined", tiedWith, secondary,
-      strongSecondary: motive[secondary] >= STRONG_SECONDARY_MOTIVE && typeScore[primary] - typeScore[secondary] <= STRONG_SECONDARY_GAP,
+      strongSecondary: motive[secondary] >= STRONG_SECONDARY_MOTIVE && raw[primary] - raw[secondary] <= STRONG_SECONDARY_RAW_GAP,
       separation, confidence, weakMotive: motive[primary] < WEAK_MOTIVE,
       influence: { type: influence, candidates: wings },
       channel: { scores: channelScores, primary: channelPrimary },
     },
-    values: { capped: cappedValues, selection, contextsHit: hit, contextsAvailable: available, diversity, score: valueScore, ranking: valueRanking, top3: valueRanking.slice(0, 3) },
+    values: { capped: cappedValues, selection, contextsHit: hit, contextsAvailable: available, diversity, score: valueScore, opportunities, picks },
     attachment, schemas, schemaRanking: rankBy(SCHEMA_CODES, schemas),
     consistency: { inconsistentSchemas, flag: consistencyFlag },
     stress: { triggers, vulnerable, reactivity, reactivityBand: level(reactivity, 70, 40), coping, dominantCoping, coreMatch },

@@ -188,6 +188,15 @@ ol.reflect li { margin-bottom: 12px; }
 .ai-text { border-left: 3px dashed var(--core); padding-left: 14px; }
 .ai-text::before { content: "AI 문장"; display: block; font-size: 11.5px; letter-spacing: .04em; color: var(--core); margin-bottom: 2px; }
 
+/* Value ranking (순위·공동 순위와 선택 근거, 막대 없음) */
+.value-rank { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.value-rank li { display: grid; grid-template-columns: 5.5em 1fr; column-gap: 12px; row-gap: 2px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+.value-rank li.top { border-color: var(--layer, var(--ink)); }
+.value-rank .rk { grid-row: span 2; font-size: 13px; color: var(--ink-3); align-self: center; }
+.value-rank li.top .rk { color: var(--layer, var(--ink)); font-weight: 700; }
+.value-rank .nm { font-weight: 700; }
+.value-rank .ev { font-size: 13px; color: var(--ink-3); overflow-wrap: anywhere; }
+
 /* Bars (HTML) */
 .bars { display: grid; gap: 10px; }
 .bar { display: grid; grid-template-columns: minmax(96px, 34%) 1fr 36px; gap: 10px; align-items: center; font-size: 13.5px; }

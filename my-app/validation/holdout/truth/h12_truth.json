@@ -1,0 +1,39 @@
+{
+  "id": "h12",
+  "alias": "공공기관 인턴",
+  "group": "response_style",
+  "group_detail": "대부분 중간값으로 답하는 습관(틀린 말이 될까 하는 신중함·자기 확신 부족)",
+  "response_style": "midpoint",
+  "composition": "single",
+  "cores": [
+    { "type": "T6", "role": "center", "evidence": "면접 전날 건물·출구·화장실 답사(낯선 상황), 동기 둘에게 먼저 확인(일), 문제 생기기 전 규칙 제안·단톡 답 늦으면 대화 다시 읽기(관계), 혼자 판단 못 해 의견 수집·일정표 세 개 추가(실패), 쉬기 전 다음 주 할 일 정리(휴식), 놀랄 일 없는 하루(하루)" }
+  ],
+  "not_core": [
+    "T9: 룸메이트에게 바로 말 못 하지만 평화 유지보다 관계가 틀어질까 하는 불안",
+    "T1: 규칙 제안은 옳음보다 예측 가능성"
+  ],
+  "centers_note": "사고 중심 단독. 단, 응답 중간값 경향으로 Core 분리가 약하게 나올 수 있음",
+  "expected_interpretations": [
+    "믿을 수 있는 기반과 확인을 찾고 미리 대비하려는 동기",
+    "중간값이 많은 응답은 '특징이 없다'가 아니라 확신을 유보하는 응답 방식일 수 있음을 반영",
+    "Core 판정이 약하면 판정을 유보하거나 강도를 낮춰 표현"
+  ],
+  "forbidden_interpretations": [
+    "중간값 응답을 '균형 잡힌 사람'·'뚜렷한 성향이 없는 사람'으로 단정",
+    "중간값으로 낮아진 지지 신호를 근거로 반증 처리",
+    "확신 있는 단일 Core 단정 문장"
+  ],
+  "contrary_evidence": [],
+  "coexistence": null,
+  "response_pattern_note": "5점 문항 상당수(약 60% 이상)를 3으로 응답. 1·5는 거의 없음. Part 1 순위 선택은 강제 선택이라 상대적으로 신호가 남음",
+  "channel": "SP",
+  "attachment": { "ANX": "mid", "AVO": "low" },
+  "schema_top3": ["DEP", "ABN", "DEF"],
+  "values_top3": ["SEC", "GROW", "REL"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST3", "ST5"], "reactivity": "mid", "dominant_coping": ["SC3", "SC1"] },
+  "behavior": { "age": 24, "age_band": "20s", "motivation": "self", "focus": "high", "reading_speed": "slow", "condition_today": "normal", "test_setting": "노트북, 쉐어하우스 방", "digital_literacy": "high", "psych_term_familiarity": "mid", "social_desirability": "mid", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "결정은 잘하는 편이고 신중할 뿐이다. 어떤 사람인지는 상황마다 달라 잘 모르겠다.", "blind_spot": "장면에서는 결정마다 다른 사람의 확인을 구함" },
+  "self_image_gap": { "level": "small", "description": "결정 의존을 신중함으로 인식" },
+  "notes": "응답 방식 검증용. ANX는 truth상 mid(단톡 재확인)지만 응답은 중간값으로 수렴할 것. 리포트가 평평한 프로필을 성격 특징으로 단정하지 않는지 확인."
+}

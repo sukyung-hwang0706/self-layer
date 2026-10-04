@@ -76,7 +76,7 @@ const acc = records.map(({ id, run, t, r }) => {
     schemaOverlap: overlap(r.schemaRanking.slice(0, 3), t.schema_top3) / 3,
     schemaLowAvoided: !(t.schema_low ?? []).some((s) => r.schemaRanking.slice(0, 3).includes(s as never)),
     valueOverlap: overlap(r.values.top3, t.values_top3) / 3,
-    valueTop1: r.values.top3[0] === t.values_top3[0],
+    valueTop1: (r.values.first as string[]).includes(t.values_top3[0]), // 공동 1위에 포함되면 일치
     state: r.state.band === t.state_band,
     reactivity: r.stress.reactivityBand === t.stress.reactivity,
     vulnerable: jaccard(r.stress.vulnerable, t.stress.vulnerable),
@@ -144,7 +144,7 @@ const believers = acc.filter((a) => truth.get(a.id)!.behavior?.believed_core).ma
 const mbtiRows = acc.filter((a) => a.run === "run1" && truth.get(a.id)!.mbti).map((a) => {
   const t = truth.get(a.id)!;
   const r = records.find((x) => x.id === a.id && x.run === "run1")!.r;
-  return { id: a.id, mbti: t.mbti!.type, selfReported: t.mbti!.self_reported, truthCore: a.truthPrimary, resultCore: a.resultPrimary, coreTop1: a.coreTop1, anx: r.attachment.ANX, avo: r.attachment.AVO, channel: r.core.channel.primary, valueTop1: r.values.top3[0] };
+  return { id: a.id, mbti: t.mbti!.type, selfReported: t.mbti!.self_reported, truthCore: a.truthPrimary, resultCore: a.resultPrimary, coreTop1: a.coreTop1, anx: r.attachment.ANX, avo: r.attachment.AVO, channel: r.core.channel.primary, valueTop1: r.values.first.join("·") };
 });
 const mbtiAxes = (["EI", "SN", "TF", "JP"] as const).map((axis, i) => ({
   axis,
@@ -200,7 +200,7 @@ const intended = {
 };
 const observed = {
   primary: countBy(records, (x) => x.r.core.primary, CORE_TYPES),
-  valueTop1: countBy(records, (x) => x.r.values.top3[0], VALUE_CODES),
+  valueTop1: countBy(records, (x) => x.r.values.first[0], VALUE_CODES), // 공동 1위면 보정 점수가 가장 높은 가치
   schemaTop1: countBy(records, (x) => x.r.schemaRanking[0], SCHEMA_CODES),
   state: countBy(records, (x) => x.r.state.band, ["expansion", "balanced", "protection"]),
 };

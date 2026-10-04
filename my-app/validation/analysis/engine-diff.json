@@ -1,5 +1,5 @@
 {
-  "scoringVersion": "v1.1-app.1",
+  "scoringVersion": "v1.2-app.2",
   "seed": 777,
   "total": 2350,
   "perStyle": {
@@ -251,36 +251,36 @@
     {
       "path": "core.tiedWith",
       "compared": 2350,
-      "mismatched": 336,
+      "mismatched": 344,
       "examples": [
         {
           "style": "uniform",
           "app": [
-            "T6"
-          ],
-          "ref": [
-            "T3",
-            "T6"
-          ]
-        },
-        {
-          "style": "uniform",
-          "app": [
-            "T8"
+            "T4"
           ],
           "ref": [
             "T1",
-            "T8"
+            "T4"
           ]
         },
         {
           "style": "uniform",
           "app": [
-            "T5"
+            "T7"
           ],
           "ref": [
-            "T3",
-            "T5"
+            "T1",
+            "T7"
+          ]
+        },
+        {
+          "style": "uniform",
+          "app": [
+            "T9"
+          ],
+          "ref": [
+            "T4",
+            "T9"
           ]
         }
       ]

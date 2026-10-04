@@ -1,8 +1,10 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
 import { PART1, PART2 } from "../data/items";
-import { VALUE_CODES, type ChoiceAnswer } from "../types/assessment";
-import { IncompleteAnswersError, missingItems, PROTECTION_COPING, scoreAssessment, TYPE_RAW_MAX } from "./scoring";
+import { VALUE_CODES, type ChoiceAnswer, type LikertValue } from "../types/assessment";
+import { VALUE_CALIBRATION } from "../data/value-calibration";
+import { applyValueCalibration, IncompleteAnswersError, missingItems, PROTECTION_COPING, scoreAssessment, scoreUncalibrated, TYPE_RAW_MAX } from "./scoring";
+import { rankCalibrated, standardizeValues, ValueCalibrationMismatchError } from "./value-calibration";
 import { makeAnswers } from "./test-fixtures";
 
 const close = (actual: number, expected: number, msg?: string) => assert.ok(Math.abs(actual - expected) < 1e-9, `${msg ?? ""} ${actual} ≠ ${expected}`);
@@ -13,7 +15,7 @@ test("미응답이 있으면 채점하지 않는다", () => {
   assert.throws(() => scoreAssessment(answers), (e) => e instanceof IncompleteAnswersError && e.missing.includes("M3"));
 });
 
-/** 모든 Part 1 문항에서 A를 1순위, B를 2순위로 고른 응답. V1.1-app은 위치 균형이라 9개 유형이 모두 raw 6으로 같아진다. */
+/** 모든 Part 1 문항에서 A를 1순위, B를 2순위로 고른 응답. V1.1-app 이후 위치 균형이라 9개 유형이 모두 raw 6으로 같아진다. */
 const allAB = () => Object.fromEntries(PART1.map((i) => [i.id, { first: "A", second: "B" }])) as Record<string, ChoiceAnswer>;
 
 test("잘못된 응답(같은 선택지 1·2순위, 범위 밖 값, 순위 중복, 없는 선택지)은 미응답으로 본다", () => {
@@ -31,14 +33,14 @@ test("같은 응답은 항상 같은 결과를 낸다", () => {
 test("Core: 1순위 +2, 2순위 +1로 TypeRaw를 쌓고 유형별 최대(2점 × 8회 = 16점)로 환산한다", () => {
   assert.deepEqual(TYPE_RAW_MAX, { T1: 16, T2: 16, T3: 16, T4: 16, T5: 16, T6: 16, T7: 16, T8: 16, T9: 16 });
   const { core } = scoreAssessment(makeAnswers());
-  assert.deepEqual(core.raw, { T1: 16, T2: 3, T3: 13, T4: 0, T5: 3, T6: 1, T7: 10, T8: 8, T9: 0 });
+  assert.deepEqual(core.raw, { T1: 16, T2: 4, T3: 11, T4: 0, T5: 3, T6: 2, T7: 10, T8: 8, T9: 0 });
   close(core.typeScore.T1, 100);
-  close(core.typeScore.T3, 13 / 16 * 100);
+  close(core.typeScore.T3, 11 / 16 * 100);
   assert.equal(core.primary, "T1");
   assert.equal(core.status, "determined");
-  close(core.separation, 75); // (16 − 13) / 4 × 100
-  // 0.5×100 + 0.2×75 + 0.3×M(T1)=50
-  close(core.confidence, 80);
+  close(core.separation, 100); // min(100, (16 − 11) / 4 × 100)
+  // 0.5×100 + 0.2×100 + 0.3×M(T1)=50
+  close(core.confidence, 85);
   assert.equal(core.influence.type, "T2");
   assert.deepEqual(core.influence.candidates, ["T9", "T2"]);
 });
@@ -64,7 +66,7 @@ test("Core 세 단계 동점까지 같으면 판정 유보로 표시한다", () 
   assert.deepEqual(core.tiedWith, ["T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9"]);
 });
 
-test("M(Top1) < 40이면 동기 진술 약함, M(Top2) ≥ 75이고 차이 8 이내면 강한 보조 Core", () => {
+test("M(Top1) < 40이면 동기 진술 약함, M(Top2) ≥ 75이고 원점수 차이 1 이내면 강한 보조 Core", () => {
   assert.equal(scoreAssessment(makeAnswers({ M1: 2 })).core.weakMotive, true);
   assert.equal(scoreAssessment(makeAnswers({ M1: 3 })).core.weakMotive, false);
   // raw 차이 3(18.75점)이면 강한 보조 Core가 아니다.
@@ -81,17 +83,37 @@ test("M(Top1) < 40이면 동기 진술 약함, M(Top2) ≥ 75이고 차이 8 이
   assert.equal(r.core.strongSecondary, true);
 });
 
+test("강한 보조 Core의 근접 조건은 원점수 차이 ≤ 1이다(환산 점수가 아니다)", () => {
+  // allAB에서 모든 유형 raw 6. E01을 B→A로 바꾸면 B 유형 7, A 유형 5가 된다.
+  const e01 = PART1.find((i) => i.id === "E01")!;
+  const [a, b, c] = e01.options.map((o) => o.type);
+  const motiveC = Object.fromEntries(PART2.filter((i) => i.code === c).map((i) => [i.id, 4 as LikertValue])); // M(c) = 75
+  const gap1 = scoreAssessment(makeAnswers({ ...allAB(), E01: { first: "B", second: "A" }, ...motiveC }));
+  assert.equal(gap1.core.primary, b);
+  assert.equal(gap1.core.secondary, c);
+  assert.equal(gap1.core.raw[b] - gap1.core.raw[c], 1);
+  assert.equal(gap1.core.strongSecondary, true);
+  // b가 2순위(B)로 나온 다른 문항에서 1순위로 올리면 b 8, c 6 → 원점수 차이 2
+  const other = PART1.find((i) => i.id !== "E01" && i.options[1].type === b && i.options[0].type !== c && i.options[0].type !== a)!;
+  const swapped: Record<string, ChoiceAnswer> = { E01: { first: "B", second: "A" }, [other.id]: { first: "B", second: "A" } };
+  const gap2 = scoreAssessment(makeAnswers({ ...allAB(), ...swapped, ...motiveC }));
+  assert.equal(gap2.core.primary, b);
+  assert.equal(gap2.core.secondary, c);
+  assert.equal(gap2.core.raw[b] - gap2.core.raw[c], 2);
+  assert.equal(gap2.core.strongSecondary, false);
+});
+
 test("Value: 선택 60% + 맥락 다양성 40%, 분모는 그 Value가 나오는 문항 수 × 2점", () => {
   const base = scoreAssessment(makeAnswers());
-  // EXP는 8개 문항·5개 맥락에 등장한다.
-  assert.equal(base.values.capped.EXP, 7);
-  close(base.values.selection.EXP, 7 / 16 * 100);
+  // V1.2-app: EXP는 9개 문항·5개 맥락에 등장한다.
+  assert.equal(base.values.capped.EXP, 10);
+  close(base.values.selection.EXP, 10 / 18 * 100);
   assert.equal(base.values.contextsAvailable.EXP, 5);
-  assert.equal(base.values.contextsHit.EXP, 3);
-  close(base.values.score.EXP, 0.6 * 43.75 + 0.4 * 60);
-  // SEC는 9개 문항·6개 맥락.
-  close(base.values.score.SEC, 0.6 * (3 / 18 * 100) + 0.4 * (2 / 6 * 100));
-  // V1.1-app에는 같은 문항 안 중복 Value가 없어 문항당 2점 제한은 실제로 걸리지 않는다(규칙은 유지).
+  assert.equal(base.values.contextsHit.EXP, 4);
+  close(base.values.score.EXP, 0.6 * (10 / 18 * 100) + 0.4 * (4 / 5 * 100));
+  // SEC는 10개 문항·6개 맥락.
+  close(base.values.score.SEC, 0.6 * (3 / 20 * 100) + 0.4 * (2 / 6 * 100));
+  // V1.1-app 이후 같은 문항 안 중복 Value가 없어 문항당 2점 제한은 실제로 걸리지 않는다(규칙은 유지).
   assert.ok(VALUE_CODES.every((v) => base.values.capped[v] <= 2 * PART1.filter((i) => i.options.some((o) => o.value === v)).length));
 });
 
@@ -106,7 +128,7 @@ test("응답 일관성: 역채점 후 4점 차이 쌍이 4개 이상이면 플�
   const r = scoreAssessment(makeAnswers(pairs));
   assert.deepEqual(r.consistency.inconsistentSchemas, ["ABN", "ED", "MIS", "DEF"]);
   assert.equal(r.consistency.flag, true);
-  close(r.core.confidence, 80 - 5);
+  close(r.core.confidence, 85 - 5);
   const three = scoreAssessment(makeAnswers({ S1: 5, S2: 5, S3: 5, S4: 5, S5: 5, S6: 5 }));
   assert.equal(three.consistency.flag, false);
 });
@@ -181,3 +203,30 @@ test("표현 채널: 1순위 100, 2순위 50, 3순위 0", () => {
 });
 
 function to100(mean: number) { return (mean - 1) / 4 * 100; }
+
+test("가치 순위는 보정 점수(B안)로 정하고, 공동 1위·상위 3·순위 번호가 같은 규칙을 따른다", () => {
+  const { values } = scoreAssessment(makeAnswers());
+  const z = standardizeValues(values.score, VALUE_CALIBRATION);
+  for (const v of VALUE_CODES) close(values.calibrated[v], z[v], v);
+  assert.deepEqual(values.first, rankCalibrated(z).first);
+  assert.deepEqual(values.top3, rankCalibrated(z).top3);
+  assert.deepEqual(values.first, VALUE_CODES.filter((v) => values.rank[v] === 1).sort((a, b) => values.ranking.indexOf(a) - values.ranking.indexOf(b)));
+  for (let i = 1; i < values.ranking.length; i++) assert.ok(values.calibrated[values.ranking[i - 1]] >= values.calibrated[values.ranking[i]]);
+  assert.deepEqual(values.calibration, { method: VALUE_CALIBRATION.method, fingerprint: VALUE_CALIBRATION.fingerprint });
+});
+
+test("가치 선택 근거: 등장 기회는 그 가치가 나온 Part 1 문항 수, 선택은 1·2순위로 고른 문항 수", () => {
+  const { values } = scoreAssessment(makeAnswers());
+  for (const v of VALUE_CODES) {
+    assert.equal(values.opportunities[v], PART1.filter((i) => i.options.some((o) => o.value === v)).length, v);
+    assert.ok(values.picks[v] <= values.opportunities[v], v);
+  }
+  // 18문항 × 2개 선택
+  assert.equal(VALUE_CODES.reduce((s, v) => s + values.picks[v], 0), 36);
+});
+
+test("배치 지문이 다른 보정값으로는 가치 순위를 만들지 않는다", () => {
+  const raw = scoreUncalibrated(makeAnswers());
+  assert.throws(() => applyValueCalibration(raw, { ...VALUE_CALIBRATION, fingerprint: "00000000" }), ValueCalibrationMismatchError);
+  assert.deepEqual(applyValueCalibration(raw, VALUE_CALIBRATION), scoreAssessment(makeAnswers()));
+});

@@ -1,0 +1,39 @@
+{
+  "id": "h05",
+  "alias": "보건교사",
+  "group": "coexist",
+  "group_detail": "다른 중심의 두 Core 공존(감정 + 본능)",
+  "response_style": "normal",
+  "composition": "co_center",
+  "cores": [
+    { "type": "T2", "role": "co_center", "evidence": "아이 사정부터 묻고 비스킷 서랍(일), 감사 편지 보관(칭찬), 딸네 반찬·손주 돌봄(관계), 항의 후 아이를 따로 챙김(갈등), 펜션에서 남의 이불부터(낯선 상황), '선생님 덕분에요'(하루)" },
+    { "type": "T1", "role": "co_center", "evidence": "약품 대장 빈칸 없음·동의서 없이 투약 거절(일), 공문 날짜 지적 후 전부 재검토(비판), 딸 집 그릇 다시 씻기(관계), 규정을 짚으며 물러서지 않음(갈등), 알레르기 사건 후 장기 자책과 목록(실패), 잎 한 장씩 닦기(휴식), 일정표 재정리(낯선 상황)" }
+  ],
+  "not_core": [
+    "T6: 목록·체크는 불안 대비보다 옳게 해야 한다는 기준에서 나옴"
+  ],
+  "centers_note": "감정 중심(T2)과 본능 중심(T1)에 나뉨. 사고 중심은 낮음",
+  "expected_interpretations": [
+    "누군가에게 필요한 사람이 되려는 동기와 옳은 기준을 지키려는 동기가 함께 작동",
+    "같은 장면에서 두 동기가 동시에 나타나며(돌보면서 규정을 지킴) 서로를 대체하지 않음",
+    "스스로에게 높은 기준과 상대 먼저 챙기기가 함께 높음"
+  ],
+  "forbidden_interpretations": [
+    "돌봄을 통제의 가면으로, 또는 원칙을 돌봄의 방어로 설명",
+    "한쪽 Core를 반증으로 약화",
+    "단일 Core로만 설명"
+  ],
+  "contrary_evidence": [],
+  "coexistence": "아픈 아이를 보면 먼저 마음을 쓰고(T2), 처치는 규정대로 빈틈없이 한다(T1). 딸을 돕는 장면에서도 돌봄과 바로잡기가 같은 행동 안에 있음.",
+  "response_pattern_note": "사회적 바람직성 높음 — 나쁘게 보일 문항(자책, 통제)을 낮춰 답할 가능성. 심하지 않음",
+  "channel": "SO",
+  "attachment": { "ANX": "mid", "AVO": "low" },
+  "schema_top3": ["SS", "US", "AS"],
+  "values_top3": ["CONTR", "REL", "SEC"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST1", "ST2"], "reactivity": "mid", "dominant_coping": ["SC1", "SC6"] },
+  "behavior": { "age": 58, "age_band": "50s+", "motivation": "curiosity", "focus": "high", "reading_speed": "slow", "condition_today": "normal", "test_setting": "태블릿, 저녁 식탁, 돋보기", "digital_literacy": "low", "psych_term_familiarity": "low", "social_desirability": "high", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "아이들이 아프면 못 지나친다. 그런데 원칙은 원칙이다. 둘 중 하나를 고를 수 없다.", "blind_spot": null },
+  "self_image_gap": { "level": "none", "description": null },
+  "notes": "다른 중심 공존. 자기 인식이 장면과 일치하는 공존 사례로, 리포트가 한쪽을 '진짜', 다른 쪽을 '보완'으로 서열화하지 않는지 확인."
+}

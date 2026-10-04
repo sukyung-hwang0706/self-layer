@@ -1,0 +1,39 @@
+{
+  "id": "h10",
+  "alias": "퇴임 사서",
+  "group": "response_style",
+  "group_detail": "문제 신호가 실제로 낮음(정직 응답, 안정적)",
+  "response_style": "normal",
+  "composition": "single",
+  "cores": [
+    { "type": "T1", "role": "center", "evidence": "분류번호 틀린 책을 조용히 제자리로(일), 대출 기한 원칙 유지(일), 관장 지적에 이유가 있는 부분은 설명(비판), 의견을 표로 정리하고 절차로 정하자고 함(갈등), 정해 둔 독서 시간(휴식), '틀린 건 고쳐 놔야 마음이 편하다'(자기 인식)" }
+  ],
+  "not_core": [
+    "T9: 갈등에서 중재하지만 자기 의견을 분명히 말함",
+    "T5: 배우는 걸 좋아하지만 이해 전 행동 보류 패턴 없음, 모르면 그냥 물음"
+  ],
+  "centers_note": "본능 중심 단독(강도는 중간 이상)",
+  "expected_interpretations": [
+    "바르게 정리하고 기준을 지키려는 동기가 중심이나 자신과 타인에게 가혹하지 않음",
+    "관계·스트레스·내면 규칙 전반에서 부담 신호가 낮음을 그대로 낮게 서술",
+    "지난 한 달은 여유 있는 상태"
+  ],
+  "forbidden_interpretations": [
+    "낮은 문제 신호를 부인·억압·좋게 보이려는 응답으로 해석",
+    "낮은 응답을 근거로 숨겨진 취약성을 추정",
+    "스스로에게 높은 기준이 낮다는 이유로 T1을 약화(단, 강도 표현을 낮추는 수준의 반증 언급은 허용)"
+  ],
+  "contrary_evidence": [],
+  "coexistence": null,
+  "response_pattern_note": "정직 응답. 문제 신호 문항 대부분 1~2, Core·가치 문항은 정상 분산",
+  "channel": "SP",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "MIS", "SS"],
+  "values_top3": ["GROW", "SEC", "REL"],
+  "state_band": "expansion",
+  "stress": { "vulnerable": ["ST1"], "reactivity": "low", "dominant_coping": ["SC1"] },
+  "behavior": { "age": 61, "age_band": "50s+", "motivation": "curiosity", "focus": "high", "reading_speed": "normal", "condition_today": "good", "test_setting": "태블릿, 오전 거실", "digital_literacy": "mid", "psych_term_familiarity": "low", "social_desirability": "low", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "좀 깐깐하지만 사람에게까지 그러진 않으려 한다. 요즘은 대체로 괜찮다.", "blind_spot": null },
+  "self_image_gap": { "level": "none", "description": null },
+  "notes": "h11과 짝. 낮은 신호가 장면(실수 즉시 인정·숙면, 연락 공백에 무심, 비판을 메모하고 일부 반박)으로 뒷받침됨. schema_top3는 모두 낮은 수준의 상대 순위."
+}

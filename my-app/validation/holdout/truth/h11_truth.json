@@ -1,0 +1,39 @@
+{
+  "id": "h11",
+  "alias": "부지점장",
+  "group": "response_style",
+  "group_detail": "잘 보이고 싶어 문제 신호를 낮게 답함(장면에서는 흔들림)",
+  "response_style": "desirable",
+  "composition": "single",
+  "cores": [
+    { "type": "T9", "role": "center", "evidence": "반박을 '좋은 의견이네'로 넘김(갈등), 직원 다툼에 양쪽 커피·누가 옳은지 말 안 함(일), 아내의 대화 요청에 TV 볼륨(관계), 새 지점에서 누구 방식도 바꾸지 않고 의견을 내지 않음(낯선 상황), '무던하다'는 칭찬이 가장 기쁨, 아무 일도 없는 날이 좋은 날" }
+  ],
+  "not_core": [
+    "T3: 평가표를 다시 보지만 성과 증명보다 평가로 인한 동요. 만회 행동 없음",
+    "T6: 결과가 인사팀에 가는지 묻는 건 대비 동기보다 좋게 보이려는 응답 태도"
+  ],
+  "centers_note": "본능 중심 단독",
+  "expected_interpretations": [
+    "평화와 마찰 없는 상태를 지키려 자기 의견을 접는 동기가 중심",
+    "응답상 문제 신호가 낮게 나올 수 있으며, 리포트는 이를 '안정'으로 단정하지 않고 표현을 조심스럽게 유지",
+    "말하지 못할 때·사람 사이 갈등에서 흔들림"
+  ],
+  "forbidden_interpretations": [
+    "관계·스트레스가 매우 안정적이라고 단정적으로 서술",
+    "응답자를 거짓 응답자로 비난하거나 의도를 추정하는 서술",
+    "낮은 응답만 보고 T9 자체를 반증으로 약화"
+  ],
+  "contrary_evidence": [],
+  "coexistence": null,
+  "response_pattern_note": "사회적 바람직성 높음. 실제 truth(ANX mid, AVO high, SR high, protection)보다 응답은 문제 신호 전반이 1~2로 낮게 나올 것으로 예상. Core·가치 선택은 비교적 그대로 나옴. 엔진이 이를 완전히 잡지 못하는 것은 한계로 기록하되, 리포트 문장이 과도한 확신을 피하는지 확인.",
+  "channel": "SP",
+  "attachment": { "ANX": "mid", "AVO": "high" },
+  "schema_top3": ["SS", "AS", "ED"],
+  "values_top3": ["SEC", "REL", "EXP"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST5", "ST6"], "reactivity": "high", "dominant_coping": ["SC5", "SC2"] },
+  "behavior": { "age": 45, "age_band": "40s", "motivation": "recommended", "focus": "mid", "reading_speed": "normal", "condition_today": "tired", "test_setting": "사무실 PC, 퇴근 전", "digital_literacy": "mid", "psych_term_familiarity": "low", "social_desirability": "high", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "원래 무던해서 스트레스를 거의 안 받는다. 집도 회사도 문제없다.", "blind_spot": "새벽 각성, 손 떨림, 차 안에서 핸들 치기, 출근 전 주차장 대기, 아내와의 대화 회피가 반복됨" },
+  "self_image_gap": { "level": "large", "description": "자기 인식과 장면의 흔들림이 크게 어긋남" },
+  "notes": "h10과 짝. truth는 실제 상태 기준. 응답은 desirable로 왜곡될 예정이므로 정확도 평가 시 Core·가치는 truth와, 문제 신호 영역은 '단정 서술 회피' 기준으로 본다."
+}

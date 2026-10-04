@@ -31,7 +31,7 @@ const rows = Object.entries(VERSIONS).map(([label, dir]) => {
     confidenceMedian: [...recs.map((x) => x.r.core.confidence)].sort((a, b) => a - b)[Math.floor(recs.length / 2)],
     separationMean: mean(recs.map((x) => x.r.core.separation)),
     valueTop3: mean(normal.map((x) => overlap(x.r.values.top3, x.t.values_top3) / 3)),
-    valueTop1: mean(normal.map((x) => (x.r.values.top3[0] === x.t.values_top3[0] ? 1 : 0))),
+    valueTop1: mean(normal.map((x) => (((x.r.values.first ?? x.r.values.top3.slice(0, 1)) as string[]).includes(x.t.values_top3[0]) ? 1 : 0))),
     schemaTop3: mean(normal.map((x) => overlap(x.r.schemaRanking.slice(0, 3), x.t.schema_top3) / 3)),
     anx: mean(normal.map((x) => (band3(x.r.attachment.ANX) === x.t.attachment.ANX ? 1 : 0))),
     avo: mean(normal.map((x) => (band3(x.r.attachment.AVO) === x.t.attachment.AVO ? 1 : 0))),

@@ -1,0 +1,46 @@
+{
+  "id": "h09",
+  "alias": "데이터 분석가",
+  "group": "contrary",
+  "group_detail": "INSIGHT Core 뚜렷 + 친밀감 거리두기 해석과 어긋남",
+  "response_style": "normal",
+  "composition": "single",
+  "cores": [
+    { "type": "T5", "role": "center", "evidence": "원천 테이블까지 납득해야 결론을 씀·혼자 조용한 회의실(일), 정리할 30분 요청(갈등), 혼자 도서관 세 시간(휴식), 원인을 일주일 파고들어 문서화(실패), 책 세 권과 공식 문서부터(낯선 상황), 비판엔 근거를 묻고 칭찬엔 이유가 궁금(칭찬·비판), '그건 왜 그런 거예요?'(말투)" }
+  ],
+  "not_core": [
+    "T6: 사전 학습은 대비가 아니라 이해 욕구. 결정에 남의 확인을 구하지 않음",
+    "T7: 새로운 것을 배우지만 가능성 탐색보다 깊은 이해가 목적"
+  ],
+  "centers_note": "사고 중심 단독",
+  "expected_interpretations": [
+    "충분히 이해한 뒤 움직이고 혼자 생각할 시간이 필요한 동기가 중심",
+    "혼자 생각할 공간과 가까운 사람과의 밀착이 함께 있음 — 공간 필요가 정서적 거리두기로 이어지지 않음",
+    "관계는 안정적이며 감정을 먼저 꺼내는 편"
+  ],
+  "forbidden_interpretations": [
+    "가까운 관계에서 거리를 두고 감정을 숨긴다는 해석",
+    "갈등 시 물러나 대화를 피한다는 해석",
+    "거리두기 신호가 낮다는 이유로 T5 자체를 약화하거나 제외"
+  ],
+  "contrary_evidence": [
+    {
+      "interpretation": "친밀해지면 거리를 두고 혼자 해결한다(T5에 흔히 붙는 AVO 해석)",
+      "against": "매일 남편에게 하루를 다 이야기함, 소파에 붙어 앉음, 친구 이혼 소식에 바로 찾아감, 다툼은 그날 안에 풀고 자기 서운함부터 말함, 실패의 속상함을 남편에게 울며 털어놓음, 처음 보는 사람에게도 먼저 말을 검",
+      "scenes": ["가까운 관계", "갈등", "실패", "낯선 상황"],
+      "why_not_just_weak": "혼자 있을 시간이 필요한 순간에도 '30분 뒤'처럼 돌아올 시점을 정해 다시 다가가고, 힘든 일은 혼자 삭이지 않고 가까운 사람에게 먼저 꺼내는 선택이 여러 장면에서 반복된다."
+    }
+  ],
+  "coexistence": null,
+  "response_pattern_note": "심리 개념에 익숙해 문항 의도를 짐작하지만 솔직하게 답하려 함",
+  "channel": "SX",
+  "attachment": { "ANX": "low", "AVO": "low" },
+  "schema_top3": ["US", "DEF", "ED"],
+  "values_top3": ["GROW", "REL", "AUT"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST3", "ST1"], "reactivity": "mid", "dominant_coping": ["SC1", "SC3"] },
+  "behavior": { "age": 38, "age_band": "30s", "motivation": "self", "focus": "high", "reading_speed": "normal", "condition_today": "good", "test_setting": "노트북, 재택 근무일 점심 뒤", "digital_literacy": "high", "psych_term_familiarity": "high", "social_desirability": "low", "prior_knowledge": "some", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "감정 표현이 서툴고 논리로만 말한다. 혼자 생각할 시간이 꼭 필요하다.", "blind_spot": "실제로는 감정을 먼저, 자주 표현함(울며 털어놓기, 서운함부터 말하기)" },
+  "self_image_gap": { "level": "small", "description": "감정 표현력을 과소평가" },
+  "notes": "반증 규칙 검증용. 자기 인식의 '감정 표현 서툼'은 AVO와 별개인 맹점. 응답자가 자기 인식에 끌려 AVO를 높이면 엔진이 아닌 응답 쪽 오차로 기록."
+}

@@ -1,0 +1,40 @@
+{
+  "id": "h13",
+  "alias": "조명 디자이너",
+  "group": "boundary",
+  "group_detail": "두 Core가 거의 같은 힘으로 맞섬(감정 중심 T4 vs 사고 중심 T7)",
+  "response_style": "normal",
+  "composition": "co_center",
+  "cores": [
+    { "type": "T4", "role": "co_center", "evidence": "장면마다 인물의 온도를 혼자 적고 무난함을 못 견딤(일), 같은 슬픈 영화 반복(휴식), 속 얘기는 한 명에게만(관계), '나는 결국 아무것도 아닌가'(실패), 빈 무대에서 빛을 오래 봄(낯선 상황), 장면의 의미를 지키려 맞섬(갈등), '너만 할 수 있는 빛'에 울음(칭찬)" },
+    { "type": "T7", "role": "co_center", "evidence": "프로젝트 여러 개 동시·하나면 답답(일), 갑자기 처음 가는 섬으로(휴식), 단체 모임 주도·분위기 띄움(관계), 둘째 주에 새 일정 몰아 잡기(실패), 처음 보는 스태프에게 농담(낯선 상황), 대안 다섯 개·하나만 고르라면 숨 막힘(갈등), 비판엔 더 많이 시도(비판)" }
+  ],
+  "not_core": [
+    "T3: 작업 의욕은 성과 증명보다 의미와 새로움",
+    "T8: 대표에게 맞서지만 힘의 대결이 아니라 의미 보호"
+  ],
+  "centers_note": "감정 중심과 사고 중심이 거의 동률. 본능 중심은 낮음",
+  "expected_interpretations": [
+    "자기다운 의미·감정의 깊이를 추구하는 동기와 새로움·가능성을 추구하는 동기가 비슷한 힘으로 함께 있음",
+    "어느 쪽이 중심인지 단정하지 않거나, 판정 유보로 표시",
+    "지난 한 달은 일이 끊긴 보호 상태 — 현재 상태로 서술"
+  ],
+  "forbidden_interpretations": [
+    "한쪽을 중심, 다른 쪽을 보조로 서열화한 단정 문장",
+    "새로움 추구를 감정 회피의 방어로, 또는 감정 몰입을 새로움 실패의 결과로 설명",
+    "한쪽 Core를 반증으로 약화"
+  ],
+  "contrary_evidence": [],
+  "coexistence": "같은 장면 안에서 두 동기가 번갈아 나타남(슬픈 영화 후 즉흥 여행, 의미를 지키며 대안을 쏟아냄). 무겁게 가라앉는 쪽과 가볍게 뛰쳐나가는 쪽 모두 본인에게는 쉬는 방법.",
+  "response_pattern_note": "기분에 따라 같은 문항도 다르게 답할 수 있다고 말함 — 응답 일관성 다소 낮을 수 있음",
+  "channel": "SX",
+  "attachment": { "ANX": "mid", "AVO": "mid" },
+  "schema_top3": ["ED", "DEF", "AS"],
+  "values_top3": ["AUTH", "EXP", "AUT"],
+  "state_band": "protection",
+  "stress": { "vulnerable": ["ST4", "ST2"], "reactivity": "high", "dominant_coping": ["SC5", "SC2"] },
+  "behavior": { "age": 36, "age_band": "30s", "motivation": "self", "focus": "mid", "reading_speed": "normal", "condition_today": "variable", "test_setting": "노트북, 낮 2시 카페", "digital_literacy": "high", "psych_term_familiarity": "high", "social_desirability": "low", "prior_knowledge": "some", "believed_core": null, "hard_period": "지난달 3년 준비한 공연 무산, 수입 중단" },
+  "self_image": { "summary": "감정이 깊은 사람 같기도, 재밌는 걸 쫓는 사람 같기도 하다. 어느 쪽이 진짜인지 모르겠다.", "blind_spot": null },
+  "self_image_gap": { "level": "none", "description": null },
+  "notes": "composition은 co_center로 두되, 실제 점수 차가 동점 처리 기준에 걸리면 undetermined(판정 유보)도 정답으로 인정. 핵심은 한쪽을 단정적으로 중심으로 쓰지 않는 것."
+}

@@ -3,7 +3,7 @@ import {
   ATTACHMENT_LABEL, CHANNEL_CONTENT, CORE, COPING, DISCLAIMER, MESSAGES, RELATIONSHIP, SCHEMAS, SOURCE_NOTE, STATE_BANDS, STATE_PARTS, TRIGGERS, VALUES,
 } from "../../data/content";
 import { PART2 } from "../../data/items";
-import { band, coreName, coreSentence, fillText, linkedLabel, quadrant, r, selfMapAxes, strengthWord, valueLife } from "../../lib/report";
+import { band, coreName, coreSentence, fillText, linkedLabel, quadrant, r, selfMapAxes, strengthWord, valueEvidence, valueLife, valueRankLabel } from "../../lib/report";
 import { rankBy } from "../../lib/scoring";
 import { COPING_CODES, CORE_TYPES, TRIGGER_CODES, type AssessmentResult, type CoreType, type SchemaCode } from "../../types/assessment";
 import type { Narrative, NarrativeField } from "../../lib/narrative";
@@ -100,7 +100,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
         return <Figure caption="바깥 선이 100, 안쪽으로 75 · 50 · 25 구간이에요. 점수는 서로 다른 것을 재기 때문에 크기를 직접 비교하기보다 모양으로 읽어주세요.">
           <Radar ariaLabel="여섯 Layer 요약 레이더 차트" color="var(--core)" axes={axes.map((a) => ({ key: a.layer, label: a.caption, score: a.score, layer: a.layer }))} />
           <div className="grid2" style={{ margin: "14px 0 0" }}>
-            {axes.map((a) => <div key={a.layer} className={`cell l-${a.layer}`}><b>{a.caption}</b>{a.label} · {r(a.score)}</div>)}
+            {axes.map((a) => <div key={a.layer} className={`cell l-${a.layer}`}><b>{a.caption}</b>{a.label} · {a.layer === "dir" ? `고른 비율 ${r(a.score)}%` : r(a.score)}</div>)}
           </div>
         </Figure>;
       })()}
@@ -140,7 +140,7 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
           : <p>동기 진술에서는 특별히 강하게 나온 문장이 없었어요. 행동의 선택은 분명한데 그 이유를 한 문장으로 붙잡기는 어려운 상태일 수 있어요. 그래서 이 리포트의 Core 설명은 “이유”보다 “행동의 경향”으로 읽어주세요.</p>;
       })())}
       <div className="grid3 l-dir">
-        {top3.map((v) => <div key={v} className="cell"><b>{VALUES[v].name} · {r(values.score[v])}</b>{VALUES[v].question}</div>)}
+        {top3.map((v) => <div key={v} className="cell"><b>{valueRankLabel(result, v)} · {VALUES[v].name}</b>{VALUES[v].question}</div>)}
       </div>
       <h3>힘이 가장 잘 나오는 자리 · {CHANNEL_CONTENT[core.channel.primary].name}</h3>
       <p>하루를 잘 보냈다는 느낌이 언제 오는지 물었을 때 “{CHANNEL_CONTENT[core.channel.primary].choice}”를 첫 번째로 골랐어요. {CHANNEL_CONTENT[core.channel.primary].text}</p>
@@ -325,18 +325,26 @@ export default function Report({ result, name, date, narrative }: ReportProps) {
     {/* 12 Direction */}
     <Page id="direction" layer="l-dir" kicker="DIRECTION · 선택 속에서 발견된 나의 기준">
       <h2 id="direction-title">Hidden Values</h2>
-      <Figure caption="막대는 열여덟 상황에서 그 가치를 얼마나 자주 우선했는지와 서로 다른 종류의 상황에서 고르게 골랐는지를 합친 점수이고, 아래 점은 그 가치가 나올 수 있었던 상황 종류 중 실제로 고른 종류의 수예요.">
-        <BarList label="여덟 가지 가치 점수" rows={values.ranking.map((v, i) => ({ name: VALUES[v].name, value: values.score[v], strong: i < 3, muted: i >= 3, dots: [values.contextsHit[v], values.contextsAvailable[v]] }))} />
+      <Figure caption="순위는 열여덟 상황에서 그 가치를 얼마나 자주 우선했는지와 서로 다른 종류의 상황에서 고르게 골랐는지를 합쳐, 가치마다 나온 횟수와 상황 구성의 차이를 맞춘 뒤 정했어요. 차이가 아주 작은 가치는 공동 순위로 보여줘요. 각 줄의 횟수는 순위의 근거이며, 횟수만으로 순위를 다시 매기지는 않아요.">
+        <ol className="value-rank" aria-label="여덟 가지 가치 순위">
+          {values.ranking.map((v) => <li key={v} className={top3.includes(v) ? "top" : undefined}>
+            <span className="rk">{valueRankLabel(result, v)}</span>
+            <span className="nm">{VALUES[v].name}</span>
+            <span className="ev">{valueEvidence(result, v)}</span>
+          </li>)}
+        </ol>
       </Figure>
       <p className="lead">가치는 “중요하다고 말한 것”보다, 선택이 부딪힐 때 무엇을 반복해서 지켰는지에서 더 잘 드러나요. 이 결과는 가치관을 직접 고르게 한 게 아니라, 서로 다른 열여덟 개 상황에서 우선한 선택을 모아본 거예요.</p>
-      <div className="grid3">{top3.map((v, i) => <div key={v} className="cell"><b>0{i + 1} {VALUES[v].name} · {r(values.score[v])}</b>{VALUES[v].question}</div>)}</div>
+      <div className="grid3">{top3.map((v) => <div key={v} className="cell"><b>{valueRankLabel(result, v)} · {VALUES[v].name}</b>{VALUES[v].question}</div>)}</div>
       {(() => {
-        const low = values.ranking.slice(-2);
-        return <p>반대로 {low.map((v) => VALUES[v].name).join(" · ")}의 점수가 낮다는 건 그 가치가 중요하지 않다는 뜻이 아니에요. 다른 가치와 부딪혔을 때 양보하는 쪽이라는 뜻이에요.</p>;
+        // 아래에서 두 번째 가치와 같은 순위인 가치는 함께 보여준다(공동 순위를 임의로 자르지 않는다).
+        const cut = values.rank[values.ranking[values.ranking.length - 2]];
+        const low = values.ranking.filter((v) => values.rank[v] >= cut);
+        return <p>반대로 {low.map((v) => VALUES[v].name).join(" · ")}의 순위가 낮다는 건 그 가치가 중요하지 않다는 뜻이 아니에요. 다른 가치와 부딪혔을 때 양보하는 쪽이라는 뜻이에요.</p>;
       })()}
       <h3>내가 원하는 삶의 모습</h3>
       <div className="quote">{valueLife(result)}</div>
-      <div className="note"><b>삶의 방향을 확인하는 질문</b>“이 선택이 {VALUES[top3[0]].name}의 방향과 맞는가?” 그리고 “그 선택이 나를 넓히는가, 가두는가?” 두 질문이 동시에 좋은 답을 낼 때 가장 오래 힘을 쓸 수 있어요.</div>
+      <div className="note"><b>삶의 방향을 확인하는 질문</b>“이 선택이 {values.first.map((v) => VALUES[v].name).join(" · ")}의 방향과 맞는가?” 그리고 “그 선택이 나를 넓히는가, 가두는가?” 두 질문이 동시에 좋은 답을 낼 때 가장 오래 힘을 쓸 수 있어요.</div>
       <p className="small">가치와 Core는 같은 18개 상황 응답에서 계산되므로, 둘이 같은 방향을 가리켜도 서로를 검증하는 근거로 쓰지 않아요.</p>
     </Page>
 

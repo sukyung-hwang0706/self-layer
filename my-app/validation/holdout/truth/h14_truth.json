@@ -1,0 +1,39 @@
+{
+  "id": "h14",
+  "alias": "수입차 딜러",
+  "group": "boundary",
+  "group_detail": "한 Core가 근소하게 앞서고 두 번째는 근거가 약함",
+  "response_style": "normal",
+  "composition": "single",
+  "cores": [
+    { "type": "T3", "role": "center", "evidence": "판매 순위표·2위면 목표 상향(일), 후기를 매일 확인(일), 칭찬에 목소리가 커짐·별 셋 후기에 직접 전화(칭찬·비판), 실패를 '큰 데서 불러서'로 재포장하고 첫 달 7시 출근(실패), 실적 좋은 달에만 집에서 일 얘기(관계), 30초 안에 고객에 맞춤(낯선 상황), 내 이름 건 전시장(바라는 삶)" }
+  ],
+  "not_core": [
+    "T7: 캠핑 장비를 샀다가 두 번 쓰고 넣은 장면 하나뿐. 새로움 추구가 반복되지 않으며 휴식은 대부분 낮잠과 고객 명단. 2위로 나와도 공동 중심이나 함께 작용으로 읽으면 틀림",
+    "T8: 고객 가로채기에 바로 따지지만 지키려는 동기보다 실적 보호, 결론 후 바로 풀림"
+  ],
+  "centers_note": "감정 중심 단독. 사고 중심(T7)은 약한 흔적만",
+  "expected_interpretations": [
+    "해내고 인정받아야 가치 있다고 느끼는 동기가 중심",
+    "남의 인정에 기대는 경향과 함께 강화됨",
+    "두 번째 Core는 언급하더라도 약하게, 중심과 동등하게 묘사하지 않음"
+  ],
+  "forbidden_interpretations": [
+    "두 번째 Core를 공동 중심이나 '함께 작용'으로 비중 있게 설명",
+    "복수 Core 공존 사례처럼 서술",
+    "인정 신호를 낮게 답했을 경우 이를 근거로 T3를 강하게 반증 처리"
+  ],
+  "contrary_evidence": [],
+  "coexistence": null,
+  "response_pattern_note": "사회적 바람직성 높음·집중력 낮음. '남 시선 신경 안 쓴다'는 자기 인식 때문에 인정 의존 문항을 낮게 답할 가능성 — 이 경우 반증 후보로 잡힐 수 있으나 장면상 인정 의존은 높음",
+  "channel": "SO",
+  "attachment": { "ANX": "mid", "AVO": "high" },
+  "schema_top3": ["AS", "US", "DEF"],
+  "values_top3": ["ACH", "SEC", "REL"],
+  "state_band": "balanced",
+  "stress": { "vulnerable": ["ST1", "ST2"], "reactivity": "mid", "dominant_coping": ["SC1", "SC4"] },
+  "behavior": { "age": 49, "age_band": "40s", "motivation": "recommended", "focus": "low", "reading_speed": "fast", "condition_today": "normal", "test_setting": "휴대폰, 평일 오후 전시장 상담석", "digital_literacy": "mid", "psych_term_familiarity": "low", "social_desirability": "high", "prior_knowledge": "none", "believed_core": null, "hard_period": null },
+  "self_image": { "summary": "남 시선 신경 안 쓰고 내 갈 길 간다. 숫자로 증명하면 된다. 실패는 없었다.", "blind_spot": "매일 후기 확인, 칭찬에 고양, 실패를 재포장 — 인정과 이미지에 크게 기댐" },
+  "self_image_gap": { "level": "large", "description": "인정 의존을 부인" },
+  "notes": "composition은 single. 근소한 2위(T7)가 Part 1 선택에서 나와도 근거가 약하므로 cores에 넣지 않음. 리포트가 2위를 공동 중심으로 격상하지 않는지가 판정 기준."
+}

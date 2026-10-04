@@ -73,15 +73,35 @@ export interface CoreResult {
   channel: { scores: Scores<Channel>; primary: Channel };
 }
 
-export interface ValueResult {
+/** 보정 전 가치 계산(설계서 10.3 결합 점수와 선택 근거). */
+export interface RawValueResult {
   capped: Scores<ValueCode>;
   selection: Scores<ValueCode>;
   contextsHit: Scores<ValueCode>;
   contextsAvailable: Scores<ValueCode>;
   diversity: Scores<ValueCode>;
+  /** 결합 점수 0.6·Selection + 0.4·Diversity. 순위 판단에는 calibrated를 쓴다. */
   score: Scores<ValueCode>;
+  /** 그 가치가 보기로 나온 Part 1 문항 수 */
+  opportunities: Scores<ValueCode>;
+  /** 그 가치의 보기를 1·2순위로 고른 문항 수 */
+  picks: Scores<ValueCode>;
+}
+
+/** 가치 순위(B안 보정 적용). 앱 임시 규칙이며 docs/scoring-decisions.md에 기록한다. */
+export interface ValueResult extends RawValueResult {
+  /** 결합 점수를 가치별 무작위 응답 평균·표준편차로 표준화한 값. 순위 판단·내부 분석용이며 화면에 숫자로 보이지 않는다. */
+  calibrated: Scores<ValueCode>;
+  /** 공동 순위 번호(그룹 첫 가치와의 보정 점수 차이 ≤ 허용폭이면 같은 순위) */
+  rank: Scores<ValueCode>;
+  /** 보정 점수 내림차순. 같은 순위 안의 순서는 의미가 없다. */
   ranking: ValueCode[];
+  /** 공동 1위 */
+  first: ValueCode[];
+  /** 상위 3(경계 공동 포함, 3개를 넘을 수 있다) */
   top3: ValueCode[];
+  top3Tied: boolean;
+  calibration: { method: string; fingerprint: string };
 }
 
 export interface StressResult {
